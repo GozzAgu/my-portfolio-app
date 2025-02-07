@@ -127,7 +127,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-6 text-center text-sm bg-white dark:bg-gray-800">
+    <footer class="w-full py-6 text-center text-xs md:text-sm bg-white dark:bg-gray-800">
       <p>🚀 Built with ❤️ by Goz using Nuxt.js | © {{ new Date().getFullYear() }}</p>
     </footer>
   </div>
