@@ -75,7 +75,7 @@
       <section id="contact" class="py-12 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-6xl mx-auto text-center animate__animated animate__fadeIn animate__delay-1s">
           <h2 class="text-lg md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Get in Touch</h2>
-          <p class="text-gray-600 dark:text-gray-300 mb-8 text-xs md:text-sm">
+          <p class="text-gray-600 dark:text-gray-300 mb-8 text-xs md:text-sm px-4">
             I'm always open to new opportunities and collaborations. Let's connect!
           </p>
 
