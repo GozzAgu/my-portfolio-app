@@ -82,7 +82,7 @@
           <!-- Social Links Section -->
           <div class="flex justify-center items-center space-x-8">
             <!-- Social Links Card -->
-            <div class="grid grid-cols-4 gap-x-4 bg-white dark:bg-gray-700 p-6 md:rounded-lg w-full max-w-sm hover:scale-105 transition-transform duration-300">
+            <div class="grid grid-cols-4 gap-x-4 px-4 bg-white dark:bg-gray-700 p-6 md:rounded-lg w-full max-w-sm hover:scale-105 transition-transform duration-300">
               <a
                 href="https://www.linkedin.com/in/your-linkedin"
                 target="_blank"
