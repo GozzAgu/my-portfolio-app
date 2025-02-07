@@ -61,13 +61,13 @@
 
           <section class="mt-12">
             <h2 class="text-lg md:text-3xl font-semibold">Experience</h2>
-            <div v-if="experienceTabs" class="mt-4 space-y-6">
+            <div v-if="experienceTabs" class="mt-4 space-y-6 text-sm">
               <UCard v-for="tab in experienceTabs" :key="tab.label">
                 <template #header>
-                  <h3 class="text-lg md:text-3xl font-semibold">{{ tab.label }}</h3>
+                  <h3 class="font-semibold">{{ tab.label }}</h3>
                   <p class="text-gray-500 dark:text-gray-400">{{ tab.date }}</p>
                 </template>
-                <div class="space-y-4">
+                <div class="space-y-4 text-xs">
                   <div v-for="item in tab.timeline" :key="item.title">
                     <h4 class="font-semibold">{{ item.title }}</h4>
                     <p>{{ item.description }}</p>
@@ -111,9 +111,9 @@
             <template #header>
               <h3 class="font-semibold">Storeventory</h3>
             </template>
-            <p>A receipt management app replacing manual paperwork with digital tracking, swaps and also inventory updates.</p>
-            <UButton color="primary" variant="outline" class="mt-4 mr-2">Preview images</UButton>
-            <UButton to="https://swiftsort.vercel.app" target="_blank" color="primary" variant="outline" class="mt-4">View Project</UButton>
+            <p class="text-xs">A receipt management app replacing manual paperwork with digital tracking, swaps and also inventory updates.</p>
+            <UButton color="primary" variant="outline" class="mt-4 mr-2 text-xs">Preview images</UButton>
+            <UButton to="https://swiftsort.vercel.app" target="_blank" color="primary" variant="outline" class="mt-4 text-xs">View Project</UButton>
           </UCard>
         </div>
       </section>
