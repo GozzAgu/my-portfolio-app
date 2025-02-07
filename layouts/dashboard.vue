@@ -47,7 +47,7 @@
           </p>
 
           <section class="mt-12">
-            <h2 class="text-xl font-semibold">Technical Skills</h2>
+            <h2 class="text-lg md:text-3xl font-semibold">Technical Skills</h2>
             <div class="flex flex-wrap gap-2 mt-4">
               <UBadge color="yellow">JavaScript</UBadge>
               <UBadge color="blue">TypeScript</UBadge>
@@ -60,11 +60,11 @@
           </section>
 
           <section class="mt-12">
-            <h2 class="text-xl font-semibold">Experience</h2>
+            <h2 class="text-lg md:text-3xl font-semibold">Experience</h2>
             <div v-if="experienceTabs" class="mt-4 space-y-6">
               <UCard v-for="tab in experienceTabs" :key="tab.label">
                 <template #header>
-                  <h3 class="text-lg font-semibold">{{ tab.label }}</h3>
+                  <h3 class="text-lg md:text-3xl font-semibold">{{ tab.label }}</h3>
                   <p class="text-gray-500 dark:text-gray-400">{{ tab.date }}</p>
                 </template>
                 <div class="space-y-4">
@@ -105,7 +105,7 @@
       </section>
 
       <section id="projects" class="py-12 max-w-4xl">
-        <h2 class="text-3xl font-bold text-center mb-8">Projects</h2>
+        <h2 class="text-lg md:text-3xl font-bold text-center mb-8">Projects</h2>
         <div class="grid md:grid-cols-1 gap-6 text-xs md:text-sm">
           <UCard>
             <template #header>
