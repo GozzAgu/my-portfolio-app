@@ -94,7 +94,7 @@
                 <div class="flex justify-between items-center text-xs md:text-sm">
                   <div>
                     <h4 class="font-semibold">Master of Science in Cybersecurity</h4>
-                    <p class="text-gray-500 dark:text-gray-400">University of Derby</p>
+                    <p class="text-gray-500 dark:text-gray-400">University of Derby, England</p>
                   </div>
                   <UBadge color="green" variant="subtle">2024 - Date</UBadge>
                 </div>
