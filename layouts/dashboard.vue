@@ -112,8 +112,19 @@
               <h3 class="font-semibold">Storeventory</h3>
             </template>
             <p class="text-xs">A receipt management app replacing manual paperwork with digital tracking, swaps and also inventory updates.</p>
-            <UButton color="primary" variant="outline" class="mt-4 mr-2 text-xs">Preview images</UButton>
             <UButton to="https://swiftsort.vercel.app" target="_blank" color="primary" variant="outline" class="mt-4 text-xs">View Project</UButton>
+          </UCard>
+          <UCard>
+            <template #header>
+              <h3 class="font-semibold">KUO Website</h3>
+            </template>
+            <UButton to="https://www.kuosmartsolution.com/" target="_blank" color="primary" variant="outline" class="mt-4 text-xs">View Project</UButton>
+          </UCard>
+          <UCard>
+            <template #header>
+              <h3 class="font-semibold">T30 Energies Website</h3>
+            </template>
+            <UButton to="https://www.t30energies.com/" target="_blank" color="primary" variant="outline" class="mt-4 text-xs">View Project</UButton>
           </UCard>
         </div>
       </section>
