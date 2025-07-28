@@ -60,7 +60,7 @@
               href="#about" 
               color="white" 
               variant="solid" 
-                             class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105"
+              class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105"
             >
               Explore My Work
             </UButton>
@@ -68,7 +68,7 @@
               href="#contact" 
               color="gray" 
               variant="outline" 
-                             class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold px-8 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md"
+              class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold px-8 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md"
             >
               Get In Touch
             </UButton>
@@ -232,12 +232,12 @@
             <div class="group">
               <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02] h-full">
+                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">KUO Website</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Professional website for KUO Smart Solutions showcasing their services and expertise.</p>
-                  <UButton to="https://www.kuosmartsolution.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <UButton to="https://www.kuosmartsolution.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
                     View Project
                   </UButton>
                 </UCard>
@@ -247,12 +247,12 @@
             <div class="group">
               <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-[1.02] h-full">
+                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
                     <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">T30 Energies Website</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Modern energy company website with dynamic content and interactive features.</p>
-                  <UButton to="https://www.t30energies.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  <UButton to="https://www.t30energies.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
                     View Project
                   </UButton>
                 </UCard>
@@ -275,13 +275,13 @@
 
           <div class="relative">
             <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-3xl blur-xl"></div>
-            <div class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-12 border border-white/20 dark:border-gray-700/20 shadow-2xl">
+                         <div class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-12 border border-white/20 dark:border-gray-700/20 shadow-md">
               <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <a
                   href="https://www.linkedin.com/in/chigozie-agu-85019b209"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-500 transform hover:scale-110 shadow-sm hover:shadow-md"
                 >
                   <Icon icon="mdi:linkedin" class="w-12 h-12 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" />
                   <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">LinkedIn</span>
@@ -291,7 +291,7 @@
                   href="https://github.com/GozzAgu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/20 dark:to-gray-800/20 hover:from-gray-100 hover:to-gray-200 dark:hover:from-gray-800/30 dark:hover:to-gray-700/30 transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/20 dark:to-gray-800/20 hover:from-gray-100 hover:to-gray-200 dark:hover:from-gray-800/30 dark:hover:to-gray-700/30 transition-all duration-500 transform hover:scale-110 shadow-sm hover:shadow-md"
                 >
                   <Icon icon="mdi:github" class="w-12 h-12 text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300" />
                   <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">GitHub</span>
@@ -301,7 +301,7 @@
                   href="https://x.com/_gozz___"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-500 transform hover:scale-110 shadow-sm hover:shadow-md"
                 >
                   <Icon icon="line-md:twitter-x-alt" class="w-12 h-12 text-blue-400 group-hover:text-blue-500 transition-colors duration-300" />
                   <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Twitter</span>
@@ -309,7 +309,7 @@
 
                 <a
                   href="mailto:gozieagu1@gmail.com"
-                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 hover:from-red-100 hover:to-red-200 dark:hover:from-red-800/30 dark:hover:to-red-700/30 transition-all duration-500 transform hover:scale-110 shadow-lg hover:shadow-xl"
+                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 hover:from-red-100 hover:to-red-200 dark:hover:from-red-800/30 dark:hover:to-red-700/30 transition-all duration-500 transform hover:scale-110 shadow-sm hover:shadow-md"
                 >
                   <Icon icon="mdi:email" class="w-12 h-12 text-red-600 group-hover:text-red-700 transition-colors duration-300" />
                   <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Email</span>
@@ -344,8 +344,19 @@ const toggleDarkMode = () => {
 };
 
 const experienceTabs = [
+{
+    label: "Retail & Risk Guide - EE Telecommunications, UK (Part-time)",
+    date: "2024 - 2025",
+    completed: false,
+    timeline: [
+      {
+        title: "Designed & Developed Famous Parking Resources",
+        description: "Led UI design and frontend development.",
+      },
+    ],
+  },
   {
-    label: "Frontend Engineer - Famous Parking (Contract)",
+    label: "Frontend Engineer - Famous Parking, US (Contract)",
     date: "2024",
     completed: false,
     timeline: [
@@ -356,7 +367,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "Frontend Engineer - Cyphercrescent",
+    label: "Frontend Engineer - Cyphercrescent, Nigeria",
     date: "2022 - 2024",
     completed: true,
     timeline: [
@@ -371,7 +382,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "IT Support - Petronella",
+    label: "IT Support - Petronella, Nigeria",
     date: "2021 - 2022",
     completed: false,
     timeline: [
