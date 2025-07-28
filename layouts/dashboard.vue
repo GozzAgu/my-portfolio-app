@@ -53,7 +53,7 @@
             Chigozie Franklin Agu
           </h1>
           <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Frontend Developer crafting beautiful, responsive, and performant web experiences
+            Frontend Engineer with Cybersecurity expertise, crafting secure and performant web experiences
           </p>
           <div class="flex justify-center space-x-4">
             <UButton 
@@ -89,10 +89,11 @@
               <p class="text-gray-700 dark:text-gray-300">
                 Hi, I'm 
                 <span class="font-semibold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Chigozie Franklin Agu</span>, 
-                a passionate frontend developer with over 4+ years of experience building dynamic 
+                a passionate frontend engineer with over 4+ years of experience building dynamic 
                 web applications using modern JavaScript frameworks like 
                 <span class="text-blue-500 font-semibold">Vue.js</span>. 
-                My expertise lies in creating user-friendly, responsive, and performant applications.
+                Currently pursuing my Master's in Cybersecurity, I combine frontend development expertise 
+                with security best practices to create secure, user-friendly, and performant applications.
               </p>
               
               <p class="text-gray-700 dark:text-gray-300">
@@ -103,25 +104,47 @@
               </p>
 
               <p class="text-gray-700 dark:text-gray-300">
+                My journey into cybersecurity began with my Master's program, where I'm learning 
+                advanced security concepts, threat analysis, and secure coding practices. This unique 
+                combination allows me to build applications that are not only beautiful and functional 
+                but also secure by design.
+              </p>
+
+              <p class="text-gray-700 dark:text-gray-300">
                 I love solving complex problems, collaborating with teams, and learning new 
                 technologies to enhance my development workflow. When I'm not coding, I enjoy 
-                contributing to open-source projects and engaging with developer communities.
+                contributing to open-source projects, engaging with developer communities, and 
+                staying updated with the latest cybersecurity trends.
               </p>
             </div>
             
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-3xl blur-xl"></div>
                              <div class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 border border-white/20 dark:border-gray-700/20 shadow-md">
-                <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Technical Skills</h3>
-                <div class="flex flex-wrap gap-3">
-                                     <UBadge color="yellow" class="px-4 py-2 rounded-full font-semibold shadow-sm">JavaScript</UBadge>
-                   <UBadge color="blue" class="px-4 py-2 rounded-full font-semibold shadow-sm">TypeScript</UBadge>
-                   <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">Vue.js</UBadge>
-                   <UBadge color="cyan" class="px-4 py-2 rounded-full font-semibold shadow-sm">Nuxt.js</UBadge>
-                   <UBadge color="orange" class="px-4 py-2 rounded-full font-semibold shadow-sm">Figma</UBadge>
-                   <UBadge color="indigo" class="px-4 py-2 rounded-full font-semibold shadow-sm">Git</UBadge>
-                   <UBadge color="pink" class="px-4 py-2 rounded-full font-semibold shadow-sm">CSS3</UBadge>
-                </div>
+                                 <h3 class="text-2xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Technical Skills</h3>
+                 <div class="space-y-4">
+                   <div>
+                     <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Frontend Development</h4>
+                     <div class="flex flex-wrap gap-3">
+                       <UBadge color="yellow" class="px-4 py-2 rounded-full font-semibold shadow-sm">JavaScript</UBadge>
+                       <UBadge color="blue" class="px-4 py-2 rounded-full font-semibold shadow-sm">TypeScript</UBadge>
+                       <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">Vue.js</UBadge>
+                       <UBadge color="cyan" class="px-4 py-2 rounded-full font-semibold shadow-sm">Nuxt.js</UBadge>
+                       <UBadge color="orange" class="px-4 py-2 rounded-full font-semibold shadow-sm">Figma</UBadge>
+                       <UBadge color="indigo" class="px-4 py-2 rounded-full font-semibold shadow-sm">Git</UBadge>
+                       <UBadge color="pink" class="px-4 py-2 rounded-full font-semibold shadow-sm">CSS3</UBadge>
+                     </div>
+                   </div>
+                   <div>
+                     <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Cybersecurity</h4>
+                     <div class="flex flex-wrap gap-3">
+                       <UBadge color="red" class="px-4 py-2 rounded-full font-semibold shadow-sm">Secure Coding</UBadge>
+                       <UBadge color="purple" class="px-4 py-2 rounded-full font-semibold shadow-sm">Threat Analysis</UBadge>
+                       <UBadge color="emerald" class="px-4 py-2 rounded-full font-semibold shadow-sm">Web Security</UBadge>
+                       <UBadge color="amber" class="px-4 py-2 rounded-full font-semibold shadow-sm">OWASP</UBadge>
+                     </div>
+                   </div>
+                 </div>
               </div>
             </div>
           </div>
@@ -268,9 +291,10 @@
           <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Get in Touch</h2>
             <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full mb-8"></div>
-            <p class="text-xl text-gray-600 dark:text-gray-300">
-              I'm always open to new opportunities and collaborations. Let's connect!
-            </p>
+                      <p class="text-xl text-gray-600 dark:text-gray-300">
+            I'm always open to new opportunities and collaborations, especially in roles that combine 
+            frontend development with cybersecurity expertise. Let's connect!
+          </p>
           </div>
 
           <div class="relative">
