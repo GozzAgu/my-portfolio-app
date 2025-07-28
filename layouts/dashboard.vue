@@ -370,7 +370,7 @@ const toggleDarkMode = () => {
 const experienceTabs = [
   {
     label: "Retail & Risk Guide - EE Telecommunications, UK (Part-time)",
-    date: "2024 - 2025",
+    date: "2025 - Date",
     completed: false,
     timeline: [
       {
