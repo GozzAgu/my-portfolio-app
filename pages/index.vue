@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-20">
-    hiiiii
+  <div>
+    <!-- This page uses the dashboard layout which contains all the content -->
   </div>
 </template>
 
