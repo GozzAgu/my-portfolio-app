@@ -344,14 +344,14 @@ const toggleDarkMode = () => {
 };
 
 const experienceTabs = [
-{
+  {
     label: "Retail & Risk Guide - EE Telecommunications, UK (Part-time)",
     date: "2024 - 2025",
     completed: false,
     timeline: [
       {
-        title: "Designed & Developed Famous Parking Resources",
-        description: "Led UI design and frontend development.",
+        title: "Customer Service & Risk Management",
+        description: "Providing excellent customer service while managing retail risks and ensuring compliance with company policies.",
       },
     ],
   },
@@ -362,7 +362,7 @@ const experienceTabs = [
     timeline: [
       {
         title: "Designed & Developed Famous Parking Resources",
-        description: "Led UI design and frontend development.",
+        description: "Led UI design and frontend development for parking management system.",
       },
     ],
   },
