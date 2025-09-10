@@ -54,18 +54,18 @@
           </p>
           <div class="flex justify-center space-x-4">
             <UButton 
-              href="#about" 
+              @click="scrollToSection('projects')"
               color="white" 
               variant="solid" 
-              class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105"
+              class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold px-8 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105 cursor-pointer"
             >
               Explore My Work
             </UButton>
             <UButton 
-              href="#contact" 
+              @click="scrollToSection('contact')"
               color="gray" 
               variant="outline" 
-              class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold px-8 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md"
+              class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold px-8 py-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md cursor-pointer"
             >
               Get In Touch
             </UButton>
@@ -385,6 +385,25 @@
         </p>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <Transition
+      enter-active-class="transition-all duration-300 ease-out"
+      enter-from-class="opacity-0 scale-75 translate-y-4"
+      enter-to-class="opacity-100 scale-100 translate-y-0"
+      leave-active-class="transition-all duration-300 ease-in"
+      leave-from-class="opacity-100 scale-100 translate-y-0"
+      leave-to-class="opacity-0 scale-75 translate-y-4"
+    >
+      <button
+        v-show="showScrollToTop"
+        @click="scrollToTop"
+        class="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-400/30"
+        aria-label="Scroll to top"
+      >
+        <Icon icon="ph:arrow-up" class="w-6 h-6" />
+      </button>
+    </Transition>
   </div>
 </template>
 
@@ -398,10 +417,28 @@ const aboutDescription = ref(null);
 const aboutTyping = ref(false);
 const aboutText = ref("");
 const aboutParagraphs = ref([]);
+const showScrollToTop = ref(false);
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle("dark", isDarkMode.value);
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 };
 
 const typeWriter = async (text, speed = 50) => {
@@ -450,6 +487,9 @@ const typeWriterParagraphs = async () => {
 };
 
 const handleScroll = async () => {
+  // Show/hide scroll to top button
+  showScrollToTop.value = window.scrollY > 300;
+
   // About section typewriter
   if (aboutSection.value) {
     const aboutRect = aboutSection.value.getBoundingClientRect();
@@ -459,7 +499,6 @@ const handleScroll = async () => {
       typeWriterParagraphs();
     }
   }
-  
 };
 
 const experienceTabs = [
