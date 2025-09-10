@@ -111,7 +111,6 @@
                      <div class="flex flex-wrap gap-3">
                        <UBadge color="yellow" class="px-4 py-2 rounded-full font-semibold shadow-sm">JavaScript</UBadge>
                        <UBadge color="blue" class="px-4 py-2 rounded-full font-semibold shadow-sm">TypeScript</UBadge>
-                       <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">Python</UBadge>
                        <UBadge color="purple" class="px-4 py-2 rounded-full font-semibold shadow-sm">Java</UBadge>
                        <UBadge color="orange" class="px-4 py-2 rounded-full font-semibold shadow-sm">HTML5</UBadge>
                        <UBadge color="pink" class="px-4 py-2 rounded-full font-semibold shadow-sm">CSS3</UBadge>
@@ -123,8 +122,6 @@
                        <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">Vue.js</UBadge>
                        <UBadge color="cyan" class="px-4 py-2 rounded-full font-semibold shadow-sm">Nuxt.js</UBadge>
                        <UBadge color="purple" class="px-4 py-2 rounded-full font-semibold shadow-sm">Node.js</UBadge>
-                       <UBadge color="blue" class="px-4 py-2 rounded-full font-semibold shadow-sm">Express.js</UBadge>
-                       <UBadge color="indigo" class="px-4 py-2 rounded-full font-semibold shadow-sm">React</UBadge>
                        <UBadge color="emerald" class="px-4 py-2 rounded-full font-semibold shadow-sm">Tailwind CSS</UBadge>
                      </div>
                    </div>
@@ -134,9 +131,7 @@
                        <UBadge color="indigo" class="px-4 py-2 rounded-full font-semibold shadow-sm">Git</UBadge>
                        <UBadge color="orange" class="px-4 py-2 rounded-full font-semibold shadow-sm">Figma</UBadge>
                        <UBadge color="blue" class="px-4 py-2 rounded-full font-semibold shadow-sm">Docker</UBadge>
-                       <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">AWS</UBadge>
-                       <UBadge color="purple" class="px-4 py-2 rounded-full font-semibold shadow-sm">MongoDB</UBadge>
-                       <UBadge color="cyan" class="px-4 py-2 rounded-full font-semibold shadow-sm">PostgreSQL</UBadge>
+                       <UBadge color="green" class="px-4 py-2 rounded-full font-semibold shadow-sm">Firebase</UBadge>
                      </div>
                    </div>
                    <div>
@@ -331,8 +326,8 @@
 
           <div class="relative">
             <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-3xl blur-xl"></div>
-                         <div class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-12 border border-white/20 dark:border-gray-700/20 shadow-md">
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-12 border border-white/20 dark:border-gray-700/20 shadow-md">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                 <a
                   href="https://www.linkedin.com/in/chigozie-agu-85019b209"
                   target="_blank"
@@ -351,16 +346,6 @@
                 >
                   <Icon icon="mdi:github" class="w-12 h-12 text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300" />
                   <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">GitHub</span>
-                </a>
-
-                <a
-                  href="https://x.com/_gozz___"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group flex flex-col items-center space-y-3 p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-800/30 dark:hover:to-blue-700/30 transition-all duration-500 transform hover:scale-110 shadow-sm hover:shadow-md"
-                >
-                  <Icon icon="line-md:twitter-x-alt" class="w-12 h-12 text-blue-400 group-hover:text-blue-500 transition-colors duration-300" />
-                  <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Twitter</span>
                 </a>
 
                 <a
@@ -490,8 +475,8 @@ const handleScroll = async () => {
   // Show/hide scroll to top button
   showScrollToTop.value = window.scrollY > 300;
 
-  // About section typewriter
-  if (aboutSection.value) {
+  // About section typewriter (disabled on mobile)
+  if (aboutSection.value && window.innerWidth > 768) {
     const aboutRect = aboutSection.value.getBoundingClientRect();
     const aboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
     
@@ -560,6 +545,9 @@ onMounted(() => {
   
   // Add scroll listener for typewriter effect
   window.addEventListener('scroll', handleScroll);
+  
+  // Add resize listener to handle screen size changes
+  window.addEventListener('resize', handleScroll);
   
   // Check if experience section is already visible on load
   nextTick(() => {
