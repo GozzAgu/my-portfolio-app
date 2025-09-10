@@ -73,46 +73,32 @@
         </div>
       </section>
 
-      <section id="about" class="py-20">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">About Me</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
-          </div>
+        <section id="about" class="py-20" ref="aboutSection">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">About Me</h2>
+              <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
+            </div>
           
           <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6 text-lg leading-relaxed">
-              <p class="text-gray-700 dark:text-gray-300">
-                Hi, I'm 
-                <span class="font-semibold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Chigozie Franklin Agu</span>, 
-                a passionate software engineer with over 4+ years of experience building dynamic 
-                web applications and software solutions using modern technologies like 
-                <span class="text-blue-500 font-semibold">Vue.js</span> and 
-                <span class="text-blue-500 font-semibold">TypeScript</span>. 
-                Currently pursuing my Master's in Cybersecurity, I combine software development expertise 
-                with security best practices to create secure, scalable, and performant applications.
-              </p>
-              
-              <p class="text-gray-700 dark:text-gray-300">
-                I started my career as a self-taught developer, diving into the world of HTML, CSS, 
-                and JavaScript. After mastering the fundamentals, I expanded my skills to include 
-                <span class="text-blue-500 font-semibold">full-stack development</span>, focusing on 
-                building end-to-end solutions that solve real-world problems.
-              </p>
+              <div class="text-gray-700 dark:text-gray-300" ref="aboutDescription">
+                <div v-if="!aboutTyping && aboutText === ''" class="space-y-6">
+                  <p>Hi, I'm <span class="font-semibold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">Chigozie Franklin Agu</span>, a passionate software engineer with over 4+ years of experience building dynamic web applications and software solutions using modern technologies like <span class="text-blue-500 font-semibold">Vue.js</span> and <span class="text-blue-500 font-semibold">TypeScript</span>. Currently pursuing my Master's in Cybersecurity, I combine software development expertise with security best practices to create secure, scalable, and performant applications.</p>
+                  
+                  <p>I started my career as a self-taught developer, diving into the world of HTML, CSS, and JavaScript. After mastering the fundamentals, I expanded my skills to include <span class="text-blue-500 font-semibold">full-stack development</span>, focusing on building end-to-end solutions that solve real-world problems.</p>
 
-              <p class="text-gray-700 dark:text-gray-300">
-                My journey into cybersecurity began with my Master's program, where I'm learning 
-                advanced security concepts, threat analysis, and secure coding practices. This unique 
-                combination allows me to build applications that are not only functional and user-friendly 
-                but also secure by design and optimized for performance.
-              </p>
+                  <p>My journey into cybersecurity began with my Master's program, where I'm learning advanced security concepts, threat analysis, and secure coding practices. This unique combination allows me to build applications that are not only functional and user-friendly but also secure by design and optimized for performance.</p>
 
-              <p class="text-gray-700 dark:text-gray-300">
-                I love solving complex problems, collaborating with teams, and learning new 
-                technologies to enhance my development workflow. When I'm not coding, I enjoy 
-                contributing to open-source projects, engaging with developer communities, and 
-                staying updated with the latest software engineering and cybersecurity trends.
-              </p>
+                  <p>I love solving complex problems, collaborating with teams, and learning new technologies to enhance my development workflow. When I'm not coding, I enjoy contributing to open-source projects, engaging with developer communities, and staying updated with the latest software engineering and cybersecurity trends.</p>
+                </div>
+                <div v-else class="space-y-6">
+                  <div v-for="(paragraph, index) in aboutParagraphs" :key="index" class="transition-all duration-1000 ease-in-out" :class="{ 'opacity-100 translate-y-0': paragraph.visible, 'opacity-0 translate-y-4': !paragraph.visible }">
+                    <p v-html="paragraph.text"></p>
+                  </div>
+                  <span v-if="aboutTyping" class="typewriter-cursor text-green-500 text-2xl">|</span>
+                </div>
+              </div>
             </div>
             
             <div class="relative">
@@ -170,12 +156,12 @@
         </div>
       </section>
 
-      <section class="py-20">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Experience</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
-          </div>
+        <section class="py-20">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Experience</h2>
+              <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
+            </div>
           
           <div class="space-y-8">
             <div v-for="(tab, index) in experienceTabs" :key="tab.label" class="group">
@@ -245,12 +231,12 @@
         </div>
       </section>
 
-      <section id="projects" class="py-20">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Projects</h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
-          </div>
+        <section id="projects" class="py-20">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+              <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Projects</h2>
+              <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
+            </div>
           
           <div class="grid md:grid-cols-3 gap-8">
             <div class="group">
@@ -403,14 +389,77 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import { Icon } from "@iconify/vue";
 
 const isDarkMode = ref(false);
+const aboutSection = ref(null);
+const aboutDescription = ref(null);
+const aboutTyping = ref(false);
+const aboutText = ref("");
+const aboutParagraphs = ref([]);
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle("dark", isDarkMode.value);
+};
+
+const typeWriter = async (text, speed = 50) => {
+  aboutTyping.value = true;
+  aboutText.value = "";
+  
+  for (let i = 0; i < text.length; i++) {
+    aboutText.value += text.charAt(i);
+    await new Promise(resolve => setTimeout(resolve, speed));
+  }
+  
+  aboutTyping.value = false;
+};
+
+const typeWriterParagraphs = async () => {
+  const paragraphs = [
+    "Hi, I'm <span class='font-semibold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent'>Chigozie Franklin Agu</span>, a passionate software engineer with over 4+ years of experience building dynamic web applications and software solutions using modern technologies like <span class='text-blue-500 font-semibold'>Vue.js</span> and <span class='text-blue-500 font-semibold'>TypeScript</span>. Currently pursuing my Master's in Cybersecurity, I combine software development expertise with security best practices to create secure, scalable, and performant applications.",
+    
+    "I started my career as a self-taught developer, diving into the world of HTML, CSS, and JavaScript. After mastering the fundamentals, I expanded my skills to include <span class='text-blue-500 font-semibold'>full-stack development</span>, focusing on building end-to-end solutions that solve real-world problems.",
+    
+    "My journey into cybersecurity began with my Master's program, where I'm learning advanced security concepts, threat analysis, and secure coding practices. This unique combination allows me to build applications that are not only functional and user-friendly but also secure by design and optimized for performance.",
+    
+    "I love solving complex problems, collaborating with teams, and learning new technologies to enhance my development workflow. When I'm not coding, I enjoy contributing to open-source projects, engaging with developer communities, and staying updated with the latest software engineering and cybersecurity trends."
+  ];
+
+  aboutTyping.value = true;
+  aboutParagraphs.value = paragraphs.map(() => ({ text: "", visible: false }));
+
+  for (let pIndex = 0; pIndex < paragraphs.length; pIndex++) {
+    const paragraph = paragraphs[pIndex];
+    aboutParagraphs.value[pIndex].text = "";
+    aboutParagraphs.value[pIndex].visible = true;
+
+    for (let i = 0; i < paragraph.length; i++) {
+      aboutParagraphs.value[pIndex].text += paragraph.charAt(i);
+      await new Promise(resolve => setTimeout(resolve, 25));
+    }
+
+    // Pause between paragraphs
+    if (pIndex < paragraphs.length - 1) {
+      await new Promise(resolve => setTimeout(resolve, 800));
+    }
+  }
+
+  aboutTyping.value = false;
+};
+
+const handleScroll = async () => {
+  // About section typewriter
+  if (aboutSection.value) {
+    const aboutRect = aboutSection.value.getBoundingClientRect();
+    const aboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
+    
+    if (aboutVisible && !aboutTyping.value && aboutParagraphs.value.length === 0) {
+      typeWriterParagraphs();
+    }
+  }
+  
 };
 
 const experienceTabs = [
@@ -469,6 +518,14 @@ const experienceTabs = [
 onMounted(() => {
   isDarkMode.value = window.matchMedia("(prefers-color-scheme: dark)").matches;
   if (isDarkMode.value) document.documentElement.classList.add("dark");
+  
+  // Add scroll listener for typewriter effect
+  window.addEventListener('scroll', handleScroll);
+  
+  // Check if experience section is already visible on load
+  nextTick(() => {
+    handleScroll();
+  });
 });
 </script>
 
@@ -551,5 +608,46 @@ html {
 /* Enhanced shadows */
 .shadow-3xl {
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Typewriter cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typewriter-cursor {
+  animation: blink 1s infinite;
+}
+
+/* Enhanced paragraph transitions */
+.paragraph-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.paragraph-enter-active {
+  transition: all 0.8s ease-out;
+}
+
+.paragraph-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth text reveal animation */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-reveal {
+  animation: textReveal 0.6s ease-out forwards;
 }
 </style>
