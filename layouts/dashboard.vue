@@ -293,6 +293,21 @@
                 </UCard>
               </div>
             </div>
+
+            <div class="group">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
+                  <template #header>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Visioni and Strauss Website</h3>
+                  </template>
+                  <p class="text-gray-600 dark:text-gray-300 mb-6">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
+                  <UButton to="https://www.visioniandstrauss.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    View Project
+                  </UButton>
+                </UCard>
+              </div>
+            </div>
             
             <div class="group">
               <div class="relative">
