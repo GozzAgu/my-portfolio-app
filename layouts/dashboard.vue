@@ -226,20 +226,34 @@
         </div>
       </section>
 
-        <section id="projects" class="py-20">
-          <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-              <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Projects</h2>
-              <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
-            </div>
-          
+      <section id="projects" class="py-20">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent mb-6">Projects</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-blue-500 mx-auto rounded-full"></div>
+          </div>
           <div class="grid md:grid-cols-3 gap-8">
             <div class="group">
               <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">StorV [Version 2]</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Password Entropy Calculator</h3>
+                  </template>
+                  <p class="text-gray-600 dark:text-gray-300 mb-6">Advanced password entropy calculator with modern web technologies for seamless user experience.</p>
+                  <UButton to="https://password-entropy-six.vercel.app/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    View Project
+                  </UButton>
+                </UCard>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
+                  <template #header>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">StorV [Version 2] - Dissertation Project</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Advanced receipt management system with digital tracking, inventory management, and automated swap functionality. Built with modern web technologies for seamless user experience and real-time data synchronization.</p>
                   <UButton to="https://storv-frontend.vercel.app/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
@@ -254,7 +268,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Storeventory [Version 1]</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">StorV [Version 1]</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Initial version of the receipt management application that digitized manual paperwork processes. Features include digital receipt storage, inventory tracking, and basic swap functionality for small businesses.</p>
                   <UButton to="https://swiftsort.vercel.app" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
@@ -269,22 +283,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">KUOSS Website [Version 2]</h3>
-                  </template>
-                  <p class="text-gray-600 dark:text-gray-300 mb-6">Redesigned corporate website for KUO Smart Solutions with modern UI/UX, responsive design, and enhanced user experience. Features dynamic content management and interactive service showcases.</p>
-                  <UButton to="https://kuoss.vercel.app/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    View Project
-                  </UButton>
-                </UCard>
-              </div>
-            </div>
-            
-            <div class="group">
-              <div class="relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
-                  <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">KUO Website [Version 1]</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">KUO Company Website</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Original corporate website for KUO Smart Solutions built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
                   <UButton to="https://www.kuosmartsolution.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
@@ -299,7 +298,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Visioni and Strauss Website</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Visioni and Strauss Company Website</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
                   <UButton to="https://www.visioniandstrauss.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
@@ -314,7 +313,7 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <UCard class="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-md hover:shadow-lg transition-all duration-500 transform hover:scale-[1.02] h-full">
                   <template #header>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">T30 Energies Website</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">T30 Energies Company Website</h3>
                   </template>
                   <p class="text-gray-600 dark:text-gray-300 mb-6">Comprehensive energy company website featuring dynamic content management, interactive service portfolios, and client engagement tools. Built with modern web standards and mobile-first responsive design.</p>
                   <UButton to="https://www.t30energies.com/" target="_blank" color="white" variant="solid" class="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
