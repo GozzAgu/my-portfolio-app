@@ -674,8 +674,27 @@ const handleScroll = async () => {
 
 const experienceTabs = [
   {
+    label: "Tech Guide - EE Telecommunications (United Kingdom)",
+    date: "March 2025 - Present",
+    completed: false,
+    timeline: [
+      {
+        title: "Customer Technical Support",
+        description: "Providing expert technical guidance and support to customers on telecommunications products, services, and technology solutions.",
+      },
+      {
+        title: "Product Knowledge & Consultation",
+        description: "Offering consultations on mobile devices, network services, and digital solutions, ensuring customers make informed decisions about their telecommunications needs.",
+      },
+      {
+        title: "Technical Problem Resolution",
+        description: "Diagnosing and resolving technical issues, troubleshooting connectivity problems, and ensuring optimal customer satisfaction with EE's telecommunications services.",
+      },
+    ],
+  },
+  {
     label: "Software Engineer - Famous Parking (Remote, USA)",
-    date: "2022 - 2024",
+    date: "2023 - 2024",
     completed: true,
     timeline: [
       {
@@ -694,7 +713,7 @@ const experienceTabs = [
   },
   {
     label: "Software Engineer - Cyphercrescent (Nigeria)",
-    date: "2020 - 2024",
+    date: "2020 - Date",
     completed: true,
     timeline: [
       {
