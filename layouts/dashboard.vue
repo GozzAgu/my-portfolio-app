@@ -91,7 +91,7 @@
               :class="isDarkMode ? 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20' : 'bg-white/60 border-gray-300 text-gray-900 hover:bg-white/80 hover:border-gray-400'"
             >
               <span class="flex items-center justify-center gap-2">
-                Get In Touch
+              Get In Touch
                 <Icon icon="ph:paper-plane-tilt" class="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </span>
             </button>
@@ -342,6 +342,25 @@
           </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project Card - Secret Santa Generator -->
+          <div class="group">
+            <div class="relative h-full">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-green-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-all duration-500"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-3xl p-6 transition-all duration-500 flex flex-col" :class="isDarkMode ? 'bg-white/5 border border-white/10 hover:bg-white/10' : 'bg-white/60 border border-gray-200/50 hover:bg-white/80'">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-3 bg-gradient-to-br from-red-500/20 to-green-500/20 rounded-xl">
+                    <Icon icon="ph:gift" class="w-6 h-6 text-red-400" />
+                  </div>
+                  <h3 class="text-xl font-bold transition-colors duration-500" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secret Santa Generator</h3>
+                </div>
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
+                <a href="#" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-red-500 to-green-500 hover:from-red-600 hover:to-green-600 text-white rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+                  View Project
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </div>
           <!-- Project Card 1 -->
             <div class="group">
             <div class="relative h-full">
