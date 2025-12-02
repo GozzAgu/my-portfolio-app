@@ -428,46 +428,6 @@
               </div>
             </div>
 
-          <!-- Project Card 2 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-cyan-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-cyan-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl">
-                    <Icon icon="ph:receipt" class="w-6 h-6 text-cyan-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV [Version 2]</h3>
-                </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Advanced receipt management system with digital tracking, inventory management, and automated swap functionality. Built with modern web technologies for seamless user experience and real-time data synchronization.</p>
-                <a href="https://storv-frontend.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
-                </a>
-              </div>
-              </div>
-            </div>
-
-          <!-- Project Card 3 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-emerald-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-emerald-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-xl">
-                    <Icon icon="ph:receipt" class="w-6 h-6 text-emerald-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV [Version 1]</h3>
-                </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Initial version of the receipt management application that digitized manual paperwork processes. Features include digital receipt storage, inventory tracking, and basic swap functionality for small businesses.</p>
-                <a href="https://swiftsort.vercel.app" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
-                </a>
-              </div>
-              </div>
-            </div>
-
           <!-- Project Card 4 -->
             <div class="group">
             <div class="relative h-full">
