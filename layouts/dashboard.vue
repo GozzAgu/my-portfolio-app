@@ -1,45 +1,45 @@
 <template>
-  <div class="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-500 ease-out" :class="isDarkMode ? 'bg-[#0a0a0f] text-gray-100' : 'bg-gray-50 text-gray-900'">
+  <div class="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-[#0a0a0f] text-gray-100' : 'bg-gray-50 text-gray-900'">
     <!-- Animated mesh gradient background -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute top-0 left-0 w-full h-full">
-        <div class="absolute top-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full blur-3xl animate-blob transition-opacity duration-500 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-violet-500/30 via-purple-500/20 to-transparent' : 'bg-gradient-to-br from-violet-400/20 via-purple-400/15 to-transparent'"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] rounded-full blur-3xl animate-blob animation-delay-2000 transition-opacity duration-500 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-transparent' : 'bg-gradient-to-br from-cyan-400/20 via-blue-400/15 to-transparent'"></div>
-        <div class="absolute bottom-[-15%] left-[20%] w-[45rem] h-[45rem] rounded-full blur-3xl animate-blob animation-delay-4000 transition-opacity duration-500 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-emerald-500/30 via-green-500/20 to-transparent' : 'bg-gradient-to-br from-emerald-400/20 via-green-400/15 to-transparent'"></div>
-        <div class="absolute bottom-[10%] right-[10%] w-[30rem] h-[30rem] rounded-full blur-3xl animate-blob animation-delay-6000 transition-opacity duration-500 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-pink-500/20 via-rose-500/15 to-transparent' : 'bg-gradient-to-br from-pink-400/15 via-rose-400/10 to-transparent'"></div>
+        <div class="absolute top-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full blur-3xl animate-blob transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-violet-500/30 via-purple-500/20 to-transparent' : 'bg-gradient-to-br from-violet-400/20 via-purple-400/15 to-transparent'"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] rounded-full blur-3xl animate-blob animation-delay-2000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-transparent' : 'bg-gradient-to-br from-cyan-400/20 via-blue-400/15 to-transparent'"></div>
+        <div class="absolute bottom-[-15%] left-[20%] w-[45rem] h-[45rem] rounded-full blur-3xl animate-blob animation-delay-4000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-emerald-500/30 via-green-500/20 to-transparent' : 'bg-gradient-to-br from-emerald-400/20 via-green-400/15 to-transparent'"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[30rem] h-[30rem] rounded-full blur-3xl animate-blob animation-delay-6000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-pink-500/20 via-rose-500/15 to-transparent' : 'bg-gradient-to-br from-pink-400/15 via-rose-400/10 to-transparent'"></div>
       </div>
-      <div class="absolute inset-0 transition-opacity duration-500 ease-out" :class="isDarkMode ? 'bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]' : 'bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]'"></div>
+      <div class="absolute inset-0 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]' : 'bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]'"></div>
     </div>
 
     <!-- Floating header with modern design -->
     <header class="w-full fixed top-4 z-50 px-4 sm:px-6">
-      <nav class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex justify-between items-center backdrop-blur-2xl rounded-[2rem] shadow-2xl transition-all duration-500 ease-out" :class="isDarkMode ? 'bg-white/8 border border-white/15 shadow-black/20 hover:bg-white/12 hover:border-white/25' : 'bg-white/70 border border-gray-200/60 shadow-black/5 hover:bg-white/85 hover:border-gray-300/80'">
+      <nav class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex justify-between items-center backdrop-blur-2xl rounded-[2rem] transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-white/8 border border-white/15  hover:bg-white/12 hover:border-white/25' : 'bg-white/70 border border-gray-200/60  hover:bg-white/85 hover:border-gray-300/80'">
         <div class="flex items-center space-x-3 group cursor-pointer" @click="scrollToTop">
           <div class="relative">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-all duration-500 ease-out animate-gradient-xy"></div>
-            <div class="relative w-11 h-11 bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl flex items-center justify-center font-bold text-white shadow-lg transform transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-6">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-all duration-700 ease-out animate-gradient-xy"></div>
+            <div class="relative w-11 h-11 bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl flex items-center justify-center font-bold text-white transform transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-6">
               G
             </div>
           </div>
-          <h1 class="hidden sm:block relative text-xl font-bold bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent transition-all duration-500 ease-out group-hover:scale-105">Goz</h1>
+          <h1 class="hidden sm:block relative text-xl font-bold bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent transition-all duration-700 ease-out group-hover:scale-105">Goz</h1>
         </div>
 
         <div class="flex space-x-2 sm:space-x-3 text-sm">
-          <a href="#about" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-500 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-500 ease-out group-hover:scale-105 inline-block">About</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-500/30 to-cyan-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-105"></div>
+          <a href="#about" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
+            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">About</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-500/30 to-cyan-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
           </a>
-          <a href="#projects" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-500 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-500 ease-out group-hover:scale-105 inline-block">Projects</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-emerald-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-105"></div>
+          <a href="#projects" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
+            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">Projects</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-emerald-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
           </a>
-          <a href="#contact" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-500 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-500 ease-out group-hover:scale-105 inline-block">Contact</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-violet-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform group-hover:scale-105"></div>
+          <a href="#contact" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
+            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">Contact</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-violet-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
           </a>
         </div>
 
-        <button @click="toggleDarkMode" class="p-3 rounded-2xl backdrop-blur-md transition-all duration-500 ease-out hover:scale-110 hover:-rotate-6 shadow-lg group" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:border-white/25' : 'bg-gray-100/80 border border-gray-200/60 hover:bg-gray-200/90 hover:border-gray-300/80'">
+        <button @click="toggleDarkMode" class="p-3 rounded-2xl backdrop-blur-md transition-all duration-700 ease-out hover:scale-110 hover:-rotate-6 group" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:border-white/25' : 'bg-gray-100/80 border border-gray-200/60 hover:bg-gray-200/90 hover:border-gray-300/80'">
           <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 text-yellow-400 group-hover:rotate-180 transition-transform duration-700 ease-out" />
           <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 text-indigo-600 group-hover:-rotate-12 transition-transform duration-700 ease-out" />
         </button>
@@ -53,8 +53,8 @@
           <!-- Avatar with modern gradient -->
           <div class="relative inline-block">
             <div class="absolute -inset-6 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2.5rem] blur-2xl opacity-40 animate-pulse-slow"></div>
-            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-[2.5rem] flex items-center justify-center shadow-2xl transform hover:scale-110 hover:-rotate-6 transition-all duration-500 ease-out hover:shadow-violet-500/50">
-              <span class="text-6xl sm:text-7xl font-bold text-white transform transition-all duration-500 ease-out hover:scale-110">G</span>
+            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-[2.5rem] flex items-center justify-center transform hover:scale-110 hover:-rotate-6 transition-all duration-700 ease-out ">
+              <span class="text-6xl sm:text-7xl font-bold text-white transform transition-all duration-700 ease-out hover:scale-110">G</span>
             </div>
           </div>
 
@@ -65,7 +65,7 @@
             Chigozie Franklin Agu
               </span>
           </h1>
-            <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+            <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
               Software Engineer with Cybersecurity expertise, crafting 
               <span class="text-violet-400 font-medium">secure</span> and 
               <span class="text-cyan-400 font-medium">scalable</span> 
@@ -77,23 +77,23 @@
           <div class="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-6 px-4">
             <button 
               @click="scrollToSection('projects')"
-              class="group relative px-10 py-5 rounded-[2rem] bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 text-white font-semibold text-lg shadow-2xl hover:shadow-violet-500/50 transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto overflow-hidden"
+              class="group relative px-10 py-5 rounded-[2rem] bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 text-white font-semibold text-lg  transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto overflow-hidden"
             >
               <span class="relative z-10 flex items-center justify-center gap-2">
               Explore My Work
-                <Icon icon="ph:arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 ease-out" />
+                <Icon icon="ph:arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-700 ease-out" />
               </span>
-              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 via-cyan-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></div>
-              <div class="absolute inset-0 rounded-[2rem] bg-white/0 group-hover:bg-white/10 transition-all duration-500 ease-out"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 via-cyan-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></div>
+              <div class="absolute inset-0 rounded-[2rem] bg-white/0 group-hover:bg-white/10 transition-all duration-700 ease-out"></div>
             </button>
             <button 
               @click="scrollToSection('contact')"
-              class="group relative px-10 py-5 rounded-[2rem] backdrop-blur-xl border-2 font-semibold text-lg transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto"
-              :class="isDarkMode ? 'bg-white/8 border-white/15 text-white hover:bg-white/15 hover:border-white/25 hover:shadow-lg hover:shadow-white/10' : 'bg-white/70 border-gray-300/60 text-gray-900 hover:bg-white/90 hover:border-gray-400/80 hover:shadow-lg hover:shadow-gray-400/20'"
+              class="group relative px-10 py-5 rounded-[2rem] backdrop-blur-xl border-2 font-semibold text-lg transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto"
+              :class="isDarkMode ? 'bg-white/8 border-white/15 text-white hover:bg-white/15 hover:border-white/25  ' : 'bg-white/70 border-gray-300/60 text-gray-900 hover:bg-white/90 hover:border-gray-400/80  '"
             >
               <span class="flex items-center justify-center gap-2">
               Get In Touch
-                <Icon icon="ph:paper-plane-tilt" class="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500 ease-out" />
+                <Icon icon="ph:paper-plane-tilt" class="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-700 ease-out" />
               </span>
             </button>
           </div>
@@ -101,8 +101,8 @@
           <!-- Scroll indicator -->
           <div class="pt-16 animate-bounce">
             <div class="flex flex-col items-center gap-2 group cursor-pointer" @click="scrollToSection('about')">
-              <span class="text-xs font-medium opacity-60 group-hover:opacity-100 transition-opacity duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">Scroll to explore</span>
-              <Icon icon="ph:caret-down" class="w-8 h-8 transition-all duration-500 ease-out group-hover:scale-125 group-hover:translate-y-1" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'" />
+              <span class="text-xs font-medium opacity-60 group-hover:opacity-100 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">Scroll to explore</span>
+              <Icon icon="ph:caret-down" class="w-8 h-8 transition-all duration-700 ease-out group-hover:scale-125 group-hover:translate-y-1" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'" />
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@
               About Me
             </span>
           </h2>
-          <p class="text-center text-lg transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Get to know more about my journey and expertise</p>
+          <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Get to know more about my journey and expertise</p>
             </div>
           
         <!-- Bento Grid Layout -->
@@ -124,9 +124,9 @@
           <!-- Large bio card -->
           <div class="lg:col-span-2 lg:row-span-2 group cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-500 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-violet-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-violet-400/20'">
-                <div class="leading-relaxed space-y-4 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" ref="aboutDescription">
+              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
+                <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" ref="aboutDescription">
                   <div v-if="!aboutTyping && aboutText === ''" class="space-y-4">
                     <p class="text-lg">Hi, I'm <span class="font-semibold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Chigozie Franklin Agu</span>, a passionate software engineer with over 4+ years of experience building dynamic web applications and software solutions using modern technologies like <span class="text-cyan-400 font-semibold">Vue.js</span> and <span class="text-cyan-400 font-semibold">TypeScript</span>.</p>
                     
@@ -150,16 +150,16 @@
           <!-- Skills Card 1 - Programming -->
           <div class="group cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-yellow-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-yellow-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 yellow-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 yellow-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl">
                     <Icon icon="ph:code" class="w-6 h-6 text-yellow-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Languages</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Languages</h3>
                 </div>
                 <div class="flex flex-wrap gap-2.5">
-                  <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl text-yellow-400 text-sm font-medium transition-all duration-500 ease-out hover:scale-110 hover:bg-yellow-500/20 hover:border-yellow-500/40 transform cursor-default">JavaScript</span>
+                  <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl text-yellow-400 text-sm font-medium transition-all duration-700 ease-out hover:scale-110 hover:bg-yellow-500/20 hover:border-yellow-500/40 transform cursor-default">JavaScript</span>
                   <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-xl text-blue-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-blue-500/20 hover:border-blue-500/40 transform cursor-default">TypeScript</span>
                   <span class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-purple-500/20 hover:border-purple-500/40 transform cursor-default">Java</span>
                   <span class="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-xl text-orange-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-orange-500/20 hover:border-orange-500/40 transform cursor-default">HTML5</span>
@@ -172,13 +172,13 @@
           <!-- Skills Card 2 - Frameworks -->
           <div class="group cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-emerald-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-emerald-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 emerald-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 emerald-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-xl">
                     <Icon icon="ph:package" class="w-6 h-6 text-emerald-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Frameworks</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Frameworks</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-medium">Vue.js</span>
@@ -193,13 +193,13 @@
           <!-- Skills Card 3 - Tools -->
           <div class="group cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-blue-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-blue-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 blue-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 blue-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-xl">
                     <Icon icon="ph:toolbox" class="w-6 h-6 text-blue-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tools</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tools</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400 text-sm font-medium">Git</span>
@@ -214,13 +214,13 @@
           <!-- Skills Card 4 - Application Support -->
           <div class="group cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-teal-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-teal-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 teal-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 teal-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl">
                     <Icon icon="ph:headset" class="w-6 h-6 text-teal-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Application Support</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Application Support</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <span class="px-3 py-1.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-teal-400 text-sm font-medium">Technical Support</span>
@@ -236,13 +236,13 @@
           <!-- Skills Card 5 - Security -->
           <div class="group lg:col-span-2 cursor-pointer">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-red-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 red-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-red-500/20 to-purple-500/20 rounded-xl">
                     <Icon icon="ph:shield-check" class="w-6 h-6 text-red-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Cybersecurity</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Cybersecurity</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <span class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm font-medium">Secure Coding</span>
@@ -265,17 +265,17 @@
               Experience
             </span>
           </h2>
-          <p class="text-center text-lg transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">My professional journey</p>
+          <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">My professional journey</p>
             </div>
           
         <div class="space-y-6">
             <div v-for="(tab, index) in experienceTabs" :key="tab.label" class="group">
               <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-10 group-hover:opacity-40 transition-all duration-500 ease-out transform group-hover:scale-[1.01]"></div>
-              <div class="relative backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 transition-all duration-500 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-violet-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-violet-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-10 group-hover:opacity-40 transition-all duration-700 ease-out transform group-hover:scale-[1.01]"></div>
+              <div class="relative backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
                   <div class="flex-1">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-2 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ tab.label }}</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ tab.label }}</h3>
                     <div class="flex items-center gap-2 text-cyan-400 font-medium">
                       <Icon icon="ph:calendar" class="w-5 h-5" />
                       <span>{{ tab.date }}</span>
@@ -284,12 +284,12 @@
                   <div class="w-3 h-3 bg-gradient-to-r from-violet-400 to-cyan-400 rounded-full animate-pulse-slow"></div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
-                  <div v-for="item in tab.timeline" :key="item.title" class="backdrop-blur-xl rounded-2xl p-5 transition-all duration-500 ease-out transform hover:scale-[1.02] hover:-translate-y-0.5" :class="isDarkMode ? 'bg-white/8 border border-white/10 hover:bg-white/15 hover:shadow-lg' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 hover:shadow-lg'">
-                    <h4 class="font-semibold mb-2 flex items-start gap-2 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+                  <div v-for="item in tab.timeline" :key="item.title" class="backdrop-blur-xl rounded-2xl p-5 transition-all duration-700 ease-out transform hover:scale-[1.02] hover:-translate-y-0.5" :class="isDarkMode ? 'bg-white/8 border border-white/10 hover:bg-white/15 ' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 '">
+                    <h4 class="font-semibold mb-2 flex items-start gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
                       <Icon icon="ph:check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
                       <span>{{ item.title }}</span>
                     </h4>
-                    <p class="text-sm leading-relaxed transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">{{ item.description }}</p>
+                    <p class="text-sm leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">{{ item.description }}</p>
                   </div>
                 </div>
               </div>
@@ -306,15 +306,15 @@
               Education
             </span>
           </h2>
-          <p class="text-center text-lg transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Academic background</p>
+          <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Academic background</p>
           </div>
 
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Bachelor's Degree -->
           <div class="group">
               <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-500 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-violet-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-violet-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
                 <div>
                   <div class="flex items-center gap-3 mb-4">
                     <div class="p-3 bg-gradient-to-br from-violet-500/20 to-cyan-500/20 rounded-xl">
@@ -322,8 +322,8 @@
                     </div>
                     <span class="px-4 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-400 text-sm font-bold">2020</span>
                   </div>
-                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Bachelor of Science in Computer Information System</h4>
-                  <p class="flex items-center gap-2 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Bachelor of Science in Computer Information System</h4>
+                  <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                     <Icon icon="ph:building" class="w-5 h-5" />
                     Babcock University, Nigeria
                   </p>
@@ -335,8 +335,8 @@
           <!-- Master's Degree -->
           <div class="group">
               <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-500 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-cyan-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-cyan-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 cyan-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 cyan-400/20'">
                 <div>
                   <div class="flex items-center gap-3 mb-4">
                     <div class="p-3 bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 rounded-xl">
@@ -344,8 +344,8 @@
                     </div>
                     <span class="px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-sm font-bold">2025</span>
                   </div>
-                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Master of Science in Cybersecurity</h4>
-                  <p class="flex items-center gap-2 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Master of Science in Cybersecurity</h4>
+                  <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                     <Icon icon="ph:building" class="w-5 h-5" />
                     University of Derby, England
                   </p>
@@ -364,25 +364,25 @@
               Projects
             </span>
           </h2>
-          <p class="text-center text-lg transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Showcasing my work and contributions</p>
+          <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Showcasing my work and contributions</p>
           </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Project Card - Secret Santa Generator -->
           <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-green-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-red-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-green-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 red-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-red-500/20 to-green-500/20 rounded-xl">
                     <Icon icon="ph:gift" class="w-6 h-6 text-red-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secret Santa Generator</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secret Santa Generator</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
-                <a href="https://secret-santa-virid.vercel.app/auth" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-red-500 to-green-500 hover:from-red-600 hover:to-green-600 text-white rounded-2xl font-semibold transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
+                <a href="https://secret-santa-virid.vercel.app/auth" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-red-500 to-green-500 hover:from-red-600 hover:to-green-600 text-white rounded-2xl font-semibold transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-0.5 ">
                   View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
             </div>
@@ -391,18 +391,18 @@
           <!-- Project Card - StorV UI -->
           <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-indigo-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 indigo-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl">
                     <Icon icon="ph:receipt" class="w-6 h-6 text-indigo-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV UI [Version 3]</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV UI [Version 3]</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Modern and intuitive user interface for StorV receipt management system. Features a sleek design with enhanced user experience, improved navigation, and streamlined workflows for managing receipts and inventory.</p>
-                <a href="https://storv-ui.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Modern and intuitive user interface for StorV receipt management system. Features a sleek design with enhanced user experience, improved navigation, and streamlined workflows for managing receipts and inventory.</p>
+                <a href="https://storv-ui.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-0.5 ">
                   View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
             </div>
@@ -411,18 +411,18 @@
           <!-- Project Card 1 -->
             <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-violet-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-violet-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl">
                     <Icon icon="ph:shield-chevron" class="w-6 h-6 text-violet-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Password Entropy Calculator</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Password Entropy Calculator</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Advanced password entropy calculator with modern web technologies for seamless user experience.</p>
-                <a href="https://password-entropy-six.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Advanced password entropy calculator with modern web technologies for seamless user experience.</p>
+                <a href="https://password-entropy-six.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
                     View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
               </div>
@@ -431,18 +431,18 @@
           <!-- Project Card 4 -->
             <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-orange-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-orange-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 orange-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 orange-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl">
                     <Icon icon="ph:building-office" class="w-6 h-6 text-orange-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">KUO Company Website</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">KUO Company Website</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for KUO Smart Solutions built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
-                <a href="https://www.kuosmartsolution.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for KUO Smart Solutions built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
+                <a href="https://www.kuosmartsolution.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
                     View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
               </div>
@@ -451,18 +451,18 @@
           <!-- Project Card 5 -->
             <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-pink-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-pink-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 pink-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 pink-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-xl">
                     <Icon icon="ph:building-office" class="w-6 h-6 text-pink-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Visioni and Strauss</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Visioni and Strauss</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
-                <a href="https://www.visioniandstrauss.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
+                <a href="https://www.visioniandstrauss.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
                     View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
               </div>
@@ -471,18 +471,18 @@
           <!-- Project Card 6 -->
             <div class="group">
             <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-500 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-500 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 hover:shadow-2xl hover:shadow-indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 hover:shadow-2xl hover:shadow-indigo-400/20'">
+              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
+              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 indigo-400/20'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 rounded-xl">
                     <Icon icon="ph:lightning" class="w-6 h-6 text-indigo-400" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">T30 Energies</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">T30 Energies</h3>
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Comprehensive energy company website featuring dynamic content management, interactive service portfolios, and client engagement tools. Built with modern web standards and mobile-first responsive design.</p>
-                <a href="https://www.t30energies.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Comprehensive energy company website featuring dynamic content management, interactive service portfolios, and client engagement tools. Built with modern web standards and mobile-first responsive design.</p>
+                <a href="https://www.t30energies.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
                     View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-500 ease-out" />
+                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
                 </a>
               </div>
             </div>
@@ -498,7 +498,7 @@
               Get in Touch
             </span>
           </h2>
-          <p class="text-center text-lg max-w-3xl mx-auto px-4 transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+          <p class="text-center text-lg max-w-3xl mx-auto px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
             I'm always open to new opportunities and collaborations, especially in roles that combine 
             frontend development with cybersecurity expertise. Let's connect!
           </p>
@@ -515,12 +515,12 @@
                   rel="noopener noreferrer"
                 class="group relative"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-500 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:shadow-2xl hover:shadow-blue-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 hover:shadow-2xl hover:shadow-blue-400/30'">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
+                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 blue-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 blue-400/30'">
                   <div class="p-4 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl">
                     <Icon icon="mdi:linkedin" class="w-10 h-10 text-blue-400" />
                   </div>
-                  <span class="text-sm font-semibold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">LinkedIn</span>
+                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">LinkedIn</span>
                 </div>
               </a>
 
@@ -531,12 +531,12 @@
                   rel="noopener noreferrer"
                 class="group relative"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-500 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:shadow-2xl hover:shadow-gray-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 hover:shadow-2xl hover:shadow-gray-400/30'">
+                <div class="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
+                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 gray-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 gray-400/30'">
                   <div class="p-4 bg-gradient-to-br from-gray-500/20 to-gray-600/20 rounded-xl">
                     <Icon icon="mdi:github" class="w-10 h-10 text-gray-300" />
                   </div>
-                  <span class="text-sm font-semibold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">GitHub</span>
+                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">GitHub</span>
                 </div>
               </a>
 
@@ -545,12 +545,12 @@
                   href="mailto:gozieagu1@gmail.com"
                 class="group relative"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-rose-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-500 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-500 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:shadow-2xl hover:shadow-red-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 hover:shadow-2xl hover:shadow-red-400/30'">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-rose-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
+                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 red-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 red-400/30'">
                   <div class="p-4 bg-gradient-to-br from-red-500/20 to-rose-600/20 rounded-xl">
                     <Icon icon="mdi:email" class="w-10 h-10 text-red-400" />
                   </div>
-                  <span class="text-sm font-semibold transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Email</span>
+                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Email</span>
                 </div>
               </a>
             </div>
@@ -567,12 +567,12 @@
             <div class="w-8 h-8 bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center font-bold text-white text-sm">
               G
             </div>
-            <span class="font-medium transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Chigozie Franklin Agu</span>
+            <span class="font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Chigozie Franklin Agu</span>
           </div>
-          <p class="text-sm transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
+          <p class="text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
             Built with <span class="text-red-400">❤️</span> using <span class="text-emerald-400 font-semibold">Nuxt.js</span> & <span class="text-cyan-400 font-semibold">Tailwind CSS</span>
           </p>
-          <p class="text-xs transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-500'">
+          <p class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-500'">
             © {{ new Date().getFullYear() }} All rights reserved
           </p>
         </div>
@@ -581,10 +581,10 @@
 
     <!-- Scroll to Top Button -->
     <Transition
-      enter-active-class="transition-all duration-500 ease-out"
+      enter-active-class="transition-all duration-700 ease-out"
       enter-from-class="opacity-0 scale-75 translate-y-4"
       enter-to-class="opacity-100 scale-100 translate-y-0"
-      leave-active-class="transition-all duration-500 ease-out ease-in"
+      leave-active-class="transition-all duration-700 ease-out ease-in"
       leave-from-class="opacity-100 scale-100 translate-y-0"
       leave-to-class="opacity-0 scale-75 translate-y-4"
     >
@@ -594,9 +594,9 @@
         class="fixed bottom-8 right-8 z-50 group animate-float"
         aria-label="Scroll to top"
       >
-        <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] blur opacity-60 group-hover:opacity-100 transition-all duration-500"></div>
-        <div class="relative p-4 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] text-white shadow-2xl transition-all duration-500 transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6">
-        <Icon icon="ph:arrow-up" class="w-6 h-6 transition-transform duration-500 ease-out group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] blur opacity-60 group-hover:opacity-100 transition-all duration-700 ease-out"></div>
+        <div class="relative p-4 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] text-white transition-all duration-700 ease-out transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6">
+        <Icon icon="ph:arrow-up" class="w-6 h-6 transition-transform duration-700 ease-out group-hover:scale-110" />
         </div>
       </button>
     </Transition>
@@ -929,9 +929,9 @@ html {
   transition: none;
 }
 
-/* Add specific transitions where needed - using ease-out for fluid feel */
+/* Add specific transitions where needed - using ease-out for very fluid feel */
 button, a, .group {
-  transition: all 0.5s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 /* Smooth hover effects with ease-out timing */
