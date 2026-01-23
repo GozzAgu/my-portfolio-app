@@ -1,47 +1,31 @@
 <template>
   <div class="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-[#0a0a0f] text-gray-100' : 'bg-gray-50 text-gray-900'">
-    <!-- Animated mesh gradient background -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-0 left-0 w-full h-full">
-        <div class="absolute top-[-10%] left-[-5%] w-[40rem] h-[40rem] rounded-full blur-3xl animate-blob transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-violet-500/30 via-purple-500/20 to-transparent' : 'bg-gradient-to-br from-violet-400/20 via-purple-400/15 to-transparent'"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[35rem] h-[35rem] rounded-full blur-3xl animate-blob animation-delay-2000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-transparent' : 'bg-gradient-to-br from-cyan-400/20 via-blue-400/15 to-transparent'"></div>
-        <div class="absolute bottom-[-15%] left-[20%] w-[45rem] h-[45rem] rounded-full blur-3xl animate-blob animation-delay-4000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-emerald-500/30 via-green-500/20 to-transparent' : 'bg-gradient-to-br from-emerald-400/20 via-green-400/15 to-transparent'"></div>
-        <div class="absolute bottom-[10%] right-[10%] w-[30rem] h-[30rem] rounded-full blur-3xl animate-blob animation-delay-6000 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-gradient-to-br from-pink-500/20 via-rose-500/15 to-transparent' : 'bg-gradient-to-br from-pink-400/15 via-rose-400/10 to-transparent'"></div>
-      </div>
-      <div class="absolute inset-0 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]' : 'bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]'"></div>
-    </div>
 
     <!-- Floating header with modern design -->
     <header class="w-full fixed top-4 z-50 px-4 sm:px-6">
-      <nav class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex justify-between items-center backdrop-blur-2xl rounded-[2rem] transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-white/8 border border-white/15  hover:bg-white/12 hover:border-white/25' : 'bg-white/70 border border-gray-200/60  hover:bg-white/85 hover:border-gray-300/80'">
+      <nav class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex justify-between items-center rounded-[2rem] transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
         <div class="flex items-center space-x-3 group cursor-pointer" @click="scrollToTop">
-          <div class="relative">
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-all duration-700 ease-out animate-gradient-xy"></div>
-            <div class="relative w-11 h-11 bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-2xl flex items-center justify-center font-bold text-white transform transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-6">
-              G
-            </div>
+          <div class="w-11 h-11 rounded-2xl flex items-center justify-center font-bold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
+            G
           </div>
-          <h1 class="hidden sm:block relative text-xl font-bold bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent transition-all duration-700 ease-out group-hover:scale-105">Goz</h1>
+          <h1 class="hidden sm:block text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Goz</h1>
         </div>
 
         <div class="flex space-x-2 sm:space-x-3 text-sm">
-          <a href="#about" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">About</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-violet-500/30 to-cyan-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
+          <a href="#about" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+            About
           </a>
-          <a href="#projects" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">Projects</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-emerald-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
+          <a href="#projects" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+            Projects
           </a>
-          <a href="#contact" class="nav-link-modern group relative px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'">
-            <span class="relative z-10 transition-all duration-700 ease-out group-hover:scale-105 inline-block">Contact</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/30 to-violet-500/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out transform group-hover:scale-105"></div>
+          <a href="#contact" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+            Contact
           </a>
         </div>
 
-        <button @click="toggleDarkMode" class="p-3 rounded-2xl backdrop-blur-md transition-all duration-700 ease-out hover:scale-110 hover:-rotate-6 group" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 hover:border-white/25' : 'bg-gray-100/80 border border-gray-200/60 hover:bg-gray-200/90 hover:border-gray-300/80'">
-          <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 text-yellow-400 group-hover:rotate-180 transition-transform duration-700 ease-out" />
-          <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 text-indigo-600 group-hover:-rotate-12 transition-transform duration-700 ease-out" />
+        <button @click="toggleDarkMode" class="p-3 rounded-2xl transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'">
+          <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'" />
+          <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'" />
         </button>
       </nav>
     </header>
@@ -50,51 +34,43 @@
       <!-- Hero Section - Modern & Minimal -->
       <section class="min-h-screen flex items-center justify-center py-20 max-w-7xl mx-auto">
         <div class="text-center space-y-12 animate-fade-in-up w-full">
-          <!-- Avatar with modern gradient -->
+          <!-- Avatar -->
           <div class="relative inline-block">
-            <div class="absolute -inset-6 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2.5rem] blur-2xl opacity-40 animate-pulse-slow"></div>
-            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-[2.5rem] flex items-center justify-center transform hover:scale-110 hover:-rotate-6 transition-all duration-700 ease-out ">
-              <span class="text-6xl sm:text-7xl font-bold text-white transform transition-all duration-700 ease-out hover:scale-110">G</span>
+            <div class="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-[2.5rem] flex items-center justify-center transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-900'">
+              <span class="text-6xl sm:text-7xl font-bold text-white">G</span>
             </div>
           </div>
 
-          <!-- Name with modern typography -->
+          <!-- Name -->
           <div class="space-y-4">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-              <span class="block bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-xy">
-            Chigozie Franklin Agu
-              </span>
-          </h1>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+              Franklin Agu
+            </h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              Software Engineer with Cybersecurity expertise, crafting 
-              <span class="text-violet-400 font-medium">secure</span> and 
-              <span class="text-cyan-400 font-medium">scalable</span> 
-              software solutions
+              Cybersecurity Graduate | Security Analyst | Secure Software Engineer
+            </p>
+            <p class="text-lg sm:text-xl font-light max-w-3xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
+              Location: Derby, UK
             </p>
           </div>
 
-          <!-- CTA Buttons with modern magnetic effect -->
+          <!-- CTA Buttons -->
           <div class="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-6 px-4">
             <button 
               @click="scrollToSection('projects')"
-              class="group relative px-10 py-5 rounded-[2rem] bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 text-white font-semibold text-lg  transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto overflow-hidden"
+              class="px-10 py-5 rounded-[2rem] font-semibold text-lg transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2"
+              :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'"
             >
-              <span class="relative z-10 flex items-center justify-center gap-2">
               Explore My Work
-                <Icon icon="ph:arrow-right" class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-700 ease-out" />
-              </span>
-              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 via-cyan-600 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"></div>
-              <div class="absolute inset-0 rounded-[2rem] bg-white/0 group-hover:bg-white/10 transition-all duration-700 ease-out"></div>
+              <Icon icon="ph:arrow-right" class="w-5 h-5" />
             </button>
             <button 
               @click="scrollToSection('contact')"
-              class="group relative px-10 py-5 rounded-[2rem] backdrop-blur-xl border-2 font-semibold text-lg transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-2 w-full sm:w-auto"
-              :class="isDarkMode ? 'bg-white/8 border-white/15 text-white hover:bg-white/15 hover:border-white/25  ' : 'bg-white/70 border-gray-300/60 text-gray-900 hover:bg-white/90 hover:border-gray-400/80  '"
+              class="px-10 py-5 rounded-[2rem] border-2 font-semibold text-lg transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2"
+              :class="isDarkMode ? 'bg-transparent border-gray-700 text-white hover:bg-gray-800' : 'bg-transparent border-gray-300 text-gray-900 hover:bg-gray-100'"
             >
-              <span class="flex items-center justify-center gap-2">
               Get In Touch
-                <Icon icon="ph:paper-plane-tilt" class="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-700 ease-out" />
-              </span>
+              <Icon icon="ph:paper-plane-tilt" class="w-5 h-5" />
             </button>
           </div>
 
@@ -111,10 +87,8 @@
       <!-- About Section - Bento Style -->
       <section id="about" class="py-32 max-w-7xl mx-auto" ref="aboutSection">
         <div class="mb-20">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-            <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              About Me
-            </span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            About Me
           </h2>
           <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Get to know more about my journey and expertise</p>
             </div>
@@ -122,176 +96,180 @@
         <!-- Bento Grid Layout -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
           <!-- Large bio card -->
-          <div class="lg:col-span-2 lg:row-span-2 group cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
+          <div class="lg:col-span-2 lg:row-span-2">
+            <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" ref="aboutDescription">
                   <div v-if="!aboutTyping && aboutText === ''" class="space-y-4">
-                    <p class="text-lg">Hi, I'm <span class="font-semibold bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">Chigozie Franklin Agu</span>, a passionate software engineer with over 4+ years of experience building dynamic web applications and software solutions using modern technologies like <span class="text-cyan-400 font-semibold">Vue.js</span> and <span class="text-cyan-400 font-semibold">TypeScript</span>.</p>
+                    <p class="text-lg">Cybersecurity MSc graduate with <span class="font-semibold">4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.</p>
                     
-                    <p>Currently pursuing my Master's in Cybersecurity, I combine software development expertise with security best practices to create secure, scalable, and performant applications.</p>
+                    <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
 
-                    <p>I started my career as a self-taught developer, diving into the world of HTML, CSS, and JavaScript. After mastering the fundamentals, I expanded my skills to include <span class="text-emerald-400 font-semibold">full-stack development</span>, focusing on building end-to-end solutions that solve real-world problems.</p>
+                    <p>Throughout my career, I've developed enterprise-grade web applications using <span class="font-semibold">Vue.js</span> and <span class="font-semibold">Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.</p>
 
-                    <p>I love solving complex problems, collaborating with teams, and learning new technologies to enhance my development workflow. When I'm not coding, I enjoy contributing to open-source projects and staying updated with the latest software engineering trends.</p>
+                    <p>My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
                 </div>
                   <div v-else class="space-y-4">
                   <div v-for="(paragraph, index) in aboutParagraphs" :key="index" class="transition-all duration-1000 ease-in-out" :class="{ 'opacity-100 translate-y-0': paragraph.visible, 'opacity-0 translate-y-4': !paragraph.visible }">
                     <p v-html="paragraph.text"></p>
                     </div>
-                    <span v-if="aboutTyping" class="typewriter-cursor text-cyan-400 text-2xl">|</span>
+                    <span v-if="aboutTyping" class="typewriter-cursor text-2xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">|</span>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
             
           <!-- Skills Card 1 - Programming -->
-          <div class="group cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 yellow-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 yellow-400/20'">
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl">
-                    <Icon icon="ph:code" class="w-6 h-6 text-yellow-400" />
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:code" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
                   <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Languages</h3>
                 </div>
                 <div class="flex flex-wrap gap-2.5">
-                  <span class="px-4 py-2 bg-yellow-500/10 border border-yellow-500/20 rounded-xl text-yellow-400 text-sm font-medium transition-all duration-700 ease-out hover:scale-110 hover:bg-yellow-500/20 hover:border-yellow-500/40 transform cursor-default">JavaScript</span>
-                  <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-xl text-blue-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-blue-500/20 hover:border-blue-500/40 transform cursor-default">TypeScript</span>
-                  <span class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-xl text-purple-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-purple-500/20 hover:border-purple-500/40 transform cursor-default">Java</span>
-                  <span class="px-4 py-2 bg-orange-500/10 border border-orange-500/20 rounded-xl text-orange-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-orange-500/20 hover:border-orange-500/40 transform cursor-default">HTML5</span>
-                  <span class="px-4 py-2 bg-pink-500/10 border border-pink-500/20 rounded-xl text-pink-400 text-sm font-medium transition-all duration-500 hover:scale-110 hover:bg-pink-500/20 hover:border-pink-500/40 transform cursor-default">CSS3</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-700 ease-out cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">JavaScript (ES6+)</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TypeScript</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">HTML5</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CSS3</span>
                 </div>
               </div>
-                     </div>
-                   </div>
+            </div>
 
           <!-- Skills Card 2 - Frameworks -->
-          <div class="group cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 emerald-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 emerald-400/20'">
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-xl">
-                    <Icon icon="ph:package" class="w-6 h-6 text-emerald-400" />
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:package" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
                   <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Frameworks</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-medium">Vue.js</span>
-                  <span class="px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-lg text-cyan-400 text-sm font-medium">Nuxt.js</span>
-                  <span class="px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400 text-sm font-medium">Node.js</span>
-                  <span class="px-3 py-1.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-teal-400 text-sm font-medium">Tailwind</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vue.js (2/3)</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Nuxt.js</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TailwindCSS</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">SASS</span>
                 </div>
               </div>
-                     </div>
-                   </div>
+            </div>
 
           <!-- Skills Card 3 - Tools -->
-          <div class="group cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 blue-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 blue-400/20'">
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-xl">
-                    <Icon icon="ph:toolbox" class="w-6 h-6 text-blue-400" />
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:toolbox" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
                   <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tools</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400 text-sm font-medium">Git</span>
-                  <span class="px-3 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-lg text-orange-400 text-sm font-medium">Figma</span>
-                  <span class="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-sm font-medium">Docker</span>
-                  <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-medium">Firebase</span>
-                     </div>
-                   </div>
-                     </div>
-                   </div>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Git</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Firebase</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">REST APIs</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GraphQL</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CI/CD Pipelines</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Skills Card 4 - Application Support -->
-          <div class="group cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 teal-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 teal-400/20'">
+          <!-- Skills Card 4 - Security & Testing Tools -->
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl">
-                    <Icon icon="ph:headset" class="w-6 h-6 text-teal-400" />
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:flask" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Application Support</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Security & Testing</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-teal-400 text-sm font-medium">Technical Support</span>
-                  <span class="px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-lg text-cyan-400 text-sm font-medium">Troubleshooting</span>
-                  <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-medium">Problem Resolution</span>
-                  <span class="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-sm font-medium">Customer Service</span>
-                  <span class="px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-indigo-400 text-sm font-medium">Issue Tracking</span>
-                     </div>
-                   </div>
-                     </div>
-                   </div>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Postman</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Playwright</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Cypress</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Jest</span>
+                </div>
+              </div>
+            </div>
 
           <!-- Skills Card 5 - Security -->
-          <div class="group lg:col-span-2 cursor-pointer">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 red-400/20'">
+          <div class="lg:col-span-2">
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-red-500/20 to-purple-500/20 rounded-xl">
-                    <Icon icon="ph:shield-check" class="w-6 h-6 text-red-400" />
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:shield-check" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
                   <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Cybersecurity</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm font-medium">Secure Coding</span>
-                  <span class="px-3 py-1.5 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-400 text-sm font-medium">Threat Analysis</span>
-                  <span class="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-emerald-400 text-sm font-medium">Web Security</span>
-                  <span class="px-3 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-lg text-amber-400 text-sm font-medium">OWASP</span>
-                  <span class="px-3 py-1.5 bg-pink-500/10 border border-pink-500/20 rounded-lg text-pink-400 text-sm font-medium">Risk Assessment</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Security Operations (SOC)</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GRC</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">AppSec</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">SSDLC</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">IAM (RBAC, ABAC)</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GDPR Compliance</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Cryptography (AES, RSA)</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vulnerability Awareness</span>
                  </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
       <!-- Experience Section -->
       <section class="py-32 max-w-7xl mx-auto">
         <div class="mb-20">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-            <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Experience
-            </span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            Experience
           </h2>
           <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">My professional journey</p>
             </div>
           
         <div class="space-y-6">
-            <div v-for="(tab, index) in experienceTabs" :key="tab.label" class="group">
-              <div class="relative">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-10 group-hover:opacity-40 transition-all duration-700 ease-out transform group-hover:scale-[1.01]"></div>
-              <div class="relative backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 transition-all duration-700 ease-out transform group-hover:scale-[1.01] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
+            <div v-for="(tab, index) in experienceTabs" :key="tab.label">
+              <div class="rounded-[2rem] p-6 sm:p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex flex-col sm:flex-row justify-between items-start gap-4 mb-6">
                   <div class="flex-1">
                     <h3 class="text-xl sm:text-2xl font-bold mb-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ tab.label }}</h3>
-                    <div class="flex items-center gap-2 text-cyan-400 font-medium">
+                    <div class="flex items-center gap-2 font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
                       <Icon icon="ph:calendar" class="w-5 h-5" />
                       <span>{{ tab.date }}</span>
                     </div>
                   </div>
-                  <div class="w-3 h-3 bg-gradient-to-r from-violet-400 to-cyan-400 rounded-full animate-pulse-slow"></div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
-                  <div v-for="item in tab.timeline" :key="item.title" class="backdrop-blur-xl rounded-2xl p-5 transition-all duration-700 ease-out transform hover:scale-[1.02] hover:-translate-y-0.5" :class="isDarkMode ? 'bg-white/8 border border-white/10 hover:bg-white/15 ' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 '">
+                  <div v-for="item in tab.timeline" :key="item.title" class="rounded-2xl p-5 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-gray-50 border border-gray-200'">
                     <h4 class="font-semibold mb-2 flex items-start gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-                      <Icon icon="ph:check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <Icon icon="ph:check-circle" class="w-5 h-5 flex-shrink-0 mt-0.5 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'" />
                       <span>{{ item.title }}</span>
                     </h4>
                     <p class="text-sm leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">{{ item.description }}</p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <!-- Key Achievements Section -->
+      <section class="py-32 max-w-7xl mx-auto">
+        <div class="mb-20">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            Key Achievements
+          </h2>
+          <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Notable professional accomplishments</p>
+        </div>
+
+        <div>
+          <div class="rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-xl flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                <Icon icon="ph:trophy" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+              </div>
+              <div>
+                <h3 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secure Design Achievement</h3>
+                <p class="text-lg leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
+                  Successfully contributed to the migration of legacy data to secure cloud environments with <span class="font-semibold">zero data loss or security breaches</span>. This achievement demonstrates expertise in secure data migration, risk mitigation, and maintaining data integrity throughout complex system transitions.
+                </p>
               </div>
             </div>
           </div>
@@ -301,55 +279,47 @@
       <!-- Education Section -->
       <section class="py-32 max-w-7xl mx-auto">
         <div class="mb-20">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-            <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Education
-            </span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            Education
           </h2>
           <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Academic background</p>
           </div>
 
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Bachelor's Degree -->
-          <div class="group">
-              <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
-                <div>
-                  <div class="flex items-center gap-3 mb-4">
-                    <div class="p-3 bg-gradient-to-br from-violet-500/20 to-cyan-500/20 rounded-xl">
-                      <Icon icon="ph:graduation-cap" class="w-6 h-6 text-violet-400" />
-                    </div>
-                    <span class="px-4 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-400 text-sm font-bold">2020</span>
+          <div>
+            <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div>
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:graduation-cap" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Bachelor of Science in Computer Information System</h4>
-                  <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-                    <Icon icon="ph:building" class="w-5 h-5" />
-                    Babcock University, Nigeria
-                  </p>
+                  <span class="px-4 py-1.5 rounded-full text-sm font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">2020</span>
                 </div>
-              </div>
+                <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Bachelor of Science in Computer Information System</h4>
+                <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                  <Icon icon="ph:building" class="w-5 h-5" />
+                  Babcock University, Nigeria
+                </p>
               </div>
             </div>
+          </div>
             
           <!-- Master's Degree -->
-          <div class="group">
-              <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between transform group-hover:scale-[1.02] group-hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 cyan-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 cyan-400/20'">
-                <div>
-                  <div class="flex items-center gap-3 mb-4">
-                    <div class="p-3 bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 rounded-xl">
-                      <Icon icon="ph:shield-check" class="w-6 h-6 text-cyan-400" />
-                    </div>
-                    <span class="px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-sm font-bold">2025</span>
+          <div>
+            <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out flex flex-col justify-between" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div>
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:shield-check" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Master of Science in Cybersecurity</h4>
-                  <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-                    <Icon icon="ph:building" class="w-5 h-5" />
-                    University of Derby, England
-                  </p>
+                  <span class="px-4 py-1.5 rounded-full text-sm font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">2025</span>
                 </div>
+                <h4 class="text-xl sm:text-2xl font-bold mb-3 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Master of Science in Cybersecurity</h4>
+                <p class="flex items-center gap-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
+                  <Icon icon="ph:building" class="w-5 h-5" />
+                  University of Derby, England
+                </p>
               </div>
             </div>
           </div>
@@ -359,132 +329,113 @@
       <!-- Projects Section -->
       <section id="projects" class="py-32 max-w-7xl mx-auto">
         <div class="mb-20">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-            <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Projects
-            </span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            Projects
           </h2>
           <p class="text-center text-lg transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Showcasing my work and contributions</p>
           </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
           <!-- Project Card - Secret Santa Generator -->
-          <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-green-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 red-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 red-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-red-500/20 to-green-500/20 rounded-xl">
-                    <Icon icon="ph:gift" class="w-6 h-6 text-red-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secret Santa Generator</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:gift" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
-                <a href="https://secret-santa-virid.vercel.app/auth" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-red-500 to-green-500 hover:from-red-600 hover:to-green-600 text-white rounded-2xl font-semibold transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-0.5 ">
-                  View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Secret Santa Generator</h3>
               </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
+              <a href="https://secret-santa-virid.vercel.app/auth" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
           </div>
 
           <!-- Project Card - StorV UI -->
-          <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 indigo-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-xl">
-                    <Icon icon="ph:receipt" class="w-6 h-6 text-indigo-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV UI [Version 3]</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:receipt" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Modern and intuitive user interface for StorV receipt management system. Features a sleek design with enhanced user experience, improved navigation, and streamlined workflows for managing receipts and inventory.</p>
-                <a href="https://storv-ui.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-0.5 ">
-                  View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV UI [Version 3]</h3>
               </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Modern and intuitive user interface for StorV receipt management system. Features a sleek design with enhanced user experience, improved navigation, and streamlined workflows for managing receipts and inventory.</p>
+              <a href="https://storv-ui.vercel.app/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
           </div>
 
           <!-- Project Card 1 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 to-purple-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 ' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 '">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl">
-                    <Icon icon="ph:shield-chevron" class="w-6 h-6 text-violet-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Password Entropy Calculator</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:shield-chevron" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Advanced password entropy calculator with modern web technologies for seamless user experience.</p>
-                <a href="https://password-entropy-six.vercel.app/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Password Entropy Calculator</h3>
               </div>
-              </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Advanced password entropy calculator with modern web technologies for seamless user experience.</p>
+              <a href="https://password-entropy-six.vercel.app/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
+          </div>
 
           <!-- Project Card 4 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 orange-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 orange-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl">
-                    <Icon icon="ph:building-office" class="w-6 h-6 text-orange-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">KUO Company Website</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:building-office" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for KUO Smart Solutions built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
-                <a href="https://www.kuosmartsolution.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">KUO Company Website</h3>
               </div>
-              </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for KUO Smart Solutions built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
+              <a href="https://www.kuosmartsolution.com/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
+          </div>
 
           <!-- Project Card 5 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 pink-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 pink-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-xl">
-                    <Icon icon="ph:building-office" class="w-6 h-6 text-pink-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Visioni and Strauss</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:building-office" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
-                <a href="https://www.visioniandstrauss.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Visioni and Strauss</h3>
               </div>
-              </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Original corporate website for visioniandstrauss built with clean, professional design. Showcases company services, team expertise, and client testimonials with optimized performance and SEO.</p>
+              <a href="https://www.visioniandstrauss.com/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
+          </div>
             
           <!-- Project Card 6 -->
-            <div class="group">
-            <div class="relative h-full">
-              <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[2rem] blur opacity-20 group-hover:opacity-50 transition-all duration-700 ease-out transform group-hover:scale-[1.02]"></div>
-              <div class="relative h-full backdrop-blur-xl rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col transform group-hover:scale-[1.02] group-hover:-translate-y-2" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/12 indigo-500/20' : 'bg-white/70 border border-gray-200/60 hover:bg-white/90 indigo-400/20'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 rounded-xl">
-                    <Icon icon="ph:lightning" class="w-6 h-6 text-indigo-400" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">T30 Energies</h3>
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:lightning" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
-                <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Comprehensive energy company website featuring dynamic content management, interactive service portfolios, and client engagement tools. Built with modern web standards and mobile-first responsive design.</p>
-                <a href="https://www.t30energies.com/" target="_blank" class="group/btn flex items-center justify-center gap-2 w-full py-3.5 px-5 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white rounded-2xl font-semibold transition-all duration-500 transform hover:scale-110 hover:-translate-y-0.5 ">
-                    View Project
-                  <Icon icon="ph:arrow-up-right" class="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-700 ease-out" />
-                </a>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">T30 Energies</h3>
               </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Comprehensive energy company website featuring dynamic content management, interactive service portfolios, and client engagement tools. Built with modern web standards and mobile-first responsive design.</p>
+              <a href="https://www.t30energies.com/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View Project
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>
@@ -493,84 +444,85 @@
       <!-- Contact Section -->
       <section id="contact" class="py-32 max-w-5xl mx-auto">
         <div class="mb-20">
-          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4">
-            <span class="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Get in Touch
-            </span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+            Get in Touch
           </h2>
           <p class="text-center text-lg max-w-3xl mx-auto px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-            I'm always open to new opportunities and collaborations, especially in roles that combine 
-            frontend development with cybersecurity expertise. Let's connect!
+            I'm always open to new opportunities and collaborations, especially in entry-level cybersecurity roles 
+            where technical depth and risk-focused thinking can support secure and compliant systems. Let's connect!
           </p>
           </div>
 
-          <div class="relative">
-          <div class="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[2rem] blur opacity-20"></div>
-          <div class="relative backdrop-blur-xl rounded-[2rem] p-8 sm:p-12 transition-all duration-500" :class="isDarkMode ? 'bg-white/8 border border-white/15' : 'bg-white/70 border border-gray-200/60'">
+          <div class="rounded-[2rem] p-8 sm:p-12 transition-all duration-500" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <!-- LinkedIn -->
-                <a
-                  href="https://www.linkedin.com/in/chigozie-agu-85019b209"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                class="group relative"
+              <a
+                href="https://www.linkedin.com/in/chigozie-agu-85019b209"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col items-center gap-4 p-7 rounded-[1.5rem] transition-all duration-700 ease-out"
+                :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-blue-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 blue-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 blue-400/30'">
-                  <div class="p-4 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl">
-                    <Icon icon="mdi:linkedin" class="w-10 h-10 text-blue-400" />
-                  </div>
-                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">LinkedIn</span>
+                <div class="p-4 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-700' : 'bg-gray-200'">
+                  <Icon icon="mdi:linkedin" class="w-10 h-10 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
+                <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">LinkedIn</span>
               </a>
 
               <!-- GitHub -->
-                <a
-                  href="https://github.com/GozzAgu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                class="group relative"
+              <a
+                href="https://github.com/GozzAgu"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col items-center gap-4 p-7 rounded-[1.5rem] transition-all duration-700 ease-out"
+                :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 gray-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 gray-400/30'">
-                  <div class="p-4 bg-gradient-to-br from-gray-500/20 to-gray-600/20 rounded-xl">
-                    <Icon icon="mdi:github" class="w-10 h-10 text-gray-300" />
-                  </div>
-                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">GitHub</span>
+                <div class="p-4 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-700' : 'bg-gray-200'">
+                  <Icon icon="mdi:github" class="w-10 h-10 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
+                <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">GitHub</span>
               </a>
 
               <!-- Email -->
-                <a
-                  href="mailto:gozieagu1@gmail.com"
-                class="group relative"
+              <a
+                href="mailto:Gozieagu1@gmail.com"
+                class="flex flex-col items-center gap-4 p-7 rounded-[1.5rem] transition-all duration-700 ease-out"
+                :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'"
               >
-                <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-rose-600 rounded-[1.5rem] blur opacity-0 group-hover:opacity-70 transition-all duration-700 ease-out"></div>
-                <div class="relative flex flex-col items-center gap-4 p-7 backdrop-blur-xl rounded-[1.5rem] transition-all duration-700 ease-out transform hover:scale-110 hover:-translate-y-1" :class="isDarkMode ? 'bg-white/8 border border-white/15 hover:bg-white/15 red-500/30' : 'bg-white/50 border border-gray-200/50 hover:bg-white/70 red-400/30'">
-                  <div class="p-4 bg-gradient-to-br from-red-500/20 to-rose-600/20 rounded-xl">
-                    <Icon icon="mdi:email" class="w-10 h-10 text-red-400" />
-                  </div>
-                  <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Email</span>
+                <div class="p-4 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-700' : 'bg-gray-200'">
+                  <Icon icon="mdi:email" class="w-10 h-10 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                 </div>
+                <span class="text-sm font-semibold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Email</span>
               </a>
             </div>
+            
+            <!-- Contact Details -->
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+              <div class="rounded-2xl p-4 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
+                <Icon icon="ph:phone" class="w-6 h-6 mx-auto mb-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                <p class="text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">07551116916</p>
+              </div>
+              <div class="rounded-2xl p-4 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
+                <Icon icon="ph:map-pin" class="w-6 h-6 mx-auto mb-2 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                <p class="text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">Derby, UK</p>
+              </div>
+            </div>
           </div>
-        </div>
       </section>
     </main>
 
-    <!-- Modern footer -->
-    <footer class="w-full py-12 text-center backdrop-blur-xl border-t relative z-10 transition-all duration-500" :class="isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white/60 border-gray-200/50'">
+    <!-- Footer -->
+    <footer class="w-full py-12 text-center border-t relative z-10 transition-all duration-500" :class="isDarkMode ? 'bg-gray-900/50 border-gray-800' : 'bg-white border-gray-200'">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-col items-center gap-4">
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-gradient-to-br from-violet-500 via-cyan-500 to-emerald-500 rounded-lg flex items-center justify-center font-bold text-white text-sm">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
               G
             </div>
-            <span class="font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Chigozie Franklin Agu</span>
+            <span class="font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Franklin Agu</span>
           </div>
           <p class="text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
-            Built with <span class="text-red-400">❤️</span> using <span class="text-emerald-400 font-semibold">Nuxt.js</span> & <span class="text-cyan-400 font-semibold">Tailwind CSS</span>
+            Built with ❤️ using <span class="font-semibold">Nuxt.js</span> & <span class="font-semibold">Tailwind CSS</span>
           </p>
           <p class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-500'">
             © {{ new Date().getFullYear() }} All rights reserved
@@ -591,13 +543,11 @@
       <button
         v-show="showScrollToTop"
         @click="scrollToTop"
-        class="fixed bottom-8 right-8 z-50 group animate-float"
+        class="fixed bottom-8 right-8 z-50 p-4 rounded-[1.5rem] transition-all duration-700 ease-out"
+        :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'"
         aria-label="Scroll to top"
       >
-        <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] blur opacity-60 group-hover:opacity-100 transition-all duration-700 ease-out"></div>
-        <div class="relative p-4 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-[1.5rem] text-white transition-all duration-700 ease-out transform group-hover:scale-125 group-hover:-translate-y-2 group-hover:rotate-6">
-        <Icon icon="ph:arrow-up" class="w-6 h-6 transition-transform duration-700 ease-out group-hover:scale-110" />
-        </div>
+        <Icon icon="ph:arrow-up" class="w-6 h-6" />
       </button>
     </Transition>
   </div>
@@ -652,13 +602,13 @@ const typeWriter = async (text, speed = 50) => {
 
 const typeWriterParagraphs = async () => {
   const paragraphs = [
-    "Hi, I'm <span class='font-semibold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent'>Chigozie Franklin Agu</span>, a passionate software engineer with over 4+ years of experience building dynamic web applications and software solutions using modern technologies like <span class='text-blue-500 font-semibold'>Vue.js</span> and <span class='text-blue-500 font-semibold'>TypeScript</span>. Currently pursuing my Master's in Cybersecurity, I combine software development expertise with security best practices to create secure, scalable, and performant applications.",
+    "Cybersecurity MSc graduate with <span class='font-semibold'>4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.",
     
-    "I started my career as a self-taught developer, diving into the world of HTML, CSS, and JavaScript. After mastering the fundamentals, I expanded my skills to include <span class='text-blue-500 font-semibold'>full-stack development</span>, focusing on building end-to-end solutions that solve real-world problems.",
+    "Experienced in <span class='text-blue-500 font-semibold'>access control</span>, <span class='text-blue-500 font-semibold'>encryption</span>, <span class='text-blue-500 font-semibold'>secure API integration</span>, <span class='text-emerald-400 font-semibold'>GDPR-aligned data handling</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.",
     
-    "My journey into cybersecurity began with my Master's program, where I'm learning advanced security concepts, threat analysis, and secure coding practices. This unique combination allows me to build applications that are not only functional and user-friendly but also secure by design and optimized for performance.",
+    "Throughout my career, I've developed enterprise-grade web applications using <span class='text-violet-400 font-semibold'>Vue.js</span> and <span class='text-violet-400 font-semibold'>Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.",
     
-    "I love solving complex problems, collaborating with teams, and learning new technologies to enhance my development workflow. When I'm not coding, I enjoy contributing to open-source projects, engaging with developer communities, and staying updated with the latest software engineering and cybersecurity trends."
+    "My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access."
   ];
 
   aboutTyping.value = true;
@@ -700,75 +650,75 @@ const handleScroll = async () => {
 
 const experienceTabs = [
   {
-    label: "Tech Guide - EE Telecommunications (United Kingdom)",
-    date: "March 2025 - Present",
+    label: "IT & Retail Support Guide - EE (UK)",
+    date: "April 2025 – Present",
     completed: false,
     timeline: [
       {
-        title: "Customer Technical Support",
-        description: "Providing expert technical guidance and support to customers on telecommunications products, services, and technology solutions.",
+        title: "Frontline Technical Support",
+        description: "Provide frontline technical support for mobile devices, digital accounts, and connectivity issues.",
       },
       {
-        title: "Application Support & Technicalities",
-        description: "Supporting customers with application-related issues, including mobile app troubleshooting, software configuration, and technical problem resolution for various applications and digital services.",
+        title: "Identity Verification & GDPR Compliance",
+        description: "Enforce identity verification and GDPR-compliant data handling before accessing customer accounts.",
       },
       {
-        title: "Product Knowledge & Consultation",
-        description: "Offering consultations on mobile devices, network services, and digital solutions, ensuring customers make informed decisions about their telecommunications needs.",
+        title: "Incident Management",
+        description: "Log, track, and escalate incidents using internal systems following defined operational procedures.",
       },
       {
-        title: "Technical Problem Resolution",
-        description: "Diagnosing and resolving technical issues, troubleshooting connectivity problems, and ensuring optimal customer satisfaction with EE's telecommunications services.",
-      },
-    ],
-  },
-  {
-    label: "Software Engineer - Famous Parking (Remote, USA)",
-    date: "2023 - 2024",
-    completed: true,
-    timeline: [
-      {
-        title: "Technical Communication & Stakeholder Management",
-        description: "Translated complex technical issues into understandable terms for non-technical stakeholders, ensuring project alignment with user expectations and business requirements.",
-      },
-      {
-        title: "Frontend Development & UI Implementation",
-        description: "Developed and maintained frontend applications for parking management system using modern web technologies and responsive design principles.",
-      },
-      {
-        title: "Cross-functional Collaboration",
-        description: "Collaborated with product managers, designers, and backend developers to deliver high-quality user experiences and seamless integration.",
+        title: "Technical Communication",
+        description: "Communicate technical and security-related issues clearly to non-technical users.",
       },
     ],
   },
   {
-    label: "Software Engineer - Cyphercrescent (Nigeria)",
-    date: "2020 - Date",
+    label: "Frontend Engineer - Famous Parking (Remote, USA)",
+    date: "2023 – 2024",
     completed: true,
     timeline: [
       {
-        title: "Lead Software Development",
-        description: "Led frontend development initiatives, conducted code reviews, and mentored junior developers while ensuring project delivery success.",
+        title: "Secure System Development",
+        description: "Built systems handling sensitive transactional and user data with security best practices.",
       },
       {
-        title: "Nigeria Gas Summit Website Development",
-        description: "Designed (Figma) and developed (Nuxt.js) a comprehensive one-page event website with interactive features and responsive design.",
+        title: "Secure API Integration",
+        description: "Integrated third-party APIs supporting secure payments and real-time data processing.",
       },
       {
-        title: "Technology Stack Implementation",
-        description: "Implemented modern software technologies including Vue.js, Nuxt.js, TypeScript, and CSS3 to build scalable web applications.",
+        title: "Testing & Risk Mitigation",
+        description: "Conducted regression testing and documented test cases to reduce operational and security risks.",
       },
       {
-        title: "Client Project Delivery",
-        description: "Successfully delivered multiple client projects on time and within budget, maintaining high code quality and user experience standards.",
+        title: "Business Requirements Translation",
+        description: "Translated business requirements into secure, maintainable frontend implementations.",
+      },
+    ],
+  },
+  {
+    label: "Frontend Engineer - Cyphercrescent Ltd (Hybrid, Nigeria)",
+    date: "2020 – 2025",
+    completed: true,
+    timeline: [
+      {
+        title: "Enterprise Web Application Development",
+        description: "Developed and maintained enterprise-grade web applications using Vue.js and Nuxt.js.",
       },
       {
-        title: "Code Review & Quality Assurance",
-        description: "Established coding standards and conducted thorough code reviews to ensure maintainable and efficient codebase.",
+        title: "Role-Based Access Control (RBAC)",
+        description: "Implemented Role-Based Access Control (RBAC) to enforce least-privilege access.",
       },
       {
-        title: "Team Collaboration & Mentoring",
-        description: "Collaborated with cross-functional teams to achieve project objectives and technical excellence.",
+        title: "Secure API Integration",
+        description: "Integrated secure APIs with authentication tokens and robust error handling.",
+      },
+      {
+        title: "CI/CD & Version Control",
+        description: "Supported secure deployments through CI/CD pipelines and version control.",
+      },
+      {
+        title: "Cross-functional Security Collaboration",
+        description: "Collaborated cross-functionally to align system functionality with security and compliance requirements.",
       },
     ],
   },
