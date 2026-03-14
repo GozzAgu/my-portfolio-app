@@ -47,7 +47,7 @@
               Franklin Agu
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              Cybersecurity Graduate | Security Analyst | Secure Software Engineer
+              MSc Cybersecurity | Technical CX & Sales | Secure Software Engineer
             </p>
             <p class="text-lg sm:text-xl font-light max-w-3xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
               Location: Derby, UK
@@ -102,7 +102,7 @@
                   <div v-if="!aboutTyping && aboutText === ''" class="space-y-4">
                     <p class="text-lg">Cybersecurity MSc graduate with <span class="font-semibold">4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.</p>
                     
-                    <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
+                    <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, <span class="font-semibold">Microsoft Dynamics</span> and <span class="font-semibold">CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
 
                     <p>Throughout my career, I've developed enterprise-grade web applications using <span class="font-semibold">Vue.js</span> and <span class="font-semibold">Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.</p>
 
@@ -169,6 +169,8 @@
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">REST APIs</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GraphQL</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CI/CD Pipelines</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Microsoft Dynamics</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">ERP</span>
                 </div>
               </div>
             </div>
@@ -604,7 +606,7 @@ const typeWriterParagraphs = async () => {
   const paragraphs = [
     "Cybersecurity MSc graduate with <span class='font-semibold'>4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.",
     
-    "Experienced in <span class='text-blue-500 font-semibold'>access control</span>, <span class='text-blue-500 font-semibold'>encryption</span>, <span class='text-blue-500 font-semibold'>secure API integration</span>, <span class='text-emerald-400 font-semibold'>GDPR-aligned data handling</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.",
+    "Experienced in <span class='font-semibold'>access control</span>, <span class='font-semibold'>encryption</span>, <span class='font-semibold'>secure API integration</span>, <span class='font-semibold'>GDPR-aligned data handling</span>, <span class='font-semibold'>Microsoft Dynamics</span> and <span class='font-semibold'>CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.",
     
     "Throughout my career, I've developed enterprise-grade web applications using <span class='text-violet-400 font-semibold'>Vue.js</span> and <span class='text-violet-400 font-semibold'>Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.",
     
@@ -650,13 +652,13 @@ const handleScroll = async () => {
 
 const experienceTabs = [
   {
-    label: "IT & Retail Support Guide - EE (UK)",
-    date: "April 2025 – Present",
+    label: "Technical CX - Concentrix",
+    date: "March 2026 – Present",
     completed: false,
     timeline: [
       {
-        title: "Frontline Technical Support",
-        description: "Provide frontline technical support for mobile devices, digital accounts, and connectivity issues.",
+        title: "Customer Experience & Technical Support",
+        description: "Deliver technical customer experience support, resolving issues and ensuring positive outcomes for customers.",
       },
       {
         title: "Identity Verification & GDPR Compliance",
@@ -665,6 +667,37 @@ const experienceTabs = [
       {
         title: "Incident Management",
         description: "Log, track, and escalate incidents using internal systems following defined operational procedures.",
+      },
+      {
+        title: "Microsoft Dynamics",
+        description: "Use Microsoft Dynamics CRM for case management, customer data, and workflow in daily customer experience operations.",
+      },
+      {
+        title: "Technical Communication",
+        description: "Communicate technical and security-related issues clearly to non-technical users.",
+      },
+    ],
+  },
+  {
+    label: "Technical CX and Sales - EE (UK)",
+    date: "April 2025 – Present",
+    completed: false,
+    timeline: [
+      {
+        title: "Frontline Technical Support",
+        description: "Provide frontline technical support for mobile devices, digital accounts, and connectivity issues.",
+      },
+      {
+        title: "Sales & Customer Solutions",
+        description: "Support sales conversations and help customers find the right products and services for their needs.",
+      },
+      {
+        title: "CRM Tools",
+        description: "Used several CRM tools for customer data, case management, and sales tracking in technical support and sales workflows.",
+      },
+      {
+        title: "Identity Verification & GDPR Compliance",
+        description: "Enforce identity verification and GDPR-compliant data handling before accessing customer accounts.",
       },
       {
         title: "Technical Communication",
