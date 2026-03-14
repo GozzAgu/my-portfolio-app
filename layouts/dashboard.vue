@@ -680,8 +680,8 @@ const experienceTabs = [
   },
   {
     label: "Technical CX and Sales - EE (UK)",
-    date: "April 2025 – Present",
-    completed: false,
+    date: "April 2025 – March 2026",
+    completed: true,
     timeline: [
       {
         title: "Frontline Technical Support",
