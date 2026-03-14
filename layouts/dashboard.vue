@@ -339,6 +339,26 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
+          <!-- Project Card - Storvv (MSc Dissertation) -->
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:shield-check" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Storvv</h3>
+                  <span class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">MSc Cybersecurity dissertation</span>
+                </div>
+              </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Secure cloud-based inventory management web app. Built with Firebase; applies AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
+              <a href="https://www.storvv.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View app
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
           <!-- Project Card - Secret Santa Generator -->
           <div>
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
@@ -350,23 +370,6 @@
               </div>
               <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">A fun and interactive Secret Santa gift exchange generator that randomly pairs participants while ensuring no one gets themselves. Features include participant management, email notifications, and wishlist support.</p>
               <a href="https://secret-santa-virid.vercel.app/auth" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
-                View Project
-                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          <!-- Project Card - StorV UI -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                  <Icon icon="ph:receipt" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                </div>
-                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">StorV UI [Version 3]</h3>
-              </div>
-              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Modern and intuitive user interface for StorV receipt management system. Features a sleek design with enhanced user experience, improved navigation, and streamlined workflows for managing receipts and inventory.</p>
-              <a href="https://storv-ui.vercel.app/" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
                 View Project
                 <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
               </a>
