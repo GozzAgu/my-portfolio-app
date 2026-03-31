@@ -47,7 +47,7 @@
               Franklin Agu
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              MSc Cybersecurity | Technical CX & Sales | Secure Software Engineer
+              MSc Cybersecurity | Service Operations Analyst | Secure Software Engineer
             </p>
             <p class="text-lg sm:text-xl font-light max-w-3xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
               Location: Derby, UK
@@ -359,6 +359,23 @@
             </div>
           </div>
 
+          <!-- Project Card - SmartPhoneHub -->
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                  <Icon icon="ph:storefront" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                </div>
+                <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">SmartPhoneHub</h3>
+              </div>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Retail ecommerce experience for phones, laptops, wearables, and accessories—shop by category, trade-in, support, and store info with a polished, responsive layout.</p>
+              <a href="https://sph-ng.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
+                View site
+                <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
           <!-- Project Card - Secret Santa Generator -->
           <div>
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
@@ -655,13 +672,13 @@ const handleScroll = async () => {
 
 const experienceTabs = [
   {
-    label: "Technical CX - Concentrix",
+    label: "Service Operations Analyst - Concentrix",
     date: "March 2026 – Present",
     completed: false,
     timeline: [
       {
-        title: "Customer Experience & Technical Support",
-        description: "Deliver technical customer experience support, resolving issues and ensuring positive outcomes for customers.",
+        title: "Service Operations & Technical Support",
+        description: "Work in service operations to resolve technical issues, maintain service quality standards, and support positive customer outcomes.",
       },
       {
         title: "Identity Verification & GDPR Compliance",
@@ -673,7 +690,7 @@ const experienceTabs = [
       },
       {
         title: "Microsoft Dynamics",
-        description: "Use Microsoft Dynamics CRM for case management, customer data, and workflow in daily customer experience operations.",
+        description: "Use Microsoft Dynamics CRM for case management, customer data, and workflow in daily service operations.",
       },
       {
         title: "Technical Communication",
@@ -682,7 +699,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "Technical CX and Sales - EE (UK)",
+    label: "Service Operations Analyst - EE (UK)",
     date: "April 2025 – March 2026",
     completed: true,
     timeline: [
@@ -691,12 +708,8 @@ const experienceTabs = [
         description: "Provide frontline technical support for mobile devices, digital accounts, and connectivity issues.",
       },
       {
-        title: "Sales & Customer Solutions",
-        description: "Support sales conversations and help customers find the right products and services for their needs.",
-      },
-      {
         title: "CRM Tools",
-        description: "Used several CRM tools for customer data, case management, and sales tracking in technical support and sales workflows.",
+        description: "Used several CRM tools for customer data, case management, and issue tracking in technical support workflows.",
       },
       {
         title: "Identity Verification & GDPR Compliance",
