@@ -368,7 +368,7 @@
                 </div>
                 <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">SmartPhoneHub</h3>
               </div>
-              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Retail ecommerce experience for phones, laptops, wearables, and accessories—shop by category, trade-in, support, and store info with a polished, responsive layout.</p>
+              <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Retail ecommerce experience for phones, laptops, wearables, and accessories, with shop by category, trade-in, support, and store info with a polished, responsive layout.</p>
               <a href="https://sph-ng.com/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-2xl font-semibold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'">
                 View site
                 <Icon icon="ph:arrow-up-right" class="w-5 h-5" />
@@ -673,7 +673,7 @@ const handleScroll = async () => {
 const experienceTabs = [
   {
     label: "Service Operations Analyst - Concentrix",
-    date: "March 2026 – Present",
+    date: "March 2026 - Present",
     completed: false,
     timeline: [
       {
@@ -700,7 +700,7 @@ const experienceTabs = [
   },
   {
     label: "Service Operations Analyst - EE (UK)",
-    date: "April 2025 – March 2026",
+    date: "April 2025 - March 2026",
     completed: true,
     timeline: [
       {
@@ -723,7 +723,7 @@ const experienceTabs = [
   },
   {
     label: "Frontend Engineer - Famous Parking (Remote, USA)",
-    date: "2023 – 2024",
+    date: "2023 - 2024",
     completed: true,
     timeline: [
       {
@@ -746,7 +746,7 @@ const experienceTabs = [
   },
   {
     label: "Frontend Engineer - Cyphercrescent Ltd (Hybrid, Nigeria)",
-    date: "2020 – 2025",
+    date: "2020 - 2025",
     completed: true,
     timeline: [
       {
