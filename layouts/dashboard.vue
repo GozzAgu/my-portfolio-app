@@ -1,33 +1,112 @@
 <template>
   <div class="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-[#0a0a0f] text-gray-100' : 'bg-gray-50 text-gray-900'">
 
-    <!-- Floating header with modern design -->
+    <!-- Floating header: compact row on mobile + slide-down menu -->
     <header class="w-full fixed top-4 z-50 px-4 sm:px-6">
-      <nav class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex justify-between items-center rounded-[2rem] transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-        <div class="flex items-center space-x-3 group cursor-pointer" @click="scrollToTop">
-          <div class="w-11 h-11 rounded-2xl flex items-center justify-center font-bold transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
-            G
+      <div class="max-w-6xl mx-auto relative">
+        <nav
+          class="px-4 sm:px-6 py-3 md:py-4 flex justify-between items-center gap-3 rounded-[2rem] transition-all duration-700 ease-out"
+          :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'"
+          aria-label="Main navigation"
+        >
+          <div class="flex items-center space-x-3 group cursor-pointer min-w-0 flex-shrink-0" @click="scrollToTop">
+            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
+              G
+            </div>
+            <h1 class="hidden sm:block text-lg md:text-xl font-bold transition-colors duration-700 ease-out truncate" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Goz</h1>
           </div>
-          <h1 class="hidden sm:block text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Goz</h1>
-        </div>
 
-        <div class="flex space-x-2 sm:space-x-3 text-sm">
-          <a href="#about" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
-            About
-          </a>
-          <a href="#projects" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
-            Projects
-          </a>
-          <a href="#contact" class="px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
-            Contact
-          </a>
-        </div>
+          <!-- Desktop / tablet: inline links -->
+          <div class="hidden md:flex items-center gap-1 lg:gap-2 text-sm flex-shrink-0">
+            <a href="#about" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+              About
+            </a>
+            <a href="#projects" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+              Projects
+            </a>
+            <a href="#contact" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+              Contact
+            </a>
+            <button
+              type="button"
+              @click="exportCvToWord"
+              :disabled="cvExporting"
+              class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'"
+            >
+              {{ cvExporting ? 'Preparing…' : 'Download CV' }}
+            </button>
+          </div>
 
-        <button @click="toggleDarkMode" class="p-3 rounded-2xl transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'">
-          <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'" />
-          <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-600'" />
-        </button>
-      </nav>
+          <div class="flex items-center gap-1.5 flex-shrink-0">
+            <button
+              type="button"
+              class="md:hidden p-2.5 rounded-2xl transition-all duration-700 ease-out [-webkit-tap-highlight-color:transparent]"
+              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800 border border-gray-700' : 'text-gray-700 hover:bg-gray-100 border border-gray-200'"
+              :aria-expanded="navOpen"
+              aria-controls="mobile-nav-menu"
+              :aria-label="navOpen ? 'Close menu' : 'Open menu'"
+              @click="navOpen = !navOpen"
+            >
+              <Icon :icon="navOpen ? 'ph:x' : 'ph:list'" class="w-6 h-6" />
+            </button>
+            <button
+              type="button"
+              @click="toggleDarkMode"
+              class="p-2.5 sm:p-3 rounded-2xl transition-all duration-700 ease-out"
+              :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'"
+              aria-label="Toggle dark mode"
+            >
+              <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 transition-colors duration-700 ease-out text-gray-300" />
+              <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 transition-colors duration-700 ease-out text-gray-600" />
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile menu panel -->
+        <div
+          id="mobile-nav-menu"
+          v-show="navOpen"
+          class="md:hidden absolute left-0 right-0 top-[calc(100%+0.5rem)] rounded-[1.5rem] border shadow-lg overflow-hidden transition-colors duration-700 ease-out"
+          :class="isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'"
+        >
+          <div class="flex flex-col p-2 text-base">
+            <a
+              href="#about"
+              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
+              @click="navOpen = false"
+            >
+              About
+            </a>
+            <a
+              href="#projects"
+              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
+              @click="navOpen = false"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
+              @click="navOpen = false"
+            >
+              Contact
+            </a>
+            <button
+              type="button"
+              :disabled="cvExporting"
+              class="text-left px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
+              @click="exportCvToWord(); navOpen = false"
+            >
+              {{ cvExporting ? 'Preparing…' : 'Download CV (Word)' }}
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <main class="flex-grow w-full px-4 sm:px-6 py-20 relative z-10">
@@ -55,7 +134,7 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row justify-center items-center gap-5 sm:gap-6 px-4">
+          <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-5 sm:gap-6 px-4 max-w-4xl mx-auto">
             <button 
               @click="scrollToSection('projects')"
               class="px-10 py-5 rounded-[2rem] font-semibold text-lg transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2"
@@ -72,6 +151,16 @@
               Get In Touch
               <Icon icon="ph:paper-plane-tilt" class="w-5 h-5" />
             </button>
+            <button
+              type="button"
+              @click="exportCvToWord"
+              :disabled="cvExporting"
+              class="px-10 py-5 rounded-[2rem] font-semibold text-lg transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-200'"
+            >
+              <Icon icon="ph:download-simple" class="w-5 h-5" />
+              {{ cvExporting ? 'Preparing document…' : 'Download CV (Word)' }}
+            </button>
           </div>
 
           <!-- Scroll indicator -->
@@ -85,7 +174,7 @@
       </section>
 
       <!-- About Section - Bento Style -->
-      <section id="about" class="py-32 max-w-7xl mx-auto" ref="aboutSection">
+      <section id="about" class="py-32 max-w-7xl mx-auto">
         <div class="mb-20">
           <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
             About Me
@@ -98,22 +187,14 @@
           <!-- Large bio card -->
           <div class="lg:col-span-2 lg:row-span-2">
             <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" ref="aboutDescription">
-                  <div v-if="!aboutTyping && aboutText === ''" class="space-y-4">
-                    <p class="text-lg">Cybersecurity MSc graduate with <span class="font-semibold">4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.</p>
-                    
-                    <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, <span class="font-semibold">Microsoft Dynamics</span> and <span class="font-semibold">CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
+                <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
+                  <p class="text-lg">Cybersecurity MSc graduate with <span class="font-semibold">4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.</p>
 
-                    <p>Throughout my career, I've developed enterprise-grade web applications using <span class="font-semibold">Vue.js</span> and <span class="font-semibold">Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.</p>
+                  <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, <span class="font-semibold">Microsoft 365 and Dynamics 365</span> (including case logging and CRM workflows), <span class="font-semibold">CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
 
-                    <p>My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
-                </div>
-                  <div v-else class="space-y-4">
-                  <div v-for="(paragraph, index) in aboutParagraphs" :key="index" class="transition-all duration-1000 ease-in-out" :class="{ 'opacity-100 translate-y-0': paragraph.visible, 'opacity-0 translate-y-4': !paragraph.visible }">
-                    <p v-html="paragraph.text"></p>
-                    </div>
-                    <span v-if="aboutTyping" class="typewriter-cursor text-2xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">|</span>
-                  </div>
+                  <p>Throughout my career, I've developed enterprise-grade web applications using <span class="font-semibold">Vue.js</span> and <span class="font-semibold">Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.</p>
+
+                  <p>My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
                 </div>
               </div>
             </div>
@@ -169,7 +250,7 @@
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">REST APIs</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GraphQL</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CI/CD Pipelines</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Microsoft Dynamics</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Microsoft 365 & Dynamics 365</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">ERP</span>
                 </div>
               </div>
@@ -339,7 +420,7 @@
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <!-- Project Card - Storvv (MSc Dissertation) -->
+          <!-- Project Card - Storvv -->
           <div>
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out flex flex-col" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
               <div class="flex items-center gap-3 mb-4">
@@ -348,7 +429,7 @@
                 </div>
                 <div>
                   <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Storvv</h3>
-                  <span class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">MSc Cybersecurity dissertation</span>
+                  <span class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">Secure cloud inventory</span>
                 </div>
               </div>
               <p class="text-sm leading-relaxed mb-6 flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Secure cloud-based inventory management web app. Built with Firebase; applies AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
@@ -578,14 +659,12 @@
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
 import { Icon } from "@iconify/vue";
+import { downloadCvDocx } from "~/utils/generateCvDocx";
 
 const isDarkMode = ref(false);
-const aboutSection = ref(null);
-const aboutDescription = ref(null);
-const aboutTyping = ref(false);
-const aboutText = ref("");
-const aboutParagraphs = ref([]);
+const cvExporting = ref(false);
 const showScrollToTop = ref(false);
+const navOpen = ref(false);
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
@@ -594,6 +673,7 @@ const toggleDarkMode = () => {
 };
 
 const scrollToTop = () => {
+  navOpen.value = false;
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
@@ -610,64 +690,15 @@ const scrollToSection = (sectionId) => {
   }
 };
 
-const typeWriter = async (text, speed = 50) => {
-  aboutTyping.value = true;
-  aboutText.value = "";
-  
-  for (let i = 0; i < text.length; i++) {
-    aboutText.value += text.charAt(i);
-    await new Promise(resolve => setTimeout(resolve, speed));
-  }
-  
-  aboutTyping.value = false;
-};
-
-const typeWriterParagraphs = async () => {
-  const paragraphs = [
-    "Cybersecurity MSc graduate with <span class='font-semibold'>4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.",
-    
-    "Experienced in <span class='font-semibold'>access control</span>, <span class='font-semibold'>encryption</span>, <span class='font-semibold'>secure API integration</span>, <span class='font-semibold'>GDPR-aligned data handling</span>, <span class='font-semibold'>Microsoft Dynamics</span> and <span class='font-semibold'>CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.",
-    
-    "Throughout my career, I've developed enterprise-grade web applications using <span class='text-violet-400 font-semibold'>Vue.js</span> and <span class='text-violet-400 font-semibold'>Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.",
-    
-    "My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access."
-  ];
-
-  aboutTyping.value = true;
-  aboutParagraphs.value = paragraphs.map(() => ({ text: "", visible: false }));
-
-  for (let pIndex = 0; pIndex < paragraphs.length; pIndex++) {
-    const paragraph = paragraphs[pIndex];
-    aboutParagraphs.value[pIndex].text = "";
-    aboutParagraphs.value[pIndex].visible = true;
-
-    for (let i = 0; i < paragraph.length; i++) {
-      aboutParagraphs.value[pIndex].text += paragraph.charAt(i);
-      await new Promise(resolve => setTimeout(resolve, 25));
-    }
-
-    // Pause between paragraphs
-    if (pIndex < paragraphs.length - 1) {
-      await new Promise(resolve => setTimeout(resolve, 800));
-    }
-  }
-
-  aboutTyping.value = false;
-};
-
-const handleScroll = async () => {
-  // Show/hide scroll to top button
+const handleScroll = () => {
   showScrollToTop.value = window.scrollY > 300;
+};
 
-  // About section typewriter (disabled on mobile)
-  if (aboutSection.value && window.innerWidth > 768) {
-    const aboutRect = aboutSection.value.getBoundingClientRect();
-    const aboutVisible = aboutRect.top < window.innerHeight && aboutRect.bottom > 0;
-    
-    if (aboutVisible && !aboutTyping.value && aboutParagraphs.value.length === 0) {
-      typeWriterParagraphs();
-    }
+const handleLayoutResize = () => {
+  if (typeof window !== "undefined" && window.innerWidth >= 768) {
+    navOpen.value = false;
   }
+  handleScroll();
 };
 
 const experienceTabs = [
@@ -681,16 +712,20 @@ const experienceTabs = [
         description: "Work in service operations to resolve technical issues, maintain service quality standards, and support positive customer outcomes.",
       },
       {
-        title: "Identity Verification & GDPR Compliance",
-        description: "Enforce identity verification and GDPR-compliant data handling before accessing customer accounts.",
+        title: "Microsoft 365 & Dynamics 365",
+        description: "Use Microsoft 365 and Dynamics 365 for CRM-driven service delivery: case creation, structured case logging, customer records, activity history, queues, workflows, and clean handoffs across teams.",
       },
       {
-        title: "Incident Management",
-        description: "Log, track, and escalate incidents using internal systems following defined operational procedures.",
+        title: "Case logging & service records",
+        description: "Maintain accurate case notes, timelines, and resolution details for audit readiness, quality checks, and operational reporting.",
       },
       {
-        title: "Microsoft Dynamics",
-        description: "Use Microsoft Dynamics CRM for case management, customer data, and workflow in daily service operations.",
+        title: "GDPR, identity verification & data handling",
+        description: "Apply GDPR-aligned practices: verify identity before account access or disclosure, minimise sharing of personal data, respect consent and retention rules, and follow client security and privacy policies.",
+      },
+      {
+        title: "Incident management & escalation",
+        description: "Log, prioritise, track, and escalate incidents through defined channels and tools, keeping cases updated until closure.",
       },
       {
         title: "Technical Communication",
@@ -773,6 +808,18 @@ const experienceTabs = [
   },
 ];
 
+const exportCvToWord = async () => {
+  if (import.meta.server) return;
+  try {
+    cvExporting.value = true;
+    await downloadCvDocx(experienceTabs);
+  } catch (err) {
+    console.error("CV export failed:", err);
+  } finally {
+    cvExporting.value = false;
+  }
+};
+
 onMounted(() => {
   // Load dark mode preference from localStorage, fallback to system preference
   const savedDarkMode = localStorage.getItem('darkMode');
@@ -788,11 +835,9 @@ onMounted(() => {
     document.documentElement.classList.remove("dark");
   }
   
-  // Add scroll listener for typewriter effect
   window.addEventListener('scroll', handleScroll);
   
-  // Add resize listener to handle screen size changes
-  window.addEventListener('resize', handleScroll);
+  window.addEventListener("resize", handleLayoutResize);
   
   // Check if experience section is already visible on load
   nextTick(() => {
@@ -847,11 +892,6 @@ onMounted(() => {
   }
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
 .animate-fade-in-up {
   animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -883,10 +923,6 @@ onMounted(() => {
 
 .animate-pulse-slow {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.typewriter-cursor {
-  animation: blink 1s infinite;
 }
 
 /* Smooth scrolling */
