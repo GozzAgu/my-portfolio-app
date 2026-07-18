@@ -126,10 +126,10 @@
               Franklin Agu
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-light max-w-4xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              MSc Cybersecurity | Service Operations Analyst | Secure Software Engineer
+              Senior Frontend Engineer | Vue 3 & Vue 2 | State Management & Framework Modernisation
             </p>
             <p class="text-lg sm:text-xl font-light max-w-3xl mx-auto leading-relaxed px-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
-              Location: Derby, UK
+              Location: England, UK
             </p>
           </div>
 
@@ -188,110 +188,106 @@
           <div class="lg:col-span-2 lg:row-span-2">
             <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
-                  <p class="text-lg">Cybersecurity MSc graduate with <span class="font-semibold">4+ years of professional software engineering experience</span> building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.</p>
+                  <p class="text-lg">Senior frontend engineer with <span class="font-semibold">5+ years building production Vue interfaces</span>, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.</p>
 
-                  <p>Experienced in <span class="font-semibold">access control</span>, <span class="font-semibold">encryption</span>, <span class="font-semibold">secure API integration</span>, <span class="font-semibold">GDPR-aligned data handling</span>, <span class="font-semibold">Microsoft 365 and Dynamics 365</span> (including case logging and CRM workflows), <span class="font-semibold">CRM tools</span>, and incident-aware support environments. Seeking an entry-level cybersecurity role where technical depth and risk-focused thinking can support secure and compliant systems.</p>
+                  <p>Deep in the <span class="font-semibold">Vue ecosystem</span>: Vue 3 and Vue 2, the <span class="font-semibold">Composition API</span>, <span class="font-semibold">Pinia</span>, <span class="font-semibold">Vuex</span>, <span class="font-semibold">Nuxt.js</span>, and <span class="font-semibold">TypeScript</span>, with a focus on store rationalisation, RBAC, and dependency modernisation.</p>
 
-                  <p>Throughout my career, I've developed enterprise-grade web applications using <span class="font-semibold">Vue.js</span> and <span class="font-semibold">Nuxt.js</span>, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.</p>
+                  <p>Experienced building responsive, accessible UI with <span class="font-semibold">Vuetify</span> from Figma designs, and data intensive dashboards with <span class="font-semibold">Chart.js</span> that stay fast under large dataset rendering and significant data load.</p>
 
-                  <p>My academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.</p>
+                  <p>Also holds an <span class="font-semibold">MSc in Cybersecurity (Distinction, University of Derby)</span>, with research applying AES encryption, RSA key exchange, and role-based access control to protect data integrity in cloud-based inventory systems.</p>
                 </div>
               </div>
             </div>
             
-          <!-- Skills Card 1 - Programming -->
+          <!-- Skills Card 1 - Vue Ecosystem -->
           <div>
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
                     <Icon icon="ph:code" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Languages</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Vue Ecosystem</h3>
                 </div>
                 <div class="flex flex-wrap gap-2.5">
-                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-700 ease-out cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">JavaScript (ES6+)</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-700 ease-out cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vue 3</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Composition API</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Pinia</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vuex</span>
+                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Nuxt.js</span>
                   <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TypeScript</span>
-                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">HTML5</span>
-                  <span class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-500 cursor-default" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CSS3</span>
                 </div>
               </div>
             </div>
 
-          <!-- Skills Card 2 - Frameworks -->
+          <!-- Skills Card 2 - State Management & Architecture -->
           <div>
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:package" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                    <Icon icon="ph:tree-structure" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Frameworks</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">State Management & Architecture</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vue.js (2/3)</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Nuxt.js</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TailwindCSS</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">SASS</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Store rationalisation</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">RBAC</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Dependency modernisation</span>
                 </div>
               </div>
             </div>
 
-          <!-- Skills Card 3 - Tools -->
+          <!-- Skills Card 3 - UI & Design Systems -->
           <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:paint-brush" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                  </div>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">UI & Design Systems</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vuetify</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Figma to code</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Responsive UI</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Accessible UI</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TailwindCSS</span>
+                </div>
+              </div>
+            </div>
+
+          <!-- Skills Card 4 - Data & Performance -->
+          <div>
+            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
+                    <Icon icon="ph:chart-line-up" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
+                  </div>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Data & Performance</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Chart.js</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Data-intensive dashboards</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Large dataset rendering</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Performance optimisation</span>
+                </div>
+              </div>
+            </div>
+
+          <!-- Skills Card 5 - Tooling -->
+          <div class="lg:col-span-2">
             <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
                     <Icon icon="ph:toolbox" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
                   </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tools</h3>
+                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tooling</h3>
                 </div>
                 <div class="flex flex-wrap gap-2">
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Git</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Firebase</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Node.js</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">REST APIs</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GraphQL</span>
+                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Firebase</span>
                   <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CI/CD Pipelines</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Microsoft 365 & Dynamics 365</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">ERP</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 4 - Security & Testing Tools -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:flask" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Security & Testing</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Postman</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Playwright</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Cypress</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Jest</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 5 - Security -->
-          <div class="lg:col-span-2">
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:shield-check" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Cybersecurity</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Security Operations (SOC)</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GRC</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">AppSec</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">SSDLC</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">IAM (RBAC, ABAC)</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">GDPR Compliance</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Cryptography (AES, RSA)</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vulnerability Awareness</span>
                  </div>
               </div>
             </div>
@@ -703,33 +699,44 @@ const handleLayoutResize = () => {
 
 const experienceTabs = [
   {
+    label: "Software Engineer - CypherCrescent Ltd (Hybrid, Nigeria)",
+    date: "2020 - 2025",
+    completed: true,
+    timeline: [
+      {
+        title: "Vue 3 Interfaces at Scale",
+        description: "Built scalable, high performance Vue 3 interfaces using the Composition API and Pinia/Vuex for state management, translating complex stakeholder requirements into production features.",
+      },
+      {
+        title: "State Management Architecture",
+        description: "Made architectural decisions on state management structure, choosing between Pinia and Vuex patterns based on module complexity, keeping store logic maintainable as the application grew.",
+      },
+      {
+        title: "UI & Design Systems",
+        description: "Built responsive, accessible UI layouts with Vuetify from Figma designs, replacing ageing UI patterns as design requirements evolved.",
+      },
+      {
+        title: "Data-Intensive Dashboards",
+        description: "Built and refined data intensive dashboards using Chart.js for a large enterprise department, turning complex, high volume datasets into clear, actionable insight while keeping interfaces fast under significant data load.",
+      },
+      {
+        title: "Debugging & Performance",
+        description: "Debugged and optimised interfaces across browsers and devices, maintaining a consistent component architecture across multiple enterprise applications used by a large team.",
+      },
+      {
+        title: "Agile Collaboration & CI/CD",
+        description: "Worked closely with non-technical stakeholders and other engineers in an agile team, operating with high autonomy and contributing to CI/CD setup and Git based workflows.",
+      },
+    ],
+  },
+  {
     label: "Service Operations Analyst - Concentrix",
     date: "March 2026 - Present",
     completed: false,
     timeline: [
       {
-        title: "Service Operations & Technical Support",
-        description: "Work in service operations to resolve technical issues, maintain service quality standards, and support positive customer outcomes.",
-      },
-      {
-        title: "Microsoft 365 & Dynamics 365",
-        description: "Use Microsoft 365 and Dynamics 365 for CRM-driven service delivery: case creation, structured case logging, customer records, activity history, queues, workflows, and clean handoffs across teams.",
-      },
-      {
-        title: "Case logging & service records",
-        description: "Maintain accurate case notes, timelines, and resolution details for audit readiness, quality checks, and operational reporting.",
-      },
-      {
-        title: "GDPR, identity verification & data handling",
-        description: "Apply GDPR-aligned practices: verify identity before account access or disclosure, minimise sharing of personal data, respect consent and retention rules, and follow client security and privacy policies.",
-      },
-      {
-        title: "Incident management & escalation",
-        description: "Log, prioritise, track, and escalate incidents through defined channels and tools, keeping cases updated until closure.",
-      },
-      {
-        title: "Technical Communication",
-        description: "Communicate technical and security-related issues clearly to non-technical users.",
+        title: "Process Documentation & Improvement",
+        description: "Work in a detail driven environment, documenting processes clearly and looking for ways to reduce manual, repetitive steps.",
       },
     ],
   },
@@ -739,70 +746,8 @@ const experienceTabs = [
     completed: true,
     timeline: [
       {
-        title: "Frontline Technical Support",
-        description: "Provide frontline technical support for mobile devices, digital accounts, and connectivity issues.",
-      },
-      {
-        title: "CRM Tools",
-        description: "Used several CRM tools for customer data, case management, and issue tracking in technical support workflows.",
-      },
-      {
-        title: "Identity Verification & GDPR Compliance",
-        description: "Enforce identity verification and GDPR-compliant data handling before accessing customer accounts.",
-      },
-      {
-        title: "Technical Communication",
-        description: "Communicate technical and security-related issues clearly to non-technical users.",
-      },
-    ],
-  },
-  {
-    label: "Frontend Engineer - Famous Parking (Remote, USA)",
-    date: "2023 - 2024",
-    completed: true,
-    timeline: [
-      {
-        title: "Secure System Development",
-        description: "Built systems handling sensitive transactional and user data with security best practices.",
-      },
-      {
-        title: "Secure API Integration",
-        description: "Integrated third-party APIs supporting secure payments and real-time data processing.",
-      },
-      {
-        title: "Testing & Risk Mitigation",
-        description: "Conducted regression testing and documented test cases to reduce operational and security risks.",
-      },
-      {
-        title: "Business Requirements Translation",
-        description: "Translated business requirements into secure, maintainable frontend implementations.",
-      },
-    ],
-  },
-  {
-    label: "Frontend Engineer - Cyphercrescent Ltd (Hybrid, Nigeria)",
-    date: "2020 - 2025",
-    completed: true,
-    timeline: [
-      {
-        title: "Enterprise Web Application Development",
-        description: "Developed and maintained enterprise-grade web applications using Vue.js and Nuxt.js.",
-      },
-      {
-        title: "Role-Based Access Control (RBAC)",
-        description: "Implemented Role-Based Access Control (RBAC) to enforce least-privilege access.",
-      },
-      {
-        title: "Secure API Integration",
-        description: "Integrated secure APIs with authentication tokens and robust error handling.",
-      },
-      {
-        title: "CI/CD & Version Control",
-        description: "Supported secure deployments through CI/CD pipelines and version control.",
-      },
-      {
-        title: "Cross-functional Security Collaboration",
-        description: "Collaborated cross-functionally to align system functionality with security and compliance requirements.",
+        title: "Adaptability Across Platforms",
+        description: "Worked across multiple digital tools and platforms at once, building adaptability and a habit of finding simpler ways to get things done.",
       },
     ],
   },

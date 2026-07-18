@@ -7,8 +7,8 @@ export type CvExperienceEntry = {
 const CONTACT = {
   name: "Franklin Agu",
   headline:
-    "MSc Cybersecurity | Service Operations Analyst | Secure Software Engineer",
-  location: "Derby, UK",
+    "Senior Frontend Engineer | Vue 3 & Vue 2 | State Management & Framework Modernisation",
+  location: "England, UK",
   phone: "07551116916",
   email: "Gozieagu1@gmail.com",
   linkedin: "https://www.linkedin.com/in/chigozie-agu-85019b209",
@@ -17,49 +17,37 @@ const CONTACT = {
 };
 
 const PROFILE_PARAGRAPHS = [
-  "Cybersecurity MSc graduate with 4+ years of professional software engineering experience building and securing cloud-based applications. Strong foundation across security operations, governance & compliance (GRC), application security, and secure system design.",
-  "Experienced in access control, encryption, secure API integration, GDPR-aligned data handling, Microsoft 365 and Dynamics 365 (including case logging and CRM workflows), CRM tools, and incident-aware support environments. Seeking roles where technical depth and risk-focused thinking can support secure and compliant systems.",
-  "Developed enterprise-grade web applications using Vue.js and Nuxt.js, implemented Role-Based Access Control (RBAC) to enforce least-privilege access, and integrated secure APIs with authentication tokens and robust error handling.",
-  "Academic research focused on enhancing data integrity, security, and access control in cloud-based inventory management systems, applying AES encryption, RSA key exchange, and role-based access control to protect data integrity and prevent unauthorized access.",
+  "5+ years building production Vue interfaces, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.",
 ];
 
-const SECURITY_DOMAINS = [
-  "Security Operations (SOC-aligned)",
-  "Governance, Risk & Compliance (GRC)",
-  "Application Security (AppSec)",
-  "Secure Software Development Lifecycle (SSDLC)",
-  "Identity & Access Management (RBAC, ABAC)",
-  "Data Protection & GDPR Compliance",
-  "Cryptography fundamentals (AES, RSA, hashing)",
-  "Secure authentication & authorization",
-  "Vulnerability awareness & risk mitigation",
+const CORE_SKILLS: { label: string; items: string }[] = [
+  {
+    label: "Vue Ecosystem",
+    items: "Vue 3, Composition API, Pinia, Vuex, Nuxt.js, TypeScript",
+  },
+  {
+    label: "State Management & Architecture",
+    items: "Store rationalisation, RBAC, dependency modernisation",
+  },
+  {
+    label: "UI & Design Systems",
+    items: "Vuetify, Figma to code workflows, responsive and accessible UI",
+  },
+  {
+    label: "Data & Performance",
+    items:
+      "Chart.js, data intensive dashboards, large dataset rendering, performance optimisation",
+  },
+  {
+    label: "Tooling",
+    items: "Git, Node.js, REST APIs",
+  },
 ];
-
-const LANGUAGES = [
-  "JavaScript (ES6+)",
-  "TypeScript",
-  "HTML5",
-  "CSS3",
-];
-
-const FRAMEWORKS = ["Vue.js (2/3)", "Nuxt.js", "TailwindCSS", "SASS"];
-
-const TOOLS = [
-  "Git",
-  "Firebase",
-  "REST APIs",
-  "GraphQL",
-  "CI/CD Pipelines",
-  "Microsoft 365 & Dynamics 365",
-  "ERP",
-];
-
-const TESTING_TOOLS = ["Postman", "Playwright", "Cypress", "Jest"];
 
 const EDUCATION = [
   {
     year: "2025",
-    degree: "Master of Science in Cybersecurity",
+    degree: "Master of Science in Cybersecurity (Distinction)",
     institution: "University of Derby, UK",
   },
   {
@@ -361,87 +349,30 @@ export async function downloadCvDocx(experience: CvExperienceEntry[]) {
 
   bodyChildren.push(
     new Paragraph({
-      text: "Core competencies (security & risk)",
+      text: "Core skills",
       heading: HeadingLevel.HEADING_1,
       spacing: spacingSectionTitle(),
       run: { color: "0F172A" },
     })
   );
-  for (const item of SECURITY_DOMAINS) {
+  for (const skill of CORE_SKILLS) {
     bodyChildren.push(
       new Paragraph({
-        children: [new TextRun({ text: item, color: COLOR.body })],
-        bullet: { level: 0 },
-        spacing: { after: 72, line: 276, lineRule: LineRuleType.AUTO },
+        children: [
+          new TextRun({
+            text: `${skill.label}: `,
+            bold: true,
+            color: COLOR.body,
+          }),
+          new TextRun({ text: skill.items, color: COLOR.body }),
+        ],
+        spacing: {
+          ...spacingBody(),
+          lineRule: LineRuleType.AUTO,
+        },
       })
     );
   }
-
-  bodyChildren.push(
-    new Paragraph({
-      text: "Technical skills",
-      heading: HeadingLevel.HEADING_1,
-      spacing: spacingSectionTitle(),
-      run: { color: "0F172A" },
-    })
-  );
-
-  bodyChildren.push(
-    new Paragraph({
-      children: [
-        new TextRun({ text: "Languages: ", bold: true, color: COLOR.body }),
-        new TextRun({ text: LANGUAGES.join(", "), color: COLOR.body }),
-      ],
-      spacing: {
-        ...spacingBody(),
-        lineRule: LineRuleType.AUTO,
-      },
-    })
-  );
-  bodyChildren.push(
-    new Paragraph({
-      children: [
-        new TextRun({ text: "Frameworks: ", bold: true, color: COLOR.body }),
-        new TextRun({ text: FRAMEWORKS.join(", "), color: COLOR.body }),
-      ],
-      spacing: {
-        ...spacingBody(),
-        lineRule: LineRuleType.AUTO,
-      },
-    })
-  );
-  bodyChildren.push(
-    new Paragraph({
-      children: [
-        new TextRun({
-          text: "Cloud, APIs & tooling: ",
-          bold: true,
-          color: COLOR.body,
-        }),
-        new TextRun({ text: TOOLS.join(", "), color: COLOR.body }),
-      ],
-      spacing: {
-        ...spacingBody(),
-        lineRule: LineRuleType.AUTO,
-      },
-    })
-  );
-  bodyChildren.push(
-    new Paragraph({
-      children: [
-        new TextRun({
-          text: "Security & testing: ",
-          bold: true,
-          color: COLOR.body,
-        }),
-        new TextRun({ text: TESTING_TOOLS.join(", "), color: COLOR.body }),
-      ],
-      spacing: {
-        ...spacingBody(),
-        lineRule: LineRuleType.AUTO,
-      },
-    })
-  );
 
   bodyChildren.push(
     new Paragraph({
