@@ -3,62 +3,63 @@
 
     <!-- Floating header: compact row on mobile + slide-down menu -->
     <header class="w-full fixed top-4 z-50 px-4 sm:px-6">
-      <div class="max-w-6xl mx-auto relative">
+      <div class="max-w-5xl mx-auto relative">
         <nav
-          class="px-4 sm:px-6 py-3 md:py-4 flex justify-between items-center gap-3 rounded-[2rem] transition-all duration-700 ease-out"
-          :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'"
+          class="pl-4 pr-2.5 sm:pl-5 sm:pr-3 py-2.5 flex justify-between items-center gap-3 rounded-full backdrop-blur-xl transition-all duration-700 ease-out"
+          :class="isDarkMode ? 'bg-gray-900/70 border border-gray-800' : 'bg-white/80 border border-gray-200'"
           aria-label="Main navigation"
         >
-          <div class="flex items-center space-x-3 group cursor-pointer min-w-0 flex-shrink-0" @click="scrollToTop">
-            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl flex items-center justify-center font-bold text-sm sm:text-base transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
+          <div class="flex items-center gap-3 group cursor-pointer min-w-0 flex-shrink-0" @click="scrollToTop">
+            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-white text-gray-900' : 'bg-gray-900 text-white'">
               G
             </div>
-            <h1 class="hidden sm:block text-lg md:text-xl font-bold transition-colors duration-700 ease-out truncate" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Goz</h1>
+            <span class="hidden sm:block text-sm font-semibold tracking-tight transition-colors duration-700 ease-out truncate" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Franklin Agu</span>
           </div>
 
           <!-- Desktop / tablet: inline links -->
-          <div class="hidden md:flex items-center gap-1 lg:gap-2 text-sm flex-shrink-0">
-            <a href="#about" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+          <div class="hidden md:flex items-center gap-1 text-sm">
+            <a href="#about" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
               About
             </a>
-            <a href="#projects" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+            <a href="#projects" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
               Projects
             </a>
-            <a href="#contact" class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'">
+            <a href="#contact" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
               Contact
             </a>
+          </div>
+
+          <div class="flex items-center gap-2 flex-shrink-0">
             <button
               type="button"
               @click="exportCvToWord"
               :disabled="cvExporting"
-              class="px-4 lg:px-5 py-2.5 rounded-2xl font-medium transition-all duration-700 ease-out disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-              :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'"
+              class="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
             >
+              <Icon icon="ph:download-simple" class="w-4 h-4" />
               {{ cvExporting ? 'Preparing…' : 'Download CV' }}
             </button>
-          </div>
-
-          <div class="flex items-center gap-1.5 flex-shrink-0">
             <button
               type="button"
-              class="md:hidden p-2.5 rounded-2xl transition-all duration-700 ease-out [-webkit-tap-highlight-color:transparent]"
-              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800 border border-gray-700' : 'text-gray-700 hover:bg-gray-100 border border-gray-200'"
+              @click="toggleDarkMode"
+              class="p-2.5 rounded-full transition-all duration-500 ease-out"
+              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100'"
+              aria-label="Toggle dark mode"
+            >
+              <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5" />
+              <Icon v-else icon="ph:moon-duotone" class="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              class="md:hidden p-2.5 rounded-full transition-all duration-500 ease-out [-webkit-tap-highlight-color:transparent]"
+              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100'"
               :aria-expanded="navOpen"
               aria-controls="mobile-nav-menu"
               :aria-label="navOpen ? 'Close menu' : 'Open menu'"
               @click="navOpen = !navOpen"
             >
-              <Icon :icon="navOpen ? 'ph:x' : 'ph:list'" class="w-6 h-6" />
-            </button>
-            <button
-              type="button"
-              @click="toggleDarkMode"
-              class="p-2.5 sm:p-3 rounded-2xl transition-all duration-700 ease-out"
-              :class="isDarkMode ? 'bg-gray-800 border border-gray-700 hover:bg-gray-700' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'"
-              aria-label="Toggle dark mode"
-            >
-              <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5 transition-colors duration-700 ease-out text-gray-300" />
-              <Icon v-else icon="ph:moon-duotone" class="w-5 h-5 transition-colors duration-700 ease-out text-gray-600" />
+              <Icon :icon="navOpen ? 'ph:x' : 'ph:list'" class="w-5 h-5" />
             </button>
           </div>
         </nav>
@@ -67,13 +68,13 @@
         <div
           id="mobile-nav-menu"
           v-show="navOpen"
-          class="md:hidden absolute left-0 right-0 top-[calc(100%+0.5rem)] rounded-[1.5rem] border shadow-lg overflow-hidden transition-colors duration-700 ease-out"
-          :class="isDarkMode ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-200'"
+          class="md:hidden absolute left-0 right-0 top-[calc(100%+0.5rem)] rounded-[1.75rem] border overflow-hidden backdrop-blur-xl transition-colors duration-700 ease-out"
+          :class="isDarkMode ? 'bg-gray-900/95 border-gray-800' : 'bg-white/95 border-gray-200'"
         >
-          <div class="flex flex-col p-2 text-base">
+          <div class="flex flex-col p-2.5">
             <a
               href="#about"
-              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
               :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
               @click="navOpen = false"
             >
@@ -81,7 +82,7 @@
             </a>
             <a
               href="#projects"
-              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
               :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
               @click="navOpen = false"
             >
@@ -89,21 +90,24 @@
             </a>
             <a
               href="#contact"
-              class="px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out"
+              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
               :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
               @click="navOpen = false"
             >
               Contact
             </a>
-            <button
-              type="button"
-              :disabled="cvExporting"
-              class="text-left px-4 py-3.5 rounded-xl font-medium transition-all duration-700 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
-              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
-              @click="exportCvToWord(); navOpen = false"
-            >
-              {{ cvExporting ? 'Preparing…' : 'Download CV (Word)' }}
-            </button>
+            <div class="p-1.5 pt-2.5">
+              <button
+                type="button"
+                :disabled="cvExporting"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-semibold transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
+                :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
+                @click="exportCvToWord(); navOpen = false"
+              >
+                <Icon icon="ph:download-simple" class="w-4 h-4" />
+                {{ cvExporting ? 'Preparing…' : 'Download CV' }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -574,21 +578,49 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-12 text-center border-t relative z-10 transition-all duration-500" :class="isDarkMode ? 'bg-gray-900/50 border-gray-800' : 'bg-white border-gray-200'">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="flex flex-col items-center gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-900 text-white'">
-              G
+    <footer class="w-full border-t relative z-10 transition-colors duration-700 ease-out" :class="isDarkMode ? 'border-gray-800' : 'border-gray-200'">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+          <!-- Identity -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-white text-gray-900' : 'bg-gray-900 text-white'">
+                G
+              </div>
+              <span class="text-sm font-semibold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Franklin Agu</span>
             </div>
-            <span class="font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Franklin Agu</span>
+            <p class="text-sm max-w-xs leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
+              Senior frontend engineer crafting Vue interfaces with careful state management.
+            </p>
           </div>
-          <p class="text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
-            Built with ❤️ using <span class="font-semibold">Nuxt.js</span> & <span class="font-semibold">Tailwind CSS</span>
-          </p>
-          <p class="text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-500'">
-            © {{ new Date().getFullYear() }} All rights reserved
-          </p>
+
+          <div class="flex flex-wrap gap-12 sm:gap-16">
+            <!-- Site links -->
+            <div class="space-y-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-400'">Explore</p>
+              <div class="flex flex-col gap-2.5 text-sm">
+                <a href="#about" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">About</a>
+                <a href="#projects" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Projects</a>
+                <a href="#contact" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Contact</a>
+              </div>
+            </div>
+
+            <!-- Social links -->
+            <div class="space-y-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-400'">Connect</p>
+              <div class="flex flex-col gap-2.5 text-sm">
+                <a href="mailto:Gozieagu1@gmail.com" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Email</a>
+                <a href="https://www.linkedin.com/in/chigozie-agu-85019b209" target="_blank" rel="noopener noreferrer" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">LinkedIn</a>
+                <a href="https://github.com/GozzAgu" target="_blank" rel="noopener noreferrer" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom row -->
+        <div class="mt-12 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'border-gray-800 text-gray-600' : 'border-gray-200 text-gray-500'">
+          <p>© {{ new Date().getFullYear() }} Franklin Agu. All rights reserved.</p>
+          <p>Built with Nuxt.js & Tailwind CSS</p>
         </div>
       </div>
     </footer>
