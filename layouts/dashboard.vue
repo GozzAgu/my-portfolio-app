@@ -143,7 +143,7 @@
               Franklin Agu
             </h1>
             <p class="text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              Senior Frontend Engineer · Vue 3 & Vue 2 · State Management & Framework Modernisation
+              Senior Software Engineer · Vue 3 & Vue 2 · State Management & Framework Modernisation
             </p>
           </div>
 
@@ -203,7 +203,7 @@
           <div class="lg:col-span-2 lg:row-span-2">
             <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
                 <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
-                  <p class="text-lg">Senior frontend engineer with <span class="font-semibold">5+ years building production Vue interfaces</span>, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.</p>
+                  <p class="text-lg">Senior software engineer with <span class="font-semibold">5+ years building production Vue interfaces</span>, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.</p>
 
                   <p>Deep in the <span class="font-semibold">Vue ecosystem</span>: Vue 3 and Vue 2, the <span class="font-semibold">Composition API</span>, <span class="font-semibold">Pinia</span>, <span class="font-semibold">Vuex</span>, <span class="font-semibold">Nuxt.js</span>, and <span class="font-semibold">TypeScript</span>, with a focus on store rationalisation, RBAC, and dependency modernisation.</p>
 
@@ -473,7 +473,7 @@
                 </h3>
 
                 <p class="text-lg leading-relaxed max-w-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-                  Senior frontend roles, Vue-heavy products, or ambitious interfaces that need careful state management. I'd love to hear about it.
+                  Senior software roles, Vue-heavy products, or ambitious interfaces that need careful state management. I'd love to hear about it.
                 </p>
               </div>
 
@@ -590,7 +590,7 @@
               <span class="text-sm font-semibold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Franklin Agu</span>
             </div>
             <p class="text-sm max-w-xs leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
-              Senior frontend engineer crafting Vue interfaces with careful state management.
+              Senior software engineer crafting Vue interfaces with careful state management.
             </p>
           </div>
 

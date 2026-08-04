@@ -7,7 +7,7 @@ export type CvExperienceEntry = {
 const CONTACT = {
   name: "Franklin Agu",
   headline:
-    "Senior Frontend Engineer | Vue 3 & Vue 2 | State Management & Framework Modernisation",
+    "Senior Software Engineer | Vue 3 & Vue 2 | State Management & Framework Modernisation",
   location: "England, UK",
   phone: "07551116916",
   email: "Gozieagu1@gmail.com",
