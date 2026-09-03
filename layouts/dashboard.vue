@@ -725,6 +725,33 @@ const experienceTabs = [
     ],
   },
   {
+    label: "Software Engineer - Famous Parking (Remote, USA)",
+    date: "2023 - 2024",
+    completed: true,
+    timeline: [
+      {
+        title: "Secure System Development",
+        description:
+          "Built systems handling sensitive transactional and user data with security best practices.",
+      },
+      {
+        title: "Secure API Integration",
+        description:
+          "Integrated third-party APIs supporting secure payments and real-time data processing.",
+      },
+      {
+        title: "Testing & Risk Mitigation",
+        description:
+          "Conducted regression testing and documented test cases to reduce operational and security risks.",
+      },
+      {
+        title: "Business Requirements Translation",
+        description:
+          "Translated business requirements into secure, maintainable software implementations.",
+      },
+    ],
+  },
+  {
     label: "Service Operations Analyst - Concentrix",
     date: "March 2026 - Present",
     completed: false,
