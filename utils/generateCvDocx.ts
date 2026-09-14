@@ -27,6 +27,10 @@ const CORE_SKILLS: { label: string; items: string }[] = [
       "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
   },
   {
+    label: "Frontend & Frameworks",
+    items: "Vue 3, Nuxt, Composition API, JavaScript, TypeScript, Tailwind CSS",
+  },
+  {
     label: "Databases & Scripting",
     items:
       "SQL (MySQL), data reconciliation, Python, JavaScript, Docker, Git, access control (RBAC)",

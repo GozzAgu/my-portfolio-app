@@ -33,7 +33,7 @@
               G
             </span>
             <span
-              class="font-display hidden truncate text-sm font-semibold tracking-tight sm:block"
+              class="font-display hidden text-sm font-semibold leading-normal tracking-tight sm:block"
               :class="isDarkMode ? 'text-white' : 'text-[#111318]'"
             >
               Franklin Agu
@@ -128,13 +128,13 @@
               Software Support Engineer
             </p>
             <h1
-              class="font-display text-[clamp(3.4rem,11vw,7.5rem)] font-bold leading-[1.08] tracking-[-0.04em] pb-[0.12em]"
+              class="font-display text-[clamp(3.4rem,11vw,7.5rem)] font-bold leading-[1.15] tracking-[-0.04em]"
               :class="isDarkMode ? 'text-white' : 'text-[#111318]'"
             >
               Franklin<br />Agu
             </h1>
             <p
-              class="max-w-xl text-lg leading-relaxed sm:text-xl"
+              class="max-w-xl text-lg leading-[1.75] sm:text-xl"
               :class="isDarkMode ? 'text-white/60' : 'text-[#3a3f4b]'"
             >
               Application diagnostics, APIs and data operations across enterprise SaaS, with five years of tier-2 and tier-3 support experience.
@@ -162,7 +162,7 @@
 
           <div class="hero-panel relative hidden lg:block">
             <div
-              class="relative overflow-hidden rounded-[2rem] border p-8"
+              class="relative rounded-[2rem] border p-8"
               :class="isDarkMode ? 'border-white/10 bg-white/[0.03]' : 'border-black/5 bg-white/70'"
             >
               <div class="space-y-8">
@@ -170,10 +170,10 @@
                   <p class="text-xs font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
                     Based in
                   </p>
-                  <p class="mt-2 font-display text-2xl font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                  <p class="mt-2 font-display text-2xl font-semibold leading-[1.35]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
                     England, UK
                   </p>
-                  <p class="mt-1 text-sm" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
+                  <p class="mt-1 text-sm leading-[1.7]" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
                     Open to remote, hybrid or relocation
                   </p>
                 </div>
@@ -182,7 +182,7 @@
                   <p class="text-xs font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
                     Focus
                   </p>
-                  <p class="mt-2 text-base leading-relaxed" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
+                  <p class="mt-2 text-base leading-[1.75]" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
                     Application diagnostics · APIs · SQL · Data operations
                   </p>
                 </div>
@@ -207,7 +207,7 @@
       <section id="about" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-14 max-w-2xl space-y-4">
           <p class="section-kicker">01 · About</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             About me
           </h2>
           <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
@@ -246,7 +246,7 @@
               class="border-t pt-5"
               :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
             >
-              <h3 class="font-display text-sm font-semibold tracking-tight" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              <h3 class="font-display text-sm font-semibold leading-snug tracking-tight pb-[0.06em]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
                 {{ group.title }}
               </h3>
               <p class="mt-2 text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
@@ -261,7 +261,7 @@
       <section id="experience" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-14 max-w-2xl space-y-4">
           <p class="section-kicker">02 · Experience</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Where I've worked
           </h2>
           <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
@@ -277,7 +277,7 @@
             :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
           >
             <div class="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-              <h3 class="font-display text-xl font-semibold tracking-tight sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              <h3 class="font-display text-xl font-semibold leading-snug tracking-tight pb-[0.08em] sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
                 {{ tab.label }}
               </h3>
               <p class="shrink-0 text-sm tabular-nums" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
@@ -307,7 +307,7 @@
       <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-10 space-y-4">
           <p class="section-kicker">03 · Highlight</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Key technical project
           </h2>
         </div>
@@ -315,7 +315,7 @@
           class="max-w-4xl border-l-2 pl-6 sm:pl-10"
           :class="isDarkMode ? 'border-teal-400/60' : 'border-teal-700'"
         >
-          <p class="font-display text-2xl font-semibold leading-snug tracking-tight sm:text-4xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <p class="font-display text-2xl font-semibold leading-[1.25] tracking-tight pb-[0.1em] sm:text-4xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Storvv: SaaS application and integration platform.
           </p>
           <p class="mt-5 max-w-3xl text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
@@ -328,7 +328,7 @@
       <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-14 space-y-4">
           <p class="section-kicker">04 · Education</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Education
           </h2>
         </div>
@@ -343,7 +343,7 @@
             ]"
           >
             <p class="text-sm tabular-nums" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">{{ edu.year }}</p>
-            <h3 class="font-display mt-3 text-xl font-semibold tracking-tight sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            <h3 class="font-display mt-3 text-xl font-semibold leading-snug tracking-tight pb-[0.08em] sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
               {{ edu.degree }}
             </h3>
             <p class="mt-2 text-sm" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">{{ edu.school }}</p>
@@ -355,7 +355,7 @@
       <section id="projects" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-14 max-w-2xl space-y-4">
           <p class="section-kicker">05 · Projects</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Selected work
           </h2>
           <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
@@ -385,7 +385,7 @@
                 :class="isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/25 group-hover:text-[#111318]'"
               />
             </div>
-            <h3 class="font-display text-xl font-semibold tracking-tight" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            <h3 class="font-display text-xl font-semibold leading-snug tracking-tight pb-[0.08em]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
               {{ project.name }}
             </h3>
             <p class="mt-3 flex-grow text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
@@ -402,13 +402,13 @@
       <section id="contact" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <div class="mb-14 space-y-4">
           <p class="section-kicker">06 · Contact</p>
-          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Get in touch
           </h2>
         </div>
 
         <div
-          class="overflow-hidden rounded-[2rem] border"
+          class="rounded-[2rem] border"
           :class="isDarkMode ? 'border-white/10 bg-white/[0.02]' : 'border-black/5 bg-white/70'"
         >
           <div class="grid lg:grid-cols-5">
@@ -417,7 +417,7 @@
                 <p class="text-sm font-medium" :class="isDarkMode ? 'text-teal-300' : 'text-teal-800'">
                   Open to new opportunities
                 </p>
-                <h3 class="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                <h3 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.12em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
                   Let's build<br />something together.
                 </h3>
                 <p class="max-w-xl text-lg leading-relaxed" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
@@ -583,6 +583,10 @@ const skillGroups = [
     title: "Application Support & Triage",
     items:
       "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
+  },
+  {
+    title: "Frontend & Frameworks",
+    items: "Vue 3, Nuxt, Composition API, JavaScript, TypeScript, Tailwind CSS",
   },
   {
     title: "Databases & Scripting",
@@ -949,14 +953,13 @@ onMounted(() => {
   transition: color 0.3s ease;
 }
 
+/* Opacity-only: transforms create a layer that clips Syne/DM Sans descenders */
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(28px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
