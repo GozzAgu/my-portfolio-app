@@ -766,6 +766,33 @@ const experienceTabs = [
       },
     ],
   },
+  {
+    label: "Software Support Specialist / Engineer - Famous Parking (Remote, USA)",
+    date: "2023 - 2024",
+    completed: true,
+    timeline: [
+      {
+        title: "Application Support for Transactional Systems",
+        description:
+          "Provided technical software support for systems handling sensitive transactional and user data, applying security best practices during investigation and resolution.",
+      },
+      {
+        title: "API & Payment Integration Diagnostics",
+        description:
+          "Troubleshot and supported third-party API integrations for secure payments and real-time data processing, isolating failures across payloads and sync flows.",
+      },
+      {
+        title: "Testing & Risk Mitigation",
+        description:
+          "Conducted regression testing and documented test cases to reduce operational and security risks before and after releases.",
+      },
+      {
+        title: "Requirements & Escalation Support",
+        description:
+          "Translated business requirements into clear technical acceptance criteria and escalation notes for maintainable software fixes.",
+      },
+    ],
+  },
 ];
 
 const projects = [
