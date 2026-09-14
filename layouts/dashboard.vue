@@ -735,7 +735,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "Software Support Specialist / Engineer - CypherCrescent Ltd",
+    label: "Software Support Engineer - CypherCrescent Ltd",
     date: "2020 - 2025",
     completed: true,
     timeline: [
@@ -767,7 +767,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "Software Support Specialist / Engineer - Famous Parking (Remote, USA)",
+    label: "Software Support Engineer - Famous Parking (Remote, USA)",
     date: "2023 - 2024",
     completed: true,
     timeline: [
