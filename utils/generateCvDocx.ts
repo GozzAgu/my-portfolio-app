@@ -11,7 +11,7 @@ const CONTACT = {
   location: "England, UK · Open to remote, hybrid or relocation",
   phone: "07551116916",
   email: "Gozieagu1@gmail.com",
-  linkedin: "https://www.linkedin.com/in/chigozie-agu-85019b209",
+  linkedin: "https://www.linkedin.com/in/franklin-agu-85019b209/",
   github: "https://github.com/GozzAgu",
   portfolio: "https://goz-portfolio-app.vercel.app",
 };

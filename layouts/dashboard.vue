@@ -523,7 +523,7 @@
               </p>
               <div class="flex flex-col gap-2.5 text-sm">
                 <a href="mailto:Gozieagu1@gmail.com" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Email</a>
-                <a href="https://www.linkedin.com/in/chigozie-agu-85019b209" target="_blank" rel="noopener noreferrer" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/franklin-agu-85019b209/" target="_blank" rel="noopener noreferrer" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">LinkedIn</a>
                 <a href="https://github.com/GozzAgu" target="_blank" rel="noopener noreferrer" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">GitHub</a>
               </div>
             </div>
@@ -623,7 +623,7 @@ const contactItems = [
   {
     label: "LinkedIn",
     value: "Franklin Agu",
-    href: "https://www.linkedin.com/in/chigozie-agu-85019b209",
+    href: "https://www.linkedin.com/in/franklin-agu-85019b209/",
     external: true,
   },
   {
