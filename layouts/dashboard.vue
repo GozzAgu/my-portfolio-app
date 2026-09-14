@@ -1,647 +1,562 @@
 <template>
-  <div class="min-h-screen flex flex-col relative overflow-hidden transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-[#0a0a0f] text-gray-100' : 'bg-gray-50 text-gray-900'">
+  <div
+    class="portfolio min-h-screen flex flex-col relative transition-colors duration-500"
+    :class="isDarkMode ? 'dark' : ''"
+  >
+    <!-- Atmosphere -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <div class="absolute inset-0 bg-paper" />
+      <div class="atmosphere-mesh absolute -top-32 left-1/2 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full opacity-70 blur-3xl" />
+      <div class="atmosphere-mesh-secondary absolute bottom-0 right-0 h-[28rem] w-[28rem] translate-x-1/4 translate-y-1/4 rounded-full opacity-50 blur-3xl" />
+      <div class="absolute inset-0 noise-overlay opacity-[0.035]" />
+    </div>
 
-    <!-- Floating header: compact row on mobile + slide-down menu -->
-    <header class="w-full fixed top-4 z-50 px-4 sm:px-6">
-      <div class="max-w-5xl mx-auto relative">
+    <!-- Top nav -->
+    <header class="fixed inset-x-0 top-0 z-50">
+      <div
+        class="border-b backdrop-blur-xl transition-colors duration-500"
+        :class="isDarkMode ? 'border-white/10 bg-[#0b0d12]/80' : 'border-black/5 bg-[#f5f6f8]/80'"
+      >
         <nav
-          class="pl-4 pr-2.5 sm:pl-5 sm:pr-3 py-2.5 flex justify-between items-center gap-3 rounded-full backdrop-blur-xl transition-all duration-700 ease-out"
-          :class="isDarkMode ? 'bg-gray-900/70 border border-gray-800' : 'bg-white/80 border border-gray-200'"
+          class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8"
           aria-label="Main navigation"
         >
-          <div class="flex items-center gap-3 group cursor-pointer min-w-0 flex-shrink-0" @click="scrollToTop">
-            <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-white text-gray-900' : 'bg-gray-900 text-white'">
+          <button
+            type="button"
+            class="group flex min-w-0 items-center gap-3"
+            @click="scrollToTop"
+          >
+            <span
+              class="font-display flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold transition-colors duration-500"
+              :class="isDarkMode ? 'bg-white text-[#0b0d12]' : 'bg-[#111318] text-white'"
+            >
               G
-            </div>
-            <span class="hidden sm:block text-sm font-semibold tracking-tight transition-colors duration-700 ease-out truncate" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Franklin Agu</span>
+            </span>
+            <span
+              class="font-display hidden truncate text-sm font-semibold tracking-tight sm:block"
+              :class="isDarkMode ? 'text-white' : 'text-[#111318]'"
+            >
+              Franklin Agu
+            </span>
+          </button>
+
+          <div class="hidden items-center gap-8 text-sm md:flex">
+            <a
+              v-for="link in navLinks"
+              :key="link.href"
+              :href="link.href"
+              class="nav-link font-medium transition-colors duration-300"
+              :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#111318]/55 hover:text-[#111318]'"
+            >
+              {{ link.label }}
+            </a>
           </div>
 
-          <!-- Desktop / tablet: inline links -->
-          <div class="hidden md:flex items-center gap-1 text-sm">
-            <a href="#about" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
-              About
-            </a>
-            <a href="#projects" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
-              Projects
-            </a>
-            <a href="#contact" class="px-4 py-2 rounded-full font-medium transition-all duration-500 ease-out whitespace-nowrap" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-900'">
-              Contact
-            </a>
-          </div>
-
-          <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center gap-2">
             <button
               type="button"
-              @click="exportCvToWord"
+              class="hidden items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 md:inline-flex"
+              :class="isDarkMode ? 'bg-white text-[#0b0d12] hover:bg-white/90' : 'bg-[#111318] text-white hover:bg-[#111318]/90'"
               :disabled="cvExporting"
-              class="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
-              :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
+              @click="exportCvToWord"
             >
-              <Icon icon="ph:download-simple" class="w-4 h-4" />
-              {{ cvExporting ? 'Preparing…' : 'Download CV' }}
+              {{ cvExporting ? "Preparing…" : "Download CV" }}
             </button>
             <button
               type="button"
-              @click="toggleDarkMode"
-              class="p-2.5 rounded-full transition-all duration-500 ease-out"
-              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-600 hover:bg-gray-100'"
+              class="rounded-xl p-2.5 transition-colors duration-300"
+              :class="isDarkMode ? 'text-white/70 hover:bg-white/10' : 'text-[#111318]/70 hover:bg-black/5'"
               aria-label="Toggle dark mode"
+              @click="toggleDarkMode"
             >
-              <Icon v-if="isDarkMode" icon="ph:sun-duotone" class="w-5 h-5" />
-              <Icon v-else icon="ph:moon-duotone" class="w-5 h-5" />
+              <Icon :icon="isDarkMode ? 'ph:sun' : 'ph:moon'" class="h-5 w-5" />
             </button>
             <button
               type="button"
-              class="md:hidden p-2.5 rounded-full transition-all duration-500 ease-out [-webkit-tap-highlight-color:transparent]"
-              :class="isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100'"
+              class="rounded-xl p-2.5 transition-colors duration-300 md:hidden [-webkit-tap-highlight-color:transparent]"
+              :class="isDarkMode ? 'text-white/70 hover:bg-white/10' : 'text-[#111318]/70 hover:bg-black/5'"
               :aria-expanded="navOpen"
               aria-controls="mobile-nav-menu"
               :aria-label="navOpen ? 'Close menu' : 'Open menu'"
               @click="navOpen = !navOpen"
             >
-              <Icon :icon="navOpen ? 'ph:x' : 'ph:list'" class="w-5 h-5" />
+              <Icon :icon="navOpen ? 'ph:x' : 'ph:list'" class="h-5 w-5" />
             </button>
           </div>
         </nav>
+      </div>
 
-        <!-- Mobile menu panel -->
-        <div
-          id="mobile-nav-menu"
-          v-show="navOpen"
-          class="md:hidden absolute left-0 right-0 top-[calc(100%+0.5rem)] rounded-[1.75rem] border overflow-hidden backdrop-blur-xl transition-colors duration-700 ease-out"
-          :class="isDarkMode ? 'bg-gray-900/95 border-gray-800' : 'bg-white/95 border-gray-200'"
-        >
-          <div class="flex flex-col p-2.5">
-            <a
-              href="#about"
-              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
-              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
-              @click="navOpen = false"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
-              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
-              @click="navOpen = false"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              class="px-4 py-3.5 rounded-2xl font-medium transition-all duration-500 ease-out"
-              :class="isDarkMode ? 'text-gray-200 hover:bg-gray-800' : 'text-gray-800 hover:bg-gray-100'"
-              @click="navOpen = false"
-            >
-              Contact
-            </a>
-            <div class="p-1.5 pt-2.5">
-              <button
-                type="button"
-                :disabled="cvExporting"
-                class="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl font-semibold transition-all duration-500 ease-out disabled:opacity-50 disabled:cursor-not-allowed"
-                :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
-                @click="exportCvToWord(); navOpen = false"
-              >
-                <Icon icon="ph:download-simple" class="w-4 h-4" />
-                {{ cvExporting ? 'Preparing…' : 'Download CV' }}
-              </button>
-            </div>
-          </div>
+      <div
+        id="mobile-nav-menu"
+        v-show="navOpen"
+        class="border-b px-5 py-3 backdrop-blur-xl md:hidden"
+        :class="isDarkMode ? 'border-white/10 bg-[#0b0d12]/95' : 'border-black/5 bg-[#f5f6f8]/95'"
+      >
+        <div class="mx-auto flex max-w-6xl flex-col gap-1">
+          <a
+            v-for="link in navLinks"
+            :key="link.href"
+            :href="link.href"
+            class="rounded-xl px-3 py-3 text-sm font-medium transition-colors duration-300"
+            :class="isDarkMode ? 'text-white/80 hover:bg-white/10' : 'text-[#111318]/80 hover:bg-black/5'"
+            @click="navOpen = false"
+          >
+            {{ link.label }}
+          </a>
+          <button
+            type="button"
+            class="mt-2 rounded-xl px-3 py-3 text-left text-sm font-semibold transition-colors duration-300 disabled:opacity-50"
+            :class="isDarkMode ? 'bg-white text-[#0b0d12]' : 'bg-[#111318] text-white'"
+            :disabled="cvExporting"
+            @click="exportCvToWord(); navOpen = false"
+          >
+            {{ cvExporting ? "Preparing…" : "Download CV" }}
+          </button>
         </div>
       </div>
     </header>
 
-    <main class="flex-grow w-full px-4 sm:px-6 py-20 relative z-10">
-      <!-- Hero Section - Modern & Minimal -->
-      <section class="min-h-screen flex items-center justify-center py-20 max-w-7xl mx-auto">
-        <div class="text-center space-y-10 animate-fade-in-up w-full">
-          <!-- Avatar -->
-          <div class="relative inline-block">
-            <div class="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-[2rem] flex items-center justify-center transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-900'">
-              <span class="text-5xl sm:text-6xl font-bold text-white">G</span>
-            </div>
-          </div>
-
-          <!-- Availability pill -->
-          <div class="flex justify-center px-4">
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/60 border border-gray-800 text-gray-300' : 'bg-white border border-gray-200 text-gray-600'">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Open to new opportunities
-              <span class="opacity-40">·</span>
-              England, UK
-            </div>
-          </div>
-
-          <!-- Name -->
-          <div class="space-y-5 px-4">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.02] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-              Franklin Agu
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              Senior Software Engineer · Vue 3 & Vue 2 · State Management & Framework Modernisation
+    <main class="relative z-10 flex-grow">
+      <!-- Hero -->
+      <section class="relative flex min-h-[100svh] items-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:items-center lg:pb-0">
+        <div class="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+          <div class="hero-copy space-y-8">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.28em]"
+              :class="isDarkMode ? 'text-teal-300/80' : 'text-teal-800'"
+            >
+              Software Support Engineer
             </p>
+            <h1
+              class="font-display text-[clamp(3.4rem,11vw,7.5rem)] font-bold leading-[1.08] tracking-[-0.04em] pb-[0.12em]"
+              :class="isDarkMode ? 'text-white' : 'text-[#111318]'"
+            >
+              Franklin<br />Agu
+            </h1>
+            <p
+              class="max-w-xl text-lg leading-relaxed sm:text-xl"
+              :class="isDarkMode ? 'text-white/60' : 'text-[#3a3f4b]'"
+            >
+              Application diagnostics, APIs and data operations across enterprise SaaS, with five years of tier-2 and tier-3 support experience.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                class="group inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300"
+                :class="isDarkMode ? 'bg-white text-[#0b0d12] hover:bg-white/90' : 'bg-[#111318] text-white hover:bg-[#111318]/90'"
+                @click="scrollToSection('projects')"
+              >
+                Explore my work
+                <Icon icon="ph:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+              <button
+                type="button"
+                class="inline-flex items-center justify-center gap-2 rounded-xl border px-6 py-3.5 text-sm font-semibold transition-all duration-300"
+                :class="isDarkMode ? 'border-white/15 text-white hover:bg-white/5' : 'border-black/10 text-[#111318] hover:bg-black/[0.03]'"
+                @click="scrollToSection('contact')"
+              >
+                Get in touch
+              </button>
+            </div>
           </div>
 
-          <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 px-4 max-w-3xl mx-auto">
-            <button
-              @click="scrollToSection('projects')"
-              class="group px-7 py-3.5 rounded-2xl font-semibold transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2.5"
-              :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
+          <div class="hero-panel relative hidden lg:block">
+            <div
+              class="relative overflow-hidden rounded-[2rem] border p-8"
+              :class="isDarkMode ? 'border-white/10 bg-white/[0.03]' : 'border-black/5 bg-white/70'"
             >
-              Explore my work
-              <Icon icon="ph:arrow-right" class="w-4.5 h-4.5 transition-transform duration-500 group-hover:translate-x-1" />
-            </button>
-            <button
-              type="button"
-              @click="exportCvToWord"
-              :disabled="cvExporting"
-              class="px-7 py-3.5 rounded-2xl font-semibold transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2.5 border disabled:opacity-50 disabled:cursor-not-allowed"
-              :class="isDarkMode ? 'bg-transparent border-gray-700 text-gray-200 hover:bg-gray-800' : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-100'"
-            >
-              <Icon icon="ph:download-simple" class="w-4.5 h-4.5" />
-              {{ cvExporting ? 'Preparing…' : 'Download CV' }}
-            </button>
-            <button
-              @click="scrollToSection('contact')"
-              class="px-7 py-3.5 rounded-2xl font-semibold transition-all duration-700 ease-out w-full sm:w-auto flex items-center justify-center gap-2.5"
-              :class="isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-800' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'"
-            >
-              Get in touch
-              <Icon icon="ph:paper-plane-tilt" class="w-4.5 h-4.5" />
-            </button>
-          </div>
-
-          <!-- Scroll indicator -->
-          <div class="pt-14">
-            <div class="flex flex-col items-center gap-2 group cursor-pointer" @click="scrollToSection('about')">
-              <span class="text-xs font-medium uppercase tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">Scroll</span>
-              <Icon icon="ph:caret-down" class="w-5 h-5 animate-bounce transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'" />
+              <div class="space-y-8">
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
+                    Based in
+                  </p>
+                  <p class="mt-2 font-display text-2xl font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                    England, UK
+                  </p>
+                  <p class="mt-1 text-sm" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
+                    Open to remote, hybrid or relocation
+                  </p>
+                </div>
+                <div class="h-px w-full" :class="isDarkMode ? 'bg-white/10' : 'bg-black/5'" />
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
+                    Focus
+                  </p>
+                  <p class="mt-2 text-base leading-relaxed" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
+                    Application diagnostics · APIs · SQL · Data operations
+                  </p>
+                </div>
+                <div class="h-px w-full" :class="isDarkMode ? 'bg-white/10' : 'bg-black/5'" />
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-300"
+                  :class="isDarkMode ? 'text-teal-300 hover:text-teal-200' : 'text-teal-800 hover:text-teal-950'"
+                  :disabled="cvExporting"
+                  @click="exportCvToWord"
+                >
+                  <Icon icon="ph:download-simple" class="h-4 w-4" />
+                  {{ cvExporting ? "Preparing CV…" : "Download CV (Word)" }}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- About Section - Bento Style -->
-      <section id="about" class="py-28 max-w-7xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">01 · About</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+      <!-- About -->
+      <section id="about" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 max-w-2xl space-y-4">
+          <p class="section-kicker">01 · About</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             About me
           </h2>
-          <p class="text-lg max-w-2xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">The journey, the stack, and what I care about.</p>
-        </div>
-          
-        <!-- Bento Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
-          <!-- Large bio card -->
-          <div class="lg:col-span-2 lg:row-span-2">
-            <div class="h-full rounded-[2rem] p-8 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="leading-relaxed space-y-4 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'">
-                  <p class="text-lg">Senior software engineer with <span class="font-semibold">5+ years building production Vue interfaces</span>, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.</p>
-
-                  <p>Deep in the <span class="font-semibold">Vue ecosystem</span>: Vue 3 and Vue 2, the <span class="font-semibold">Composition API</span>, <span class="font-semibold">Pinia</span>, <span class="font-semibold">Vuex</span>, <span class="font-semibold">Nuxt.js</span>, and <span class="font-semibold">TypeScript</span>, with a focus on store rationalisation, RBAC, and dependency modernisation.</p>
-
-                  <p>Experienced building responsive, accessible UI with <span class="font-semibold">Vuetify</span> from Figma designs, and data intensive dashboards with <span class="font-semibold">Chart.js</span> that stay fast under large dataset rendering and significant data load.</p>
-
-                  <p>Also holds an <span class="font-semibold">MSc in Cybersecurity (Distinction, University of Derby)</span>, with research applying AES encryption, RSA key exchange, and role-based access control to protect data integrity in cloud-based inventory systems.</p>
-                </div>
-              </div>
-            </div>
-            
-          <!-- Skills Card 1 - Vue Ecosystem -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:code" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Vue Ecosystem</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vue 3</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Composition API</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Pinia</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vuex</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Nuxt.js</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TypeScript</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 2 - State Management & Architecture -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:tree-structure" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">State Management & Architecture</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Store rationalisation</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">RBAC</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Dependency modernisation</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 3 - UI & Design Systems -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:paint-brush" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">UI & Design Systems</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Vuetify</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Figma to code</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Responsive UI</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Accessible UI</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">TailwindCSS</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 4 - Data & Performance -->
-          <div>
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:chart-line-up" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Data & Performance</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Chart.js</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Data-intensive dashboards</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Large dataset rendering</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Performance optimisation</span>
-                </div>
-              </div>
-            </div>
-
-          <!-- Skills Card 5 - Tooling -->
-          <div class="lg:col-span-2">
-            <div class="h-full rounded-[2rem] p-6 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex items-center gap-3 mb-4">
-                  <div class="p-3 rounded-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800' : 'bg-gray-100'">
-                    <Icon icon="ph:toolbox" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <h3 class="text-xl font-bold transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Tooling</h3>
-                </div>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Git</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Node.js</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">REST APIs</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">Firebase</span>
-                  <span class="px-3 py-1.5 rounded-lg text-sm font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-700'">CI/CD Pipelines</span>
-                 </div>
-              </div>
-            </div>
-        </div>
-      </section>
-
-      <!-- Experience Section -->
-      <section class="py-28 max-w-7xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">02 · Experience</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-            Where I've worked
-          </h2>
-          <p class="text-lg max-w-2xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">My professional journey so far.</p>
+          <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+            The journey, the stack, and what I care about.
+          </p>
         </div>
 
-        <div class="space-y-6">
-            <div v-for="tab in experienceTabs" :key="tab.label">
-              <div class="rounded-[2rem] p-6 sm:p-10 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
-                  <h3 class="text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ tab.label }}</h3>
-                  <span
-                    class="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-700 ease-out"
-                    :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-600'"
-                  >
-                    <span v-if="!tab.completed" class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    {{ tab.date }}
-                  </span>
-                </div>
-                <div class="space-y-0 divide-y transition-colors duration-700 ease-out" :class="isDarkMode ? 'divide-gray-800' : 'divide-gray-100'">
-                  <div v-for="item in tab.timeline" :key="item.title" class="py-5 first:pt-0 last:pb-0 sm:grid sm:grid-cols-[240px_1fr] sm:gap-8">
-                    <h4 class="font-semibold mb-1.5 sm:mb-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ item.title }}</h4>
-                    <p class="text-sm leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">{{ item.description }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
-
-      <!-- Key Achievements Section -->
-      <section class="py-28 max-w-7xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">03 · Highlight</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-            Key achievement
-          </h2>
-        </div>
-
-        <div class="rounded-[2rem] p-8 sm:p-12 transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-          <div class="max-w-3xl space-y-5">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
-              <Icon icon="ph:trophy" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-            </div>
-            <h3 class="text-2xl sm:text-3xl font-bold tracking-tight leading-snug transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
-              Zero data loss migrating legacy data to secure cloud environments.
-            </h3>
-            <p class="text-lg leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-              Successfully contributed to the migration of legacy data with no data loss or security breaches, demonstrating secure data migration, risk mitigation, and data integrity throughout complex system transitions.
+        <div class="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+          <div class="space-y-5 text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
+            <p>
+              MSc-qualified Software Support Engineer with
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">over five years of experience in tier-2 and tier-3 application support</span>,
+              root cause analysis and production troubleshooting across enterprise SaaS environments.
+            </p>
+            <p>
+              Skilled in running
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">SQL queries</span>,
+              inspecting system logs, and troubleshooting
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">REST and SOAP APIs</span>
+              with JSON and XML payloads.
+            </p>
+            <p>
+              Resolves the majority of technical incidents at first contact under SLA, builds complete diagnostic escalation packages for engineering, and uses AI tools to speed up investigation and resolution.
+            </p>
+            <p>
+              Holds an
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">MSc in Cybersecurity (Distinction, University of Derby)</span>,
+              with focus on secure application frameworks, access control (RBAC/ABAC), data encryption and audit logging.
             </p>
           </div>
+
+          <div class="space-y-8">
+            <div
+              v-for="group in skillGroups"
+              :key="group.title"
+              class="border-t pt-5"
+              :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
+            >
+              <h3 class="font-display text-sm font-semibold tracking-tight" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                {{ group.title }}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
+                {{ group.items }}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Education Section -->
-      <section class="py-28 max-w-7xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">04 · Education</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+      <!-- Experience -->
+      <section id="experience" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 max-w-2xl space-y-4">
+          <p class="section-kicker">02 · Experience</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            Where I've worked
+          </h2>
+          <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+            My professional journey so far.
+          </p>
+        </div>
+
+        <div class="space-y-0">
+          <article
+            v-for="tab in experienceTabs"
+            :key="tab.label"
+            class="border-t py-10 first:border-t-0 first:pt-0"
+            :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
+          >
+            <div class="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <h3 class="font-display text-xl font-semibold tracking-tight sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                {{ tab.label }}
+              </h3>
+              <p class="shrink-0 text-sm tabular-nums" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
+                <span v-if="!tab.completed" class="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-teal-500 align-middle" />
+                {{ tab.date }}
+              </p>
+            </div>
+            <div class="space-y-5">
+              <div
+                v-for="item in tab.timeline"
+                :key="item.title"
+                class="grid gap-2 sm:grid-cols-[220px_1fr] sm:gap-10"
+              >
+                <h4 class="text-sm font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                  {{ item.title }}
+                </h4>
+                <p class="text-sm leading-relaxed" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Highlight -->
+      <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-10 space-y-4">
+          <p class="section-kicker">03 · Highlight</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            Key technical project
+          </h2>
+        </div>
+        <blockquote
+          class="max-w-4xl border-l-2 pl-6 sm:pl-10"
+          :class="isDarkMode ? 'border-teal-400/60' : 'border-teal-700'"
+        >
+          <p class="font-display text-2xl font-semibold leading-snug tracking-tight sm:text-4xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            Storvv: SaaS application and integration platform.
+          </p>
+          <p class="mt-5 max-w-3xl text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+            Lead engineer and support operations for a multi-tenant SaaS platform processing real-time transactional data, with RBAC, secure authentication, database workflows, billing logic, and API diagnostics via Postman and SQL.
+          </p>
+        </blockquote>
+      </section>
+
+      <!-- Education -->
+      <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 space-y-4">
+          <p class="section-kicker">04 · Education</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Education
           </h2>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Master's Degree -->
-          <div class="rounded-[2rem] p-8 sm:p-10 transition-all duration-700 ease-out flex flex-col gap-6" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
-                <Icon icon="ph:graduation-cap" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-              </div>
-              <span class="text-sm font-semibold tabular-nums transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">2025</span>
-            </div>
-            <div class="space-y-2">
-              <h4 class="text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">MSc Cybersecurity <span class="font-medium" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'">· Distinction</span></h4>
-              <p class="transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">University of Derby, England</p>
-            </div>
-          </div>
-
-          <!-- Bachelor's Degree -->
-          <div class="rounded-[2rem] p-8 sm:p-10 transition-all duration-700 ease-out flex flex-col gap-6" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
-                <Icon icon="ph:graduation-cap" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-              </div>
-              <span class="text-sm font-semibold tabular-nums transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">2020</span>
-            </div>
-            <div class="space-y-2">
-              <h4 class="text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">BSc Computer Information Systems</h4>
-              <p class="transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Babcock University, Nigeria</p>
-            </div>
+        <div class="grid gap-0 border-t md:grid-cols-2" :class="isDarkMode ? 'border-white/10' : 'border-black/5'">
+          <div
+            v-for="(edu, index) in education"
+            :key="edu.degree"
+            class="py-8 md:pr-10"
+            :class="[
+              index === 0 ? 'md:border-r md:pr-12' : 'md:pl-12',
+              isDarkMode ? 'border-white/10' : 'border-black/5',
+            ]"
+          >
+            <p class="text-sm tabular-nums" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">{{ edu.year }}</p>
+            <h3 class="font-display mt-3 text-xl font-semibold tracking-tight sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              {{ edu.degree }}
+            </h3>
+            <p class="mt-2 text-sm" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">{{ edu.school }}</p>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="py-28 max-w-7xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">05 · Projects</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+      <!-- Projects -->
+      <section id="projects" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 max-w-2xl space-y-4">
+          <p class="section-kicker">05 · Projects</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Selected work
           </h2>
-          <p class="text-lg max-w-2xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">Things I've designed, built, and shipped.</p>
+          <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+            Things I've designed, built, and shipped.
+          </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid gap-4 sm:grid-cols-2">
           <a
             v-for="project in projects"
             :key="project.name"
             :href="project.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col rounded-[2rem] p-7 transition-all duration-500 ease-out"
-            :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800 hover:border-gray-600' : 'bg-white border border-gray-200 hover:border-gray-400'"
+            class="group flex flex-col rounded-2xl border p-6 transition-all duration-300 sm:p-7"
+            :class="isDarkMode
+              ? 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
+              : 'border-black/5 bg-white/60 hover:border-black/10 hover:bg-white'"
           >
-            <div class="flex items-start justify-between mb-6">
-              <div class="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-gray-100 border border-gray-200'">
-                <Icon :icon="project.icon" class="w-6 h-6 transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-              </div>
-              <Icon icon="ph:arrow-up-right" class="w-5 h-5 transition-all duration-500 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" :class="isDarkMode ? 'text-gray-600 group-hover:text-gray-300' : 'text-gray-300 group-hover:text-gray-700'" />
+            <div class="mb-8 flex items-start justify-between gap-4">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
+                {{ project.tag }}
+              </p>
+              <Icon
+                icon="ph:arrow-up-right"
+                class="h-5 w-5 shrink-0 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                :class="isDarkMode ? 'text-white/30 group-hover:text-white' : 'text-black/25 group-hover:text-[#111318]'"
+              />
             </div>
-            <div class="space-y-1 mb-3">
-              <h3 class="text-xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">{{ project.name }}</h3>
-              <p class="text-xs font-medium uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">{{ project.tag }}</p>
-            </div>
-            <p class="text-sm leading-relaxed flex-grow transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">{{ project.description }}</p>
-            <p class="mt-6 text-xs font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-400'">{{ project.host }}</p>
+            <h3 class="font-display text-xl font-semibold tracking-tight" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              {{ project.name }}
+            </h3>
+            <p class="mt-3 flex-grow text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
+              {{ project.description }}
+            </p>
+            <p class="mt-6 text-xs" :class="isDarkMode ? 'text-white/30' : 'text-[#9ca3af]'">
+              {{ project.host }}
+            </p>
           </a>
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="py-28 max-w-5xl mx-auto">
-        <div class="mb-14 space-y-3">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-400'">06 · Contact</p>
-          <h2 class="text-4xl sm:text-5xl font-bold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+      <!-- Contact -->
+      <section id="contact" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 space-y-4">
+          <p class="section-kicker">06 · Contact</p>
+          <h2 class="font-display text-4xl font-bold tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Get in touch
           </h2>
         </div>
-        <div class="rounded-[2.5rem] overflow-hidden transition-all duration-700 ease-out" :class="isDarkMode ? 'bg-gray-900/50 border border-gray-800' : 'bg-white border border-gray-200'">
-          <div class="grid grid-cols-1 lg:grid-cols-5">
 
-            <!-- Left: pitch -->
-            <div class="lg:col-span-3 p-8 sm:p-12 lg:p-14 flex flex-col justify-between gap-10">
-              <div class="space-y-6">
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-medium transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700 text-gray-300' : 'bg-gray-100 border border-gray-200 text-gray-600'">
-                  <span class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
+        <div
+          class="overflow-hidden rounded-[2rem] border"
+          :class="isDarkMode ? 'border-white/10 bg-white/[0.02]' : 'border-black/5 bg-white/70'"
+        >
+          <div class="grid lg:grid-cols-5">
+            <div class="flex flex-col justify-between gap-10 p-8 sm:p-12 lg:col-span-3 lg:p-14">
+              <div class="space-y-5">
+                <p class="text-sm font-medium" :class="isDarkMode ? 'text-teal-300' : 'text-teal-800'">
                   Open to new opportunities
-                </div>
-
-                <h3 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">
+                </p>
+                <h3 class="font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
                   Let's build<br />something together.
                 </h3>
-
-                <p class="text-lg leading-relaxed max-w-xl transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-400' : 'text-gray-600'">
-                  Senior software roles, Vue-heavy products, or ambitious interfaces that need careful state management. I'd love to hear about it.
+                <p class="max-w-xl text-lg leading-relaxed" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+                  Software support, application diagnostics, APIs and data operations. Open to remote, hybrid or relocation. I'd love to hear about it.
                 </p>
               </div>
-
-              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a
                   href="mailto:Gozieagu1@gmail.com"
-                  class="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-700 ease-out"
-                  :class="isDarkMode ? 'bg-white text-gray-900 hover:bg-gray-200' : 'bg-gray-900 text-white hover:bg-gray-800'"
+                  class="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold transition-all duration-300"
+                  :class="isDarkMode ? 'bg-white text-[#0b0d12] hover:bg-white/90' : 'bg-[#111318] text-white hover:bg-[#111318]/90'"
                 >
-                  <Icon icon="ph:paper-plane-tilt" class="w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   Say hello
+                  <Icon icon="ph:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
-                <span class="text-sm text-center sm:text-left transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
+                <span class="text-sm" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
                   Usually replies within a day
                 </span>
               </div>
             </div>
 
-            <!-- Right: contact rail -->
-            <div class="lg:col-span-2 p-4 sm:p-6 lg:p-8 lg:border-l border-t lg:border-t-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'border-gray-800 bg-gray-900/40' : 'border-gray-200 bg-gray-50'">
-              <div class="h-full flex flex-col justify-center gap-2">
-
+            <div
+              class="border-t p-4 sm:p-6 lg:col-span-2 lg:border-l lg:border-t-0 lg:p-8"
+              :class="isDarkMode ? 'border-white/10 bg-black/20' : 'border-black/5 bg-black/[0.02]'"
+            >
+              <div class="flex h-full flex-col justify-center gap-1">
                 <a
-                  href="mailto:Gozieagu1@gmail.com"
-                  class="group flex items-center gap-4 p-4 rounded-2xl transition-all duration-500 ease-out"
-                  :class="isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-white'"
+                  v-for="item in contactItems"
+                  :key="item.label"
+                  :href="item.href"
+                  :target="item.external ? '_blank' : undefined"
+                  :rel="item.external ? 'noopener noreferrer' : undefined"
+                  class="group flex items-center gap-4 rounded-xl px-3 py-3.5 transition-colors duration-300"
+                  :class="isDarkMode ? 'hover:bg-white/5' : 'hover:bg-white'"
                 >
-                  <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'">
-                    <Icon icon="ph:envelope-simple" class="w-5 h-5" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
                   <div class="min-w-0 flex-1">
-                    <p class="text-xs uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">Email</p>
-                    <p class="text-sm font-medium truncate transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-200' : 'text-gray-800'">Gozieagu1@gmail.com</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.18em]" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">
+                      {{ item.label }}
+                    </p>
+                    <p class="mt-1 truncate text-sm font-medium" :class="isDarkMode ? 'text-white/85' : 'text-[#111318]'">
+                      {{ item.value }}
+                    </p>
                   </div>
-                  <Icon icon="ph:arrow-up-right" class="w-4 h-4 flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'" />
+                  <Icon
+                    v-if="item.external || item.href.startsWith('mailto') || item.href.startsWith('tel')"
+                    icon="ph:arrow-up-right"
+                    class="h-4 w-4 shrink-0 opacity-0 transition-all duration-300 group-hover:opacity-100"
+                    :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'"
+                  />
                 </a>
-
-                <a
-                  href="https://www.linkedin.com/in/chigozie-agu-85019b209"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group flex items-center gap-4 p-4 rounded-2xl transition-all duration-500 ease-out"
-                  :class="isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-white'"
-                >
-                  <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'">
-                    <Icon icon="mdi:linkedin" class="w-5 h-5" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
+                <div class="flex items-center gap-4 rounded-xl px-3 py-3.5">
                   <div class="min-w-0 flex-1">
-                    <p class="text-xs uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">LinkedIn</p>
-                    <p class="text-sm font-medium truncate transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-200' : 'text-gray-800'">Franklin Agu</p>
-                  </div>
-                  <Icon icon="ph:arrow-up-right" class="w-4 h-4 flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'" />
-                </a>
-
-                <a
-                  href="https://github.com/GozzAgu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group flex items-center gap-4 p-4 rounded-2xl transition-all duration-500 ease-out"
-                  :class="isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-white'"
-                >
-                  <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'">
-                    <Icon icon="mdi:github" class="w-5 h-5" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">GitHub</p>
-                    <p class="text-sm font-medium truncate transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-200' : 'text-gray-800'">GozzAgu</p>
-                  </div>
-                  <Icon icon="ph:arrow-up-right" class="w-4 h-4 flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500" :class="isDarkMode ? 'text-gray-400' : 'text-gray-500'" />
-                </a>
-
-                <a
-                  href="tel:07551116916"
-                  class="group flex items-center gap-4 p-4 rounded-2xl transition-all duration-500 ease-out"
-                  :class="isDarkMode ? 'hover:bg-gray-800' : 'hover:bg-white'"
-                >
-                  <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'">
-                    <Icon icon="ph:phone" class="w-5 h-5" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">Phone</p>
-                    <p class="text-sm font-medium truncate transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-200' : 'text-gray-800'">07551 116 916</p>
-                  </div>
-                </a>
-
-                <div class="flex items-center gap-4 p-4 rounded-2xl">
-                  <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'">
-                    <Icon icon="ph:map-pin" class="w-5 h-5" :class="isDarkMode ? 'text-gray-300' : 'text-gray-700'" />
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-xs uppercase tracking-wider transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">Location</p>
-                    <p class="text-sm font-medium truncate transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-200' : 'text-gray-800'">England, UK</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-[0.18em]" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">
+                      Location
+                    </p>
+                    <p class="mt-1 text-sm font-medium" :class="isDarkMode ? 'text-white/85' : 'text-[#111318]'">
+                      England, UK
+                    </p>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="w-full border-t relative z-10 transition-colors duration-700 ease-out" :class="isDarkMode ? 'border-gray-800' : 'border-gray-200'">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
-        <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
-          <!-- Identity -->
-          <div class="space-y-3">
+    <footer class="relative z-10 border-t" :class="isDarkMode ? 'border-white/10' : 'border-black/5'">
+      <div class="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+        <div class="flex flex-col justify-between gap-12 md:flex-row md:items-start">
+          <div class="max-w-sm space-y-4">
             <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-700 ease-out" :class="isDarkMode ? 'bg-white text-gray-900' : 'bg-gray-900 text-white'">
+              <span
+                class="font-display flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold"
+                :class="isDarkMode ? 'bg-white text-[#0b0d12]' : 'bg-[#111318] text-white'"
+              >
                 G
-              </div>
-              <span class="text-sm font-semibold tracking-tight transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-white' : 'text-gray-900'">Franklin Agu</span>
+              </span>
+              <span class="font-display text-sm font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                Franklin Agu
+              </span>
             </div>
-            <p class="text-sm max-w-xs leading-relaxed transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-500' : 'text-gray-500'">
-              Senior software engineer crafting Vue interfaces with careful state management.
+            <p class="text-sm leading-relaxed" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
+              Software Support Engineer · application diagnostics, APIs and data operations.
             </p>
           </div>
 
-          <div class="flex flex-wrap gap-12 sm:gap-16">
-            <!-- Site links -->
+          <div class="flex flex-wrap gap-14">
             <div class="space-y-4">
-              <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-400'">Explore</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">
+                Explore
+              </p>
               <div class="flex flex-col gap-2.5 text-sm">
-                <a href="#about" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">About</a>
-                <a href="#projects" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Projects</a>
-                <a href="#contact" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Contact</a>
+                <a href="#about" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">About</a>
+                <a href="#projects" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Projects</a>
+                <a href="#contact" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Contact</a>
               </div>
             </div>
-
-            <!-- Social links -->
             <div class="space-y-4">
-              <p class="text-xs font-semibold uppercase tracking-[0.25em] transition-colors duration-700 ease-out" :class="isDarkMode ? 'text-gray-600' : 'text-gray-400'">Connect</p>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.22em]" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">
+                Connect
+              </p>
               <div class="flex flex-col gap-2.5 text-sm">
-                <a href="mailto:Gozieagu1@gmail.com" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">Email</a>
-                <a href="https://www.linkedin.com/in/chigozie-agu-85019b209" target="_blank" rel="noopener noreferrer" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">LinkedIn</a>
-                <a href="https://github.com/GozzAgu" target="_blank" rel="noopener noreferrer" class="transition-colors duration-500 ease-out" :class="isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'">GitHub</a>
+                <a href="mailto:Gozieagu1@gmail.com" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Email</a>
+                <a href="https://www.linkedin.com/in/chigozie-agu-85019b209" target="_blank" rel="noopener noreferrer" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">LinkedIn</a>
+                <a href="https://github.com/GozzAgu" target="_blank" rel="noopener noreferrer" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">GitHub</a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Bottom row -->
-        <div class="mt-12 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs transition-colors duration-700 ease-out" :class="isDarkMode ? 'border-gray-800 text-gray-600' : 'border-gray-200 text-gray-500'">
+        <div
+          class="mt-12 flex flex-col items-start justify-between gap-3 border-t pt-6 text-xs sm:flex-row sm:items-center"
+          :class="isDarkMode ? 'border-white/10 text-white/30' : 'border-black/5 text-[#9ca3af]'"
+        >
           <p>© {{ new Date().getFullYear() }} Franklin Agu. All rights reserved.</p>
           <p>Built with Nuxt.js & Tailwind CSS</p>
         </div>
       </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
     <Transition
-      enter-active-class="transition-all duration-700 ease-out"
-      enter-from-class="opacity-0 scale-75 translate-y-4"
-      enter-to-class="opacity-100 scale-100 translate-y-0"
-      leave-active-class="transition-all duration-700 ease-out ease-in"
-      leave-from-class="opacity-100 scale-100 translate-y-0"
-      leave-to-class="opacity-0 scale-75 translate-y-4"
+      enter-active-class="transition-all duration-500 ease-out"
+      enter-from-class="opacity-0 translate-y-3"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-active-class="transition-all duration-300 ease-in"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 translate-y-3"
     >
       <button
         v-show="showScrollToTop"
-        @click="scrollToTop"
-        class="fixed bottom-8 right-8 z-50 p-4 rounded-[1.5rem] transition-all duration-700 ease-out"
-        :class="isDarkMode ? 'bg-gray-800 text-white hover:bg-gray-700 border border-gray-700' : 'bg-gray-900 text-white hover:bg-gray-800 border border-gray-800'"
+        type="button"
+        class="fixed bottom-7 right-7 z-50 rounded-xl border p-3.5 transition-colors duration-300"
+        :class="isDarkMode ? 'border-white/10 bg-[#13161d] text-white hover:bg-white/10' : 'border-black/5 bg-white text-[#111318] hover:bg-black/[0.03]'"
         aria-label="Scroll to top"
+        @click="scrollToTop"
       >
-        <Icon icon="ph:arrow-up" class="w-6 h-6" />
+        <Icon icon="ph:arrow-up" class="h-5 w-5" />
       </button>
     </Transition>
   </div>
@@ -657,9 +572,76 @@ const cvExporting = ref(false);
 const showScrollToTop = ref(false);
 const navOpen = ref(false);
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
+const skillGroups = [
+  {
+    title: "Application Support & Triage",
+    items:
+      "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
+  },
+  {
+    title: "Databases & Scripting",
+    items: "SQL (MySQL), data reconciliation, Python, JavaScript, Docker, Git, access control (RBAC)",
+  },
+  {
+    title: "APIs & Data Integrations",
+    items:
+      "REST and SOAP APIs, JSON and XML, Postman, browser developer tools, data synchronisation, webhooks",
+  },
+  {
+    title: "System Operations & AI",
+    items:
+      "Log inspection, automated diagnostics, AI workflows (Claude, prompt engineering), knowledge base authoring",
+  },
+];
+
+const education = [
+  {
+    year: "2025",
+    degree: "MSc Cybersecurity · Distinction",
+    school:
+      "University of Derby, UK · Secure Application Frameworks, Access Control (RBAC/ABAC), Data Encryption, Audit Logging",
+  },
+  {
+    year: "2020",
+    degree: "BSc Computer Information Systems",
+    school: "Babcock University",
+  },
+];
+
+const contactItems = [
+  {
+    label: "Email",
+    value: "Gozieagu1@gmail.com",
+    href: "mailto:Gozieagu1@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "Franklin Agu",
+    href: "https://www.linkedin.com/in/chigozie-agu-85019b209",
+    external: true,
+  },
+  {
+    label: "GitHub",
+    value: "GozzAgu",
+    href: "https://github.com/GozzAgu",
+    external: true,
+  },
+  {
+    label: "Phone",
+    value: "07551 116 916",
+    href: "tel:07551116916",
+  },
+];
+
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
-  localStorage.setItem('darkMode', isDarkMode.value.toString());
+  localStorage.setItem("darkMode", isDarkMode.value.toString());
   document.documentElement.classList.toggle("dark", isDarkMode.value);
 };
 
@@ -667,7 +649,7 @@ const scrollToTop = () => {
   navOpen.value = false;
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 };
 
@@ -675,8 +657,8 @@ const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
     element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+      behavior: "smooth",
+      block: "start",
     });
   }
 };
@@ -694,82 +676,93 @@ const handleLayoutResize = () => {
 
 const experienceTabs = [
   {
-    label: "Software Engineer - CypherCrescent Ltd (Hybrid, Nigeria)",
-    date: "2020 - 2025",
-    completed: true,
-    timeline: [
-      {
-        title: "Vue 3 Interfaces at Scale",
-        description: "Built scalable, high performance Vue 3 interfaces using the Composition API and Pinia/Vuex for state management, translating complex stakeholder requirements into production features.",
-      },
-      {
-        title: "State Management Architecture",
-        description: "Made architectural decisions on state management structure, choosing between Pinia and Vuex patterns based on module complexity, keeping store logic maintainable as the application grew.",
-      },
-      {
-        title: "UI & Design Systems",
-        description: "Built responsive, accessible UI layouts with Vuetify from Figma designs, replacing ageing UI patterns as design requirements evolved.",
-      },
-      {
-        title: "Data-Intensive Dashboards",
-        description: "Built and refined data intensive dashboards using Chart.js for a large enterprise department, turning complex, high volume datasets into clear, actionable insight while keeping interfaces fast under significant data load.",
-      },
-      {
-        title: "Debugging & Performance",
-        description: "Debugged and optimised interfaces across browsers and devices, maintaining a consistent component architecture across multiple enterprise applications used by a large team.",
-      },
-      {
-        title: "Agile Collaboration & CI/CD",
-        description: "Worked closely with non-technical stakeholders and other engineers in an agile team, operating with high autonomy and contributing to CI/CD setup and Git based workflows.",
-      },
-    ],
-  },
-  {
-    label: "Software Engineer - Famous Parking (Remote, USA)",
-    date: "2023 - 2024",
-    completed: true,
-    timeline: [
-      {
-        title: "Secure System Development",
-        description:
-          "Built systems handling sensitive transactional and user data with security best practices.",
-      },
-      {
-        title: "Secure API Integration",
-        description:
-          "Integrated third-party APIs supporting secure payments and real-time data processing.",
-      },
-      {
-        title: "Testing & Risk Mitigation",
-        description:
-          "Conducted regression testing and documented test cases to reduce operational and security risks.",
-      },
-      {
-        title: "Business Requirements Translation",
-        description:
-          "Translated business requirements into secure, maintainable software implementations.",
-      },
-    ],
-  },
-  {
-    label: "Service Operations Analyst - Concentrix",
+    label: "Software Support Analyst - Concentrix, UK",
     date: "March 2026 - Present",
     completed: false,
     timeline: [
       {
-        title: "Process Documentation & Improvement",
-        description: "Work in a detail driven environment, documenting processes clearly and looking for ways to reduce manual, repetitive steps.",
+        title: "Tier-2/3 SaaS Support",
+        description:
+          "Resolve tier-2 and tier-3 application issues across enterprise SaaS platforms under SLA, managing a high monthly ticket volume while maintaining strong customer satisfaction.",
+      },
+      {
+        title: "SQL, Logs & API Diagnostics",
+        description:
+          "Run targeted SQL queries, inspect server performance logs and analyse API payloads and browser diagnostics to isolate root causes.",
+      },
+      {
+        title: "First-Contact Resolution",
+        description:
+          "Resolve the majority of cases at first contact, reducing recurring software incidents through thorough root cause analysis.",
+      },
+      {
+        title: "Engineering Escalation Packages",
+        description:
+          "Build complete diagnostic escalation packages covering reproduction steps, log traces and configuration settings for tier-3 product engineering teams.",
+      },
+      {
+        title: "AI-Assisted Investigation",
+        description:
+          "Use AI-assisted diagnostic tools alongside Jira to analyse ticket trends and reduce mean time to resolution.",
       },
     ],
   },
   {
-    label: "Service Operations Analyst - EE (UK)",
+    label: "Software Support Analyst - EE (BT Group), UK",
     date: "April 2025 - March 2026",
     completed: true,
     timeline: [
       {
-        title: "Adaptability Across Platforms",
-        description: "Worked across multiple digital tools and platforms at once, building adaptability and a habit of finding simpler ways to get things done.",
+        title: "Client-Facing Technical Support",
+        description:
+          "Delivered client-facing technical support across digital platforms, investigating software issues and working consistently to SLA.",
+      },
+      {
+        title: "Knowledge Base Authoring",
+        description:
+          "Authored technical troubleshooting guides and knowledge base articles, driving self-service adoption and cutting repeat queries on common issues.",
+      },
+      {
+        title: "Log Diagnostics & Rollouts",
+        description:
+          "Carried out system log diagnostics and supported application patching and platform rollouts across end-user devices.",
+      },
+      {
+        title: "Stakeholder Communication",
+        description:
+          "Translated complex technical findings into clear updates for non-technical stakeholders during product launches.",
+      },
+    ],
+  },
+  {
+    label: "Software Support Specialist / Engineer - CypherCrescent Ltd",
+    date: "2020 - 2025",
+    completed: true,
+    timeline: [
+      {
+        title: "Enterprise SaaS Support",
+        description:
+          "Provided technical software support, data verification and platform maintenance for enterprise SaaS applications including eHSat+, EPS and DIAP delivered for NNPC, supporting a large base of business users.",
+      },
+      {
+        title: "Failure Scenario Troubleshooting",
+        description:
+          "Troubleshot application failure scenarios including data validation errors, submission failures, authentication issues and integration disconnects.",
+      },
+      {
+        title: "Python & SQL Diagnostics",
+        description:
+          "Wrote Python scripts and ran SQL database queries to audit data integrity, debug REST APIs and cut troubleshooting time.",
+      },
+      {
+        title: "Access Control & Integrations",
+        description:
+          "Managed user provisioning, role-based access control and third-party integrations with accounting platforms including Xero and Sage.",
+      },
+      {
+        title: "Engineering Feedback Loop",
+        description:
+          "Worked with product engineering teams to feed recurring user feedback into development pipelines for hotfixes and patches.",
       },
     ],
   },
@@ -778,10 +771,10 @@ const experienceTabs = [
 const projects = [
   {
     name: "Storvv",
-    tag: "Cloud retail operations",
+    tag: "SaaS application & integration platform",
     icon: "ph:shield-check",
     description:
-      "Secure cloud-based inventory management platform. Built with Vue 3, Firebase, AES encryption, RSA key exchange, and role-based access control for multi-store, real-time dashboards.",
+      "Lead engineer and support operations for a multi-tenant SaaS platform processing real-time transactional data. Vue 3, Nuxt, Node.js, Firebase, REST APIs, SQL and Postman. Configured RBAC, authentication, database workflows and billing logic; diagnosed auth, webhook and sync issues via API and SQL inspection.",
     url: "https://www.storvv.com",
     host: "storvv.com",
   },
@@ -854,25 +847,22 @@ const exportCvToWord = async () => {
 };
 
 onMounted(() => {
-  // Load dark mode preference from localStorage, fallback to system preference
-  const savedDarkMode = localStorage.getItem('darkMode');
+  const savedDarkMode = localStorage.getItem("darkMode");
   if (savedDarkMode !== null) {
-    isDarkMode.value = savedDarkMode === 'true';
+    isDarkMode.value = savedDarkMode === "true";
   } else {
-  isDarkMode.value = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    isDarkMode.value = false;
   }
-  
+
   if (isDarkMode.value) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
-  
-  window.addEventListener('scroll', handleScroll);
-  
+
+  window.addEventListener("scroll", handleScroll);
   window.addEventListener("resize", handleLayoutResize);
-  
-  // Check if experience section is already visible on load
+
   nextTick(() => {
     handleScroll();
   });
@@ -880,135 +870,85 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Animations */
-@keyframes fadeInUp {
-  0% {
+.bg-paper {
+  background: var(--paper);
+}
+
+.atmosphere-mesh {
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.16), transparent 68%);
+  animation: drift 18s ease-in-out infinite;
+}
+
+.atmosphere-mesh-secondary {
+  background: radial-gradient(circle, rgba(17, 19, 24, 0.08), transparent 70%);
+  animation: drift 22s ease-in-out infinite reverse;
+}
+
+.dark .atmosphere-mesh {
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.12), transparent 68%);
+}
+
+.dark .atmosphere-mesh-secondary {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+.section-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.dark .section-kicker {
+  color: rgba(45, 212, 191, 0.85);
+}
+
+.hero-copy {
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-panel {
+  animation: rise 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+.nav-link,
+.footer-link {
+  transition: color 0.3s ease;
+}
+
+@keyframes rise {
+  from {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transform: translateY(28px);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-@keyframes blob {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(30px, -60px) scale(1.15);
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(-50%, 0, 0) scale(1);
   }
   50% {
-    transform: translate(-30px, 30px) scale(0.85);
-  }
-  75% {
-    transform: translate(60px, 60px) scale(1.1);
+    transform: translate3d(-46%, 4%, 0) scale(1.08);
   }
 }
 
-@keyframes gradient-xy {
-  0%, 100% {
-    background-position: 0% 50%;
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-panel,
+  .atmosphere-mesh,
+  .atmosphere-mesh-secondary {
+    animation: none;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-blob {
-  animation: blob 25s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-.animation-delay-6000 {
-  animation-delay: 6s;
-}
-
-.animate-gradient-xy {
-  background-size: 400% 400%;
-  animation: gradient-xy 4s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(10, 10, 15, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #8b5cf6, #06b6d4, #10b981);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #7c3aed, #0891b2, #059669);
-}
-
-/* Enhanced glassmorphism */
-.backdrop-blur-xl {
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
-
-.backdrop-blur-2xl {
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-}
-
-/* Remove default transitions from all elements */
-* {
-  transition: none;
-}
-
-/* Add specific transitions where needed - using ease-out for very fluid feel */
-button, a, .group {
-  transition: all 0.7s ease-out;
-}
-
-/* Smooth hover effects with ease-out timing */
-* {
-  transition-timing-function: ease-out;
-}
-
-/* Friendly rounded corners throughout */
-.rounded-friendly {
-  border-radius: 1.5rem;
 }
 </style>

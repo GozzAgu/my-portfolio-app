@@ -7,8 +7,8 @@ export type CvExperienceEntry = {
 const CONTACT = {
   name: "Franklin Agu",
   headline:
-    "Senior Software Engineer | Vue 3 & Vue 2 | State Management & Framework Modernisation",
-  location: "England, UK",
+    "Software Support Engineer | Application Diagnostics, APIs & Data Operations",
+  location: "England, UK · Open to remote, hybrid or relocation",
   phone: "07551116916",
   email: "Gozieagu1@gmail.com",
   linkedin: "https://www.linkedin.com/in/chigozie-agu-85019b209",
@@ -17,30 +17,29 @@ const CONTACT = {
 };
 
 const PROFILE_PARAGRAPHS = [
-  "5+ years building production Vue interfaces, including state management architecture (Pinia and Vuex), design system implementation, and ownership of a platform's full engineering lifecycle from architecture through production deployment.",
+  "MSc-qualified Software Support Engineer with 5+ years of experience in tier-2/3 application support, root cause analysis and production troubleshooting. Skilled in SQL, log inspection and REST/SOAP API diagnostics (JSON/XML), with a strong track record of first-contact resolution under SLA and building clear diagnostic escalation packages for engineering teams. Comfortable using AI tools to accelerate investigation and knowledge work.",
 ];
 
 const CORE_SKILLS: { label: string; items: string }[] = [
   {
-    label: "Vue Ecosystem",
-    items: "Vue 3, Composition API, Pinia, Vuex, Nuxt.js, TypeScript",
-  },
-  {
-    label: "State Management & Architecture",
-    items: "Store rationalisation, RBAC, dependency modernisation",
-  },
-  {
-    label: "UI & Design Systems",
-    items: "Vuetify, Figma to code workflows, responsive and accessible UI",
-  },
-  {
-    label: "Data & Performance",
+    label: "Application Support & Triage",
     items:
-      "Chart.js, data intensive dashboards, large dataset rendering, performance optimisation",
+      "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
   },
   {
-    label: "Tooling",
-    items: "Git, Node.js, REST APIs",
+    label: "Databases & Scripting",
+    items:
+      "SQL (MySQL), data reconciliation, Python, JavaScript, Docker, Git, access control (RBAC)",
+  },
+  {
+    label: "APIs & Data Integrations",
+    items:
+      "REST and SOAP APIs, JSON and XML, Postman, browser developer tools, data synchronisation, webhooks",
+  },
+  {
+    label: "System Operations & AI",
+    items:
+      "Log inspection, automated diagnostics, AI workflows (Claude, prompt engineering), knowledge base authoring",
   },
 ];
 
@@ -48,23 +47,24 @@ const EDUCATION = [
   {
     year: "2025",
     degree: "Master of Science in Cybersecurity (Distinction)",
-    institution: "University of Derby, UK",
+    institution:
+      "University of Derby, UK · Secure Application Frameworks, Access Control (RBAC/ABAC), Data Encryption, Audit Logging",
   },
   {
     year: "2020",
     degree: "Bachelor of Science in Computer Information Systems",
-    institution: "Babcock University, Nigeria",
+    institution: "Babcock University",
   },
 ];
 
 const ACHIEVEMENT =
-  "Secure design: successfully contributed to the migration of legacy data to secure cloud environments with zero data loss or security breaches, demonstrating secure data migration, risk mitigation, and data integrity through complex transitions.";
+  "Storvv (storvv.com): lead engineer and support operations for a multi-tenant SaaS application and integration platform processing real-time transactional data. Built and supported workflows with Vue 3, Nuxt, Node.js, Firebase, REST APIs, SQL and Postman; configured RBAC, authentication, database workflows and billing logic; diagnosed authentication, webhook and sync issues through API and SQL inspection; authored onboarding and API documentation.";
 
 const PROJECTS: { name: string; detail: string; url: string }[] = [
   {
     name: "Storvv",
     detail:
-      "Secure cloud-based inventory management web app (Firebase, AES, RSA key exchange, RBAC).",
+      "SaaS application and integration platform: multi-tenant support ops, RBAC, REST APIs, SQL diagnostics, webhooks and sync troubleshooting (Vue 3, Nuxt, Node.js, Firebase, Postman).",
     url: "https://www.storvv.com",
   },
   {
@@ -470,7 +470,7 @@ export async function downloadCvDocx(experience: CvExperienceEntry[]) {
 
   bodyChildren.push(
     new Paragraph({
-      text: "Key achievement",
+      text: "Key technical project",
       heading: HeadingLevel.HEADING_1,
       spacing: spacingSectionTitle(),
       run: { color: "0F172A" },

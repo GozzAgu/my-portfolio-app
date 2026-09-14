@@ -1,21 +1,49 @@
 <template>
   <div>
-    <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    </head>
-  </div>
-    
-  <div>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
 
+<script setup>
+useHead({
+  link: [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap",
+    },
+  ],
+});
+</script>
+
 <style>
-/* Global styles for modern, fluid design */
+:root {
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --ink: #111318;
+  --ink-soft: #3a3f4b;
+  --muted: #6b7280;
+  --paper: #f5f6f8;
+  --surface: #ffffff;
+  --line: #e4e7ec;
+  --accent: #0f766e;
+  --accent-soft: #ccfbf1;
+}
+
+.dark {
+  --ink: #f4f5f7;
+  --ink-soft: #c4c9d4;
+  --muted: #8b93a7;
+  --paper: #0b0d12;
+  --surface: #13161d;
+  --line: #252a35;
+  --accent: #2dd4bf;
+  --accent-soft: #134e4a;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -24,69 +52,58 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
 }
 
 body {
-  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* Custom scrollbar for webkit browsers */
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  overflow: visible;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 10, 15, 0.3);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #06b6d4, #10b981);
+  background: var(--line);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #7c3aed, #0891b2, #059669);
+  background: var(--muted);
 }
 
-/* Selection styling */
 ::selection {
-  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
+  background: var(--accent);
   color: white;
 }
 
-/* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid #06b6d4;
-  outline-offset: 2px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-/* Modern typography scale */
-.text-hero {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.1;
-  font-weight: 800;
-}
-
-.text-display {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.text-heading {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  line-height: 1.3;
-  font-weight: 600;
-}
-
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -94,13 +111,6 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* Responsive utilities */
-@media (max-width: 640px) {
-  body {
-    font-size: 14px;
   }
 }
 </style>
