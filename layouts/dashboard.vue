@@ -125,7 +125,7 @@
               class="text-xs font-semibold uppercase tracking-[0.28em]"
               :class="isDarkMode ? 'text-teal-300/80' : 'text-teal-800'"
             >
-              Software Support Engineer
+              Senior Customer Support Engineer
             </p>
             <h1
               class="font-display text-[clamp(3.4rem,11vw,7.5rem)] font-bold leading-[1.15] tracking-[-0.04em]"
@@ -137,7 +137,7 @@
               class="max-w-xl text-lg leading-[1.75] sm:text-xl"
               :class="isDarkMode ? 'text-white/60' : 'text-[#3a3f4b]'"
             >
-              Application diagnostics, APIs and data operations across enterprise SaaS, with five years of tier-2 and tier-3 support experience.
+              Web architecture and deployment. Six years across software engineering and technical support, resolving production issues in web apps, agentic services and serverless architectures.
             </p>
             <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
               <button
@@ -171,10 +171,10 @@
                     Based in
                   </p>
                   <p class="mt-2 font-display text-2xl font-semibold leading-[1.35]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
-                    England, UK
+                    Derby, England, UK
                   </p>
                   <p class="mt-1 text-sm leading-[1.7]" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
-                    Open to remote, hybrid or relocation
+                    Happy to cover weekend and holiday on-call rotations
                   </p>
                 </div>
                 <div class="h-px w-full" :class="isDarkMode ? 'bg-white/10' : 'bg-black/5'" />
@@ -183,7 +183,7 @@
                     Focus
                   </p>
                   <p class="mt-2 text-base leading-[1.75]" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
-                    Application diagnostics · APIs · SQL · Data operations
+                    Production troubleshooting · Vercel · Nuxt.js · TypeScript
                   </p>
                 </div>
                 <div class="h-px w-full" :class="isDarkMode ? 'bg-white/10' : 'bg-black/5'" />
@@ -218,24 +218,21 @@
         <div class="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
           <div class="space-y-5 text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
             <p>
-              MSc-qualified Software Support Engineer with
-              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">over five years of experience in tier-2 and tier-3 application support</span>,
-              root cause analysis and production troubleshooting across enterprise SaaS environments.
+              Customer Support Engineer with
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">six years across software engineering and technical support</span>.
+              I resolve production issues in web apps, agentic services and serverless architectures.
             </p>
             <p>
-              Skilled in running
-              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">SQL queries</span>,
-              inspecting system logs, and troubleshooting
-              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">REST and SOAP APIs</span>
-              with JSON and XML payloads.
+              I deploy on
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">Vercel with Nuxt.js and TypeScript</span>,
+              and trace problems through HTTP requests, auth headers, SQL and SSR hydration edge cases.
             </p>
             <p>
-              Resolves the majority of technical incidents at first contact under SLA, builds complete diagnostic escalation packages for engineering, and uses AI tools to speed up investigation and resolution.
+              I explain complex systems clearly, work closely with Product Engineering to drive permanent fixes, and am happy to cover weekend and holiday on-call rotations.
             </p>
             <p>
               Holds an
-              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">MSc in Cybersecurity (Distinction, University of Derby)</span>,
-              with focus on secure application frameworks, access control (RBAC/ABAC), data encryption and audit logging.
+              <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">MSc in Cybersecurity (Distinction, University of Derby)</span>.
             </p>
           </div>
 
@@ -316,10 +313,10 @@
           :class="isDarkMode ? 'border-teal-400/60' : 'border-teal-700'"
         >
           <p class="font-display text-2xl font-semibold leading-[1.25] tracking-tight pb-[0.1em] sm:text-4xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
-            Storvv: SaaS application and integration platform.
+            Storvv: cloud inventory platform deployed on Vercel.
           </p>
           <p class="mt-5 max-w-3xl text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
-            Lead engineer and support operations for a multi-tenant SaaS platform processing real-time transactional data, with RBAC, secure authentication, database workflows, billing logic, and API diagnostics via Postman and SQL.
+            Founded and built a multi-tenant SaaS app for real-time inventory using Vue 3, Nuxt and TypeScript, running continuous deployment on Vercel with edge routing, custom domains and automated logging.
           </p>
         </blockquote>
       </section>
@@ -421,7 +418,7 @@
                   Let's build<br />something together.
                 </h3>
                 <p class="max-w-xl text-lg leading-relaxed" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
-                  Software support, application diagnostics, APIs and data operations. Open to remote, hybrid or relocation. I'd love to hear about it.
+                  Customer support engineering, production troubleshooting, and web architecture and deployment. I'd love to hear about it.
                 </p>
               </div>
               <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -474,7 +471,7 @@
                       Location
                     </p>
                     <p class="mt-1 text-sm font-medium" :class="isDarkMode ? 'text-white/85' : 'text-[#111318]'">
-                      England, UK
+                      Derby, England, UK
                     </p>
                   </div>
                 </div>
@@ -502,7 +499,7 @@
               </span>
             </div>
             <p class="text-sm leading-relaxed" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
-              Software Support Engineer · application diagnostics, APIs and data operations.
+              Senior Customer Support Engineer · web architecture and deployment.
             </p>
           </div>
 
@@ -580,27 +577,24 @@ const navLinks = [
 
 const skillGroups = [
   {
-    title: "Application Support & Triage",
-    items:
-      "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
+    title: "Platforms",
+    items: "Vercel (Preview Deployments, Edge Functions), v0, serverless, agentic services",
   },
   {
-    title: "Frontend & Frameworks",
-    items: "Vue 3, Nuxt, Composition API, JavaScript, TypeScript, Tailwind CSS",
+    title: "Frameworks",
+    items: "Nuxt.js, Vue.js, TypeScript, Node.js, JavaScript, Tailwind CSS",
   },
   {
-    title: "Databases & Scripting",
-    items: "SQL (MySQL), data reconciliation, Python, JavaScript, Docker, Git, access control (RBAC)",
+    title: "Support",
+    items: "Root cause analysis, incident triage, deployment troubleshooting, Zendesk, ClickUp",
   },
   {
-    title: "APIs & Data Integrations",
-    items:
-      "REST and SOAP APIs, JSON and XML, Postman, browser developer tools, data synchronisation, webhooks",
+    title: "Data and APIs",
+    items: "SQL, REST APIs, JSON, webhooks, Firebase, Docker, Git, Postman, Chrome DevTools",
   },
   {
-    title: "System Operations & AI",
-    items:
-      "Log inspection, automated diagnostics, AI workflows (Claude, prompt engineering), knowledge base authoring",
+    title: "Documentation",
+    items: "Technical writing, runbooks, knowledge bases, developer education",
   },
 ];
 
@@ -608,13 +602,12 @@ const education = [
   {
     year: "2025",
     degree: "MSc Cybersecurity · Distinction",
-    school:
-      "University of Derby, UK · Secure Application Frameworks, Access Control (RBAC/ABAC), Data Encryption, Audit Logging",
+    school: "University of Derby, UK",
   },
   {
     year: "2020",
     degree: "BSc Computer Information Systems",
-    school: "Babcock University",
+    school: "Babcock University, Nigeria",
   },
 ];
 
@@ -638,8 +631,8 @@ const contactItems = [
   },
   {
     label: "Phone",
-    value: "07551 116 916",
-    href: "tel:07551116916",
+    value: "+44 7551 116 916",
+    href: "tel:+447551116916",
   },
 ];
 
@@ -680,120 +673,110 @@ const handleLayoutResize = () => {
 
 const experienceTabs = [
   {
-    label: "Software Support Analyst - Concentrix, UK",
+    label: "Customer Support Engineer - Concentrix, England, UK",
     date: "March 2026 - Present",
     completed: false,
     timeline: [
       {
-        title: "Tier-2/3 SaaS Support",
+        title: "Complex Case Resolution",
         description:
-          "Resolve tier-2 and tier-3 application issues across enterprise SaaS platforms under SLA, managing a high monthly ticket volume while maintaining strong customer satisfaction.",
+          "Solve complex cases on multi-tenant web apps by tracing HTTP requests, auth headers and status codes.",
       },
       {
-        title: "SQL, Logs & API Diagnostics",
+        title: "Root Cause Analysis",
         description:
-          "Run targeted SQL queries, inspect server performance logs and analyse API payloads and browser diagnostics to isolate root causes.",
+          "Find root causes of recurring integration failures with Product Engineering to drive permanent fixes.",
       },
       {
-        title: "First-Contact Resolution",
+        title: "SPA & SSR Diagnostics",
         description:
-          "Resolve the majority of cases at first contact, reducing recurring software incidents through thorough root cause analysis.",
+          "Diagnose state and data hydration edge cases in TypeScript SPA and SSR apps.",
       },
       {
-        title: "Engineering Escalation Packages",
+        title: "SQL & Internal Tooling",
         description:
-          "Build complete diagnostic escalation packages covering reproduction steps, log traces and configuration settings for tier-3 product engineering teams.",
+          "Write SQL queries and internal scripts to inspect data and speed up the team.",
       },
       {
-        title: "AI-Assisted Investigation",
+        title: "Runbooks & Knowledge Base",
         description:
-          "Use AI-assisted diagnostic tools alongside Jira to analyse ticket trends and reduce mean time to resolution.",
+          "Create runbooks and knowledge base articles that support enterprise escalations.",
       },
     ],
   },
   {
-    label: "Software Support Analyst - EE (BT Group), UK",
+    label: "Customer Support (Part Time) - EE (BT Group), England, UK",
     date: "April 2025 - March 2026",
     completed: true,
     timeline: [
       {
-        title: "Client-Facing Technical Support",
+        title: "Clear Technical Communication",
         description:
-          "Delivered client-facing technical support across digital platforms, investigating software issues and working consistently to SLA.",
+          "Explained technical behaviour and network configuration clearly to non-technical customers.",
       },
       {
-        title: "Knowledge Base Authoring",
+        title: "Mentoring",
         description:
-          "Authored technical troubleshooting guides and knowledge base articles, driving self-service adoption and cutting repeat queries on common issues.",
+          "Mentored teammates in a high-volume environment while resolving frontline issues quickly.",
       },
       {
-        title: "Log Diagnostics & Rollouts",
+        title: "Diagnostic Workflows",
         description:
-          "Carried out system log diagnostics and supported application patching and platform rollouts across end-user devices.",
-      },
-      {
-        title: "Stakeholder Communication",
-        description:
-          "Translated complex technical findings into clear updates for non-technical stakeholders during product launches.",
+          "Wrote diagnostic workflows and incident guides that sped up triage across teams.",
       },
     ],
   },
   {
-    label: "Software Support Engineer - CypherCrescent Ltd",
+    label: "Software Engineer (Web and APIs) - CypherCrescent Ltd, Remote",
     date: "2020 - 2025",
     completed: true,
     timeline: [
       {
-        title: "Enterprise SaaS Support",
+        title: "Production SPAs & REST Backends",
         description:
-          "Provided technical software support, data verification and platform maintenance for enterprise SaaS applications including eHSat+, EPS and DIAP delivered for NNPC, supporting a large base of business users.",
+          "Built, debugged and deployed production SPAs and REST backends in JavaScript and TypeScript.",
       },
       {
-        title: "Failure Scenario Troubleshooting",
+        title: "Typed Component Interfaces",
         description:
-          "Troubleshot application failure scenarios including data validation errors, submission failures, authentication issues and integration disconnects.",
+          "Built typed, component-driven interfaces with solid state management.",
       },
       {
-        title: "Python & SQL Diagnostics",
+        title: "Performance Tuning",
         description:
-          "Wrote Python scripts and ran SQL database queries to audit data integrity, debug REST APIs and cut troubleshooting time.",
+          "Fixed performance bottlenecks by inspecting payloads and tuning HTTP caching.",
       },
       {
-        title: "Access Control & Integrations",
+        title: "Requirements to Specs",
         description:
-          "Managed user provisioning, role-based access control and third-party integrations with accounting platforms including Xero and Sage.",
-      },
-      {
-        title: "Engineering Feedback Loop",
-        description:
-          "Worked with product engineering teams to feed recurring user feedback into development pipelines for hotfixes and patches.",
+          "Turned business requirements and bug reports into clear specs within Agile teams.",
       },
     ],
   },
   {
-    label: "Software Support Engineer - Famous Parking (Remote, USA)",
+    label: "Software Engineer (Web and APIs) - Famous Parking (Remote, USA)",
     date: "2023 - 2024",
     completed: true,
     timeline: [
       {
-        title: "Application Support for Transactional Systems",
+        title: "Transactional Systems",
         description:
-          "Provided technical software support for systems handling sensitive transactional and user data, applying security best practices during investigation and resolution.",
+          "Built and supported systems handling sensitive transactional and user data with security best practices.",
       },
       {
-        title: "API & Payment Integration Diagnostics",
+        title: "Payment API Integrations",
         description:
-          "Troubleshot and supported third-party API integrations for secure payments and real-time data processing, isolating failures across payloads and sync flows.",
+          "Integrated and debugged third-party APIs for secure payments and real-time data processing.",
       },
       {
         title: "Testing & Risk Mitigation",
         description:
-          "Conducted regression testing and documented test cases to reduce operational and security risks before and after releases.",
+          "Ran regression testing and documented test cases to reduce operational and security risks.",
       },
       {
-        title: "Requirements & Escalation Support",
+        title: "Requirements to Specs",
         description:
-          "Translated business requirements into clear technical acceptance criteria and escalation notes for maintainable software fixes.",
+          "Translated business requirements into clear, maintainable software implementations.",
       },
     ],
   },
@@ -802,10 +785,10 @@ const experienceTabs = [
 const projects = [
   {
     name: "Storvv",
-    tag: "SaaS application & integration platform",
+    tag: "Cloud inventory platform on Vercel",
     icon: "ph:shield-check",
     description:
-      "Lead engineer and support operations for a multi-tenant SaaS platform processing real-time transactional data. Vue 3, Nuxt, Node.js, Firebase, REST APIs, SQL and Postman. Configured RBAC, authentication, database workflows and billing logic; diagnosed auth, webhook and sync issues via API and SQL inspection.",
+      "Founded and built a multi-tenant SaaS app for real-time inventory using Vue 3, Nuxt and TypeScript. Continuous deployment on Vercel with edge routing, custom domains and automated logging.",
     url: "https://www.storvv.com",
     host: "storvv.com",
   },

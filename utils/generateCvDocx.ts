@@ -6,10 +6,9 @@ export type CvExperienceEntry = {
 
 const CONTACT = {
   name: "Franklin Agu",
-  headline:
-    "Software Support Engineer | Application Diagnostics, APIs & Data Operations",
-  location: "England, UK · Open to remote, hybrid or relocation",
-  phone: "07551116916",
+  headline: "Senior Customer Support Engineer | Web Architecture and Deployment",
+  location: "Derby, England, UK",
+  phone: "+44 7551 116 916",
   email: "Gozieagu1@gmail.com",
   linkedin: "https://www.linkedin.com/in/franklin-agu-85019b209/",
   github: "https://github.com/GozzAgu",
@@ -17,58 +16,53 @@ const CONTACT = {
 };
 
 const PROFILE_PARAGRAPHS = [
-  "MSc-qualified Software Support Engineer with 5+ years of experience in tier-2/3 application support, root cause analysis and production troubleshooting. Skilled in SQL, log inspection and REST/SOAP API diagnostics (JSON/XML), with a strong track record of first-contact resolution under SLA and building clear diagnostic escalation packages for engineering teams. Comfortable using AI tools to accelerate investigation and knowledge work.",
+  "Customer Support Engineer with six years across software engineering and technical support. I resolve production issues in web apps, agentic services and serverless architectures, and deploy on Vercel with Nuxt.js and TypeScript. I explain complex systems clearly, work closely with Product Engineering, and am happy to cover weekend and holiday on-call rotations.",
 ];
 
 const CORE_SKILLS: { label: string; items: string }[] = [
   {
-    label: "Application Support & Triage",
-    items:
-      "Tier-2/3 support, root cause analysis, incident triage, defect management (Jira, ClickUp, Zendesk), SLA compliance",
+    label: "Platforms",
+    items: "Vercel (Preview Deployments, Edge Functions), v0, serverless, agentic services",
   },
   {
-    label: "Frontend & Frameworks",
-    items: "Vue 3, Nuxt, Composition API, JavaScript, TypeScript, Tailwind CSS",
+    label: "Frameworks",
+    items: "Nuxt.js, Vue.js, TypeScript, Node.js, JavaScript, Tailwind CSS",
   },
   {
-    label: "Databases & Scripting",
-    items:
-      "SQL (MySQL), data reconciliation, Python, JavaScript, Docker, Git, access control (RBAC)",
+    label: "Support",
+    items: "Root cause analysis, incident triage, deployment troubleshooting, Zendesk, ClickUp",
   },
   {
-    label: "APIs & Data Integrations",
-    items:
-      "REST and SOAP APIs, JSON and XML, Postman, browser developer tools, data synchronisation, webhooks",
+    label: "Data and APIs",
+    items: "SQL, REST APIs, JSON, webhooks, Firebase, Docker, Git, Postman, Chrome DevTools",
   },
   {
-    label: "System Operations & AI",
-    items:
-      "Log inspection, automated diagnostics, AI workflows (Claude, prompt engineering), knowledge base authoring",
+    label: "Documentation",
+    items: "Technical writing, runbooks, knowledge bases, developer education",
   },
 ];
 
 const EDUCATION = [
   {
     year: "2025",
-    degree: "Master of Science in Cybersecurity (Distinction)",
-    institution:
-      "University of Derby, UK · Secure Application Frameworks, Access Control (RBAC/ABAC), Data Encryption, Audit Logging",
+    degree: "MSc Cybersecurity (Distinction)",
+    institution: "University of Derby, UK",
   },
   {
     year: "2020",
-    degree: "Bachelor of Science in Computer Information Systems",
-    institution: "Babcock University",
+    degree: "BSc Computer Information Systems",
+    institution: "Babcock University, Nigeria",
   },
 ];
 
 const ACHIEVEMENT =
-  "Storvv (storvv.com): lead engineer and support operations for a multi-tenant SaaS application and integration platform processing real-time transactional data. Built and supported workflows with Vue 3, Nuxt, Node.js, Firebase, REST APIs, SQL and Postman; configured RBAC, authentication, database workflows and billing logic; diagnosed authentication, webhook and sync issues through API and SQL inspection; authored onboarding and API documentation.";
+  "Storvv, cloud inventory platform deployed on Vercel: founded and built a multi-tenant SaaS app for real-time inventory using Vue 3, Nuxt and TypeScript. Run continuous deployment on Vercel with edge routing, custom domains and automated logging.";
 
 const PROJECTS: { name: string; detail: string; url: string }[] = [
   {
     name: "Storvv",
     detail:
-      "SaaS application and integration platform: multi-tenant support ops, RBAC, REST APIs, SQL diagnostics, webhooks and sync troubleshooting (Vue 3, Nuxt, Node.js, Firebase, Postman).",
+      "Cloud inventory platform on Vercel: multi-tenant SaaS for real-time inventory (Vue 3, Nuxt, TypeScript), with edge routing, custom domains and automated logging.",
     url: "https://www.storvv.com",
   },
   {
