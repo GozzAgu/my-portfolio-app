@@ -125,7 +125,7 @@
               class="text-xs font-semibold uppercase tracking-[0.28em]"
               :class="isDarkMode ? 'text-teal-300/80' : 'text-teal-800'"
             >
-              Senior Customer Support Engineer
+              Software Engineer
             </p>
             <h1
               class="font-display text-[clamp(3.4rem,11vw,7.5rem)] font-bold leading-[1.15] tracking-[-0.04em]"
@@ -218,7 +218,7 @@
         <div class="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
           <div class="space-y-5 text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
             <p>
-              Customer Support Engineer with
+              Software Engineer with
               <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">six years across software engineering and technical support</span>.
               I resolve production issues in web apps, agentic services and serverless architectures.
             </p>
@@ -418,7 +418,7 @@
                   Let's build<br />something together.
                 </h3>
                 <p class="max-w-xl text-lg leading-relaxed" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
-                  Customer support engineering, production troubleshooting, and web architecture and deployment. I'd love to hear about it.
+                  Software engineering, production troubleshooting, and web architecture and deployment. I'd love to hear about it.
                 </p>
               </div>
               <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -499,7 +499,7 @@
               </span>
             </div>
             <p class="text-sm leading-relaxed" :class="isDarkMode ? 'text-white/45' : 'text-[#6b7280]'">
-              Senior Customer Support Engineer · web architecture and deployment.
+              Software Engineer · web architecture and deployment.
             </p>
           </div>
 
@@ -673,7 +673,7 @@ const handleLayoutResize = () => {
 
 const experienceTabs = [
   {
-    label: "Customer Support Engineer - Concentrix, England, UK",
+    label: "Support Engineer - Concentrix, England, UK",
     date: "March 2026 - Present",
     completed: false,
     timeline: [
@@ -705,7 +705,7 @@ const experienceTabs = [
     ],
   },
   {
-    label: "Customer Support (Part Time) - EE (BT Group), England, UK",
+    label: "Support Engineer (Part Time) - EE (BT Group), England, UK",
     date: "April 2025 - March 2026",
     completed: true,
     timeline: [

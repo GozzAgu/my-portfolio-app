@@ -6,7 +6,7 @@ export type CvExperienceEntry = {
 
 const CONTACT = {
   name: "Franklin Agu",
-  headline: "Senior Customer Support Engineer | Web Architecture and Deployment",
+  headline: "Software Engineer | Web Architecture and Deployment",
   location: "Derby, England, UK",
   phone: "+44 7551 116 916",
   email: "Gozieagu1@gmail.com",
@@ -16,7 +16,7 @@ const CONTACT = {
 };
 
 const PROFILE_PARAGRAPHS = [
-  "Customer Support Engineer with six years across software engineering and technical support. I resolve production issues in web apps, agentic services and serverless architectures, and deploy on Vercel with Nuxt.js and TypeScript. I explain complex systems clearly, work closely with Product Engineering, and am happy to cover weekend and holiday on-call rotations.",
+  "Software Engineer with six years across software engineering and technical support. I resolve production issues in web apps, agentic services and serverless architectures, and deploy on Vercel with Nuxt.js and TypeScript. I explain complex systems clearly, work closely with Product Engineering, and am happy to cover weekend and holiday on-call rotations.",
 ];
 
 const CORE_SKILLS: { label: string; items: string }[] = [
