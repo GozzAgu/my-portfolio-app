@@ -76,6 +76,14 @@ h4,
   line-height: 1.2;
 }
 
+/* Without this, elements with different transition durations change colour out of sync on theme toggle */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

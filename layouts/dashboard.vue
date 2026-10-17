@@ -1,7 +1,7 @@
 <template>
   <div
     class="portfolio min-h-screen flex flex-col relative transition-colors duration-500"
-    :class="isDarkMode ? 'dark' : ''"
+    :class="[isDarkMode ? 'dark' : '', revealReady ? 'reveal-ready' : '']"
   >
     <!-- Atmosphere -->
     <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
@@ -24,11 +24,11 @@
           <button
             type="button"
             class="group flex min-w-0 items-center gap-3"
-            @click="scrollToTop"
+            @click="onLogoClick"
           >
             <span
-              class="font-display flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold transition-colors duration-500"
-              :class="isDarkMode ? 'bg-white text-[#0b0d12]' : 'bg-[#111318] text-white'"
+              class="logo-mark font-display flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold transition-colors duration-500"
+              :class="[isDarkMode ? 'bg-white text-[#0b0d12]' : 'bg-[#111318] text-white', { 'is-spinning': logoSpinning }]"
             >
               G
             </span>
@@ -53,6 +53,9 @@
           </div>
 
           <div class="flex items-center gap-2">
+            <ClientOnly>
+              <QuestBadge :dark="isDarkMode" />
+            </ClientOnly>
             <button
               type="button"
               class="hidden items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50 md:inline-flex"
@@ -61,6 +64,16 @@
               @click="exportCvToWord"
             >
               {{ cvExporting ? "Preparing…" : "Download CV" }}
+            </button>
+            <button
+              type="button"
+              class="rounded-xl p-2.5 transition-colors duration-300"
+              :class="isDarkMode ? 'text-white/70 hover:bg-white/10' : 'text-[#111318]/70 hover:bg-black/5'"
+              aria-label="Open terminal"
+              title="Terminal (press /)"
+              @click="openTerminal"
+            >
+              <Icon icon="ph:terminal-window" class="h-5 w-5" />
             </button>
             <button
               type="button"
@@ -118,8 +131,22 @@
 
     <main class="relative z-10 flex-grow">
       <!-- Hero -->
-      <section class="relative flex min-h-[100svh] items-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:items-center lg:pb-0">
-        <div class="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
+      <section
+        ref="heroSection"
+        class="hero relative flex min-h-[100svh] items-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24 lg:items-center lg:pb-0"
+        @pointermove="onHeroPointerMove"
+      >
+        <div class="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+        <ClientOnly>
+          <BugHunt
+            ref="bugHunt"
+            :dark="isDarkMode"
+            @spawn="onBugsSpawn"
+            @squash="onBugSquash"
+            @cleared="onBugsCleared"
+          />
+        </ClientOnly>
+        <div class="relative z-10 mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
           <div class="hero-copy space-y-8">
             <p
               class="text-xs font-semibold uppercase tracking-[0.28em]"
@@ -157,6 +184,30 @@
               >
                 Get in touch
               </button>
+            </div>
+            <div
+              class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm"
+              :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'"
+              aria-live="polite"
+            >
+              <span v-if="bugsRemaining !== null" class="inline-flex items-center gap-2">
+                <Icon :icon="bugsRemaining ? 'ph:bug-beetle-fill' : 'ph:shield-check-fill'" class="h-4 w-4 text-teal-600" />
+                <template v-if="bugsRemaining">
+                  <span class="font-semibold tabular-nums" :class="isDarkMode ? 'text-white/80' : 'text-[#111318]'">{{ bugsRemaining }}</span>
+                  {{ bugsRemaining === 1 ? "bug" : "bugs" }} loose in production. Catch them.
+                </template>
+                <template v-else>
+                  All clear. Incident resolved.
+                  <button type="button" class="font-semibold text-teal-700 underline-offset-4 hover:underline dark:text-teal-300" @click="redeploy">
+                    Deploy again
+                  </button>
+                </template>
+              </span>
+              <span class="hidden items-center gap-1.5 sm:inline-flex">
+                Press
+                <kbd class="kbd" :class="isDarkMode ? 'border-white/15 text-white/70' : 'border-black/10 text-[#111318]/70'">/</kbd>
+                for the terminal
+              </span>
             </div>
           </div>
 
@@ -205,7 +256,7 @@
 
       <!-- About -->
       <section id="about" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-14 max-w-2xl space-y-4">
+        <div class="mb-14 max-w-2xl space-y-4" data-reveal>
           <p class="section-kicker">01 · About</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             About me
@@ -216,7 +267,7 @@
         </div>
 
         <div class="grid gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
-          <div class="space-y-5 text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'">
+          <div class="space-y-5 text-base leading-relaxed sm:text-lg" :class="isDarkMode ? 'text-white/70' : 'text-[#3a3f4b]'" data-reveal>
             <p>
               Software Engineer with
               <span class="font-semibold" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">six years across software engineering and technical support</span>.
@@ -238,12 +289,15 @@
 
           <div class="space-y-8">
             <div
-              v-for="group in skillGroups"
+              v-for="(group, index) in skillGroups"
               :key="group.title"
-              class="border-t pt-5"
+              class="skill-row group border-t pt-5"
               :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
+              :style="{ '--reveal-delay': `${index * 70}ms` }"
+              data-reveal
             >
-              <h3 class="font-display text-sm font-semibold leading-snug tracking-tight pb-[0.06em]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              <h3 class="flex items-center gap-2 font-display text-sm font-semibold leading-snug tracking-tight pb-[0.06em]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+                <span class="skill-dot h-1.5 w-1.5 rounded-full bg-teal-500" />
                 {{ group.title }}
               </h3>
               <p class="mt-2 text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
@@ -256,7 +310,7 @@
 
       <!-- Experience -->
       <section id="experience" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-14 max-w-2xl space-y-4">
+        <div class="mb-14 max-w-2xl space-y-4" data-reveal>
           <p class="section-kicker">02 · Experience</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Where I've worked
@@ -272,6 +326,7 @@
             :key="tab.label"
             class="border-t py-10 first:border-t-0 first:pt-0"
             :class="isDarkMode ? 'border-white/10' : 'border-black/5'"
+            data-reveal
           >
             <div class="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
               <h3 class="font-display text-xl font-semibold leading-snug tracking-tight pb-[0.08em] sm:text-2xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
@@ -302,7 +357,7 @@
 
       <!-- Highlight -->
       <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-10 space-y-4">
+        <div class="mb-10 space-y-4" data-reveal>
           <p class="section-kicker">03 · Highlight</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Key technical project
@@ -311,6 +366,7 @@
         <blockquote
           class="max-w-4xl border-l-2 pl-6 sm:pl-10"
           :class="isDarkMode ? 'border-teal-400/60' : 'border-teal-700'"
+          data-reveal
         >
           <p class="font-display text-2xl font-semibold leading-[1.25] tracking-tight pb-[0.1em] sm:text-4xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Storvv: cloud inventory platform deployed on Vercel.
@@ -323,13 +379,13 @@
 
       <!-- Education -->
       <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-14 space-y-4">
+        <div class="mb-14 space-y-4" data-reveal>
           <p class="section-kicker">04 · Education</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Education
           </h2>
         </div>
-        <div class="grid gap-0 border-t md:grid-cols-2" :class="isDarkMode ? 'border-white/10' : 'border-black/5'">
+        <div class="grid gap-0 border-t md:grid-cols-2" :class="isDarkMode ? 'border-white/10' : 'border-black/5'" data-reveal>
           <div
             v-for="(edu, index) in education"
             :key="edu.degree"
@@ -350,7 +406,7 @@
 
       <!-- Projects -->
       <section id="projects" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-14 max-w-2xl space-y-4">
+        <div class="mb-14 max-w-2xl space-y-4" data-reveal>
           <p class="section-kicker">05 · Projects</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Selected work
@@ -362,15 +418,20 @@
 
         <div class="grid gap-4 sm:grid-cols-2">
           <a
-            v-for="project in projects"
+            v-for="(project, index) in projects"
             :key="project.name"
             :href="project.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col rounded-2xl border p-6 transition-all duration-300 sm:p-7"
+            class="tilt-card group relative flex flex-col rounded-2xl border p-6 sm:p-7"
             :class="isDarkMode
               ? 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
               : 'border-black/5 bg-white/60 hover:border-black/10 hover:bg-white'"
+            :style="{ '--reveal-delay': `${(index % 2) * 90}ms` }"
+            data-reveal
+            @pointermove="onCardMove"
+            @pointerleave="onCardLeave"
+            @click="quest.unlock('project')"
           >
             <div class="mb-8 flex items-start justify-between gap-4">
               <p class="text-xs font-semibold uppercase tracking-[0.18em]" :class="isDarkMode ? 'text-white/40' : 'text-[#6b7280]'">
@@ -395,10 +456,60 @@
         </div>
       </section>
 
+      <!-- Arcade -->
+      <section id="arcade" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+        <div class="mb-14 max-w-2xl space-y-4" data-reveal>
+          <p class="section-kicker">06 · Arcade</p>
+          <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+            Take a break
+          </h2>
+          <p class="text-lg" :class="isDarkMode ? 'text-white/55' : 'text-[#6b7280]'">
+            A few mini games I built into this site. Every one earns XP.
+          </p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <button
+            v-for="(game, index) in arcadeGames"
+            :key="game.id"
+            type="button"
+            class="tilt-card group relative flex flex-col rounded-2xl border p-6 text-left"
+            :class="isDarkMode
+              ? 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
+              : 'border-black/5 bg-white/60 hover:border-black/10 hover:bg-white'"
+            :style="{ '--reveal-delay': `${index * 80}ms` }"
+            data-reveal
+            @pointermove="onCardMove"
+            @pointerleave="onCardLeave"
+            @click="game.run"
+          >
+            <span
+              class="arcade-icon mb-8 flex h-12 w-12 items-center justify-center rounded-2xl"
+              :class="isDarkMode ? 'bg-teal-400/10 text-teal-300' : 'bg-teal-700/10 text-teal-800'"
+            >
+              <Icon :icon="game.icon" class="h-6 w-6" />
+            </span>
+            <span class="font-display text-xl font-semibold leading-snug tracking-tight pb-[0.08em]" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
+              {{ game.title }}
+            </span>
+            <span class="mt-2 flex-grow text-sm leading-relaxed" :class="isDarkMode ? 'text-white/50' : 'text-[#6b7280]'">
+              {{ game.description }}
+            </span>
+            <span class="mt-6 flex items-center justify-between gap-3 text-xs">
+              <span class="tabular-nums" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">{{ game.stat }}</span>
+              <span class="inline-flex items-center gap-1 font-semibold" :class="isDarkMode ? 'text-teal-300' : 'text-teal-800'">
+                {{ game.action }}
+                <Icon icon="ph:arrow-right-bold" class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </span>
+          </button>
+        </div>
+      </section>
+
       <!-- Contact -->
       <section id="contact" class="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
-        <div class="mb-14 space-y-4">
-          <p class="section-kicker">06 · Contact</p>
+        <div class="mb-14 space-y-4" data-reveal>
+          <p class="section-kicker">07 · Contact</p>
           <h2 class="font-display text-4xl font-bold leading-[1.2] tracking-tight pb-[0.1em] sm:text-5xl" :class="isDarkMode ? 'text-white' : 'text-[#111318]'">
             Get in touch
           </h2>
@@ -407,6 +518,7 @@
         <div
           class="rounded-[2rem] border"
           :class="isDarkMode ? 'border-white/10 bg-white/[0.02]' : 'border-black/5 bg-white/70'"
+          data-reveal
         >
           <div class="grid lg:grid-cols-5">
             <div class="flex flex-col justify-between gap-10 p-8 sm:p-12 lg:col-span-3 lg:p-14">
@@ -426,6 +538,7 @@
                   href="mailto:Gozieagu1@gmail.com"
                   class="group inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold transition-all duration-300"
                   :class="isDarkMode ? 'bg-white text-[#0b0d12] hover:bg-white/90' : 'bg-[#111318] text-white hover:bg-[#111318]/90'"
+                  @click="quest.unlock('hello')"
                 >
                   Say hello
                   <Icon icon="ph:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -449,6 +562,7 @@
                   :rel="item.external ? 'noopener noreferrer' : undefined"
                   class="group flex items-center gap-4 rounded-xl px-3 py-3.5 transition-colors duration-300"
                   :class="isDarkMode ? 'hover:bg-white/5' : 'hover:bg-white'"
+                  @click="item.href.startsWith('mailto') && quest.unlock('hello')"
                 >
                   <div class="min-w-0 flex-1">
                     <p class="text-[11px] font-semibold uppercase tracking-[0.18em]" :class="isDarkMode ? 'text-white/35' : 'text-[#9ca3af]'">
@@ -511,6 +625,7 @@
               <div class="flex flex-col gap-2.5 text-sm">
                 <a href="#about" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">About</a>
                 <a href="#projects" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Projects</a>
+                <a href="#arcade" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Arcade</a>
                 <a href="#contact" class="footer-link" :class="isDarkMode ? 'text-white/55 hover:text-white' : 'text-[#6b7280] hover:text-[#111318]'">Contact</a>
               </div>
             </div>
@@ -556,22 +671,66 @@
         <Icon icon="ph:arrow-up" class="h-5 w-5" />
       </button>
     </Transition>
+
+    <ClientOnly>
+      <QuestOverlay :dark="isDarkMode" />
+      <TerminalPalette v-model="terminalOpen" :commands="terminalCommands" />
+      <ArcadeModal
+        :model-value="activeGame === 'snake'"
+        title="Packet Snake"
+        subtitle="Route data packets. Don't crash the server."
+        :dark="isDarkMode"
+        @update:model-value="activeGame = null"
+      >
+        <PacketSnake :dark="isDarkMode" />
+      </ArcadeModal>
+      <ArcadeModal
+        :model-value="activeGame === 'memory'"
+        title="Stack Memory"
+        subtitle="Match every pair in my tech stack."
+        :dark="isDarkMode"
+        @update:model-value="activeGame = null"
+      >
+        <StackMemory :dark="isDarkMode" />
+      </ArcadeModal>
+      <MatrixRain v-model="matrixOpen" />
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from "vue";
 import { Icon } from "@iconify/vue";
 import { downloadCvDocx } from "~/utils/generateCvDocx";
+import { useQuest } from "~/composables/useQuest";
+import BugHunt from "~/components/BugHunt.vue";
+import QuestBadge from "~/components/QuestBadge.vue";
+import QuestOverlay from "~/components/QuestOverlay.vue";
+import TerminalPalette from "~/components/TerminalPalette.vue";
+import ArcadeModal from "~/components/ArcadeModal.vue";
+import MatrixRain from "~/components/MatrixRain.vue";
+import PacketSnake from "~/components/games/PacketSnake.vue";
+import StackMemory from "~/components/games/StackMemory.vue";
 
 const isDarkMode = ref(false);
 const cvExporting = ref(false);
 const showScrollToTop = ref(false);
 const navOpen = ref(false);
+const revealReady = ref(false);
+const terminalOpen = ref(false);
+const bugsRemaining = ref(null);
+const bugHunt = ref(null);
+const heroSection = ref(null);
+const activeGame = ref(null);
+const matrixOpen = ref(false);
+const logoSpinning = ref(false);
+
+const quest = useQuest();
 
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Arcade", href: "#arcade" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -637,9 +796,376 @@ const contactItems = [
 ];
 
 const toggleDarkMode = () => {
+  const html = document.documentElement;
+  html.classList.add("theme-switching");
   isDarkMode.value = !isDarkMode.value;
   localStorage.setItem("darkMode", isDarkMode.value.toString());
-  document.documentElement.classList.toggle("dark", isDarkMode.value);
+  html.classList.toggle("dark", isDarkMode.value);
+  nextTick(() => {
+    requestAnimationFrame(() => requestAnimationFrame(() => html.classList.remove("theme-switching")));
+  });
+  quest.unlock("theme");
+};
+
+const openTerminal = () => {
+  navOpen.value = false;
+  terminalOpen.value = true;
+  quest.unlock("terminal");
+};
+
+const onBugsSpawn = (count) => {
+  bugsRemaining.value = count;
+};
+
+const onBugSquash = (remaining) => {
+  bugsRemaining.value = remaining;
+  quest.unlock("first-bug");
+};
+
+const onBugsCleared = () => {
+  quest.unlock("all-bugs");
+  quest.celebrate();
+};
+
+const redeploy = () => bugHunt.value?.respawn();
+
+const openGame = (id) => {
+  navOpen.value = false;
+  terminalOpen.value = false;
+  activeGame.value = id;
+};
+
+const enterMatrix = () => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+  terminalOpen.value = false;
+  matrixOpen.value = true;
+  quest.unlock("matrix");
+  return true;
+};
+
+let logoClicks = 0;
+let logoClickTimer = 0;
+const onLogoClick = () => {
+  scrollToTop();
+  logoClicks++;
+  clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(() => (logoClicks = 0), 1200);
+  if (logoClicks < 5) return;
+  logoClicks = 0;
+  logoSpinning.value = true;
+  setTimeout(() => (logoSpinning.value = false), 900);
+  quest.unlock("persistent");
+};
+
+const huntBugs = () => {
+  if (!bugsRemaining.value) redeploy();
+  scrollToTop();
+};
+
+const arcadeGames = computed(() => {
+  const snakeBest = quest.bestScores.value.snake;
+  const memoryBest = quest.bestScores.value.memory;
+  return [
+    {
+      id: "snake",
+      title: "Packet Snake",
+      description: "Route data packets across the network without crashing the server.",
+      icon: "ph:graph-fill",
+      stat: snakeBest ? `Best: ${snakeBest} packets` : "No high score yet",
+      action: "Play",
+      run: () => openGame("snake"),
+    },
+    {
+      id: "memory",
+      title: "Stack Memory",
+      description: "Flip the cards and match every pair in my tech stack.",
+      icon: "ph:cards-fill",
+      stat: memoryBest ? `Best: ${memoryBest} moves` : "No record yet",
+      action: "Play",
+      run: () => openGame("memory"),
+    },
+    {
+      id: "bugs",
+      title: "Bug Hunt",
+      description: "Bugs are loose in the hero section. Squash them before they ship.",
+      icon: "ph:bug-beetle-fill",
+      stat:
+        bugsRemaining.value === null
+          ? "Bugs incoming…"
+          : bugsRemaining.value
+            ? `${bugsRemaining.value} loose in production`
+            : "All clear",
+      action: bugsRemaining.value === 0 ? "Redeploy" : "Hunt",
+      run: huntBugs,
+    },
+    {
+      id: "terminal",
+      title: "Terminal",
+      description: "Explore this portfolio from the command line. There are secrets.",
+      icon: "ph:terminal-window-fill",
+      stat: "Press / anywhere",
+      action: "Open",
+      run: openTerminal,
+    },
+  ];
+});
+
+const FORTUNES = [
+  "It works on my machine. Ship the machine.",
+  "There are 10 kinds of people: those who read binary and those who don't.",
+  "A good root cause analysis starts with 'have you tried turning it off and on again?'",
+  "Weekends are for on-call rotations and side projects. Franklin does both.",
+  "99 little bugs in the code. Patch one, deploy it around. 127 little bugs in the code.",
+  "The best error message is the one that never shows up.",
+  "Edge functions: because the cloud wasn't close enough.",
+  "Always cache the HTTP response. Except when you shouldn't. Good luck.",
+];
+
+const HINTS = [
+  "Old-school gamers know a certain code: ↑ ↑ ↓ ↓ ← → ← → B A",
+  "Some people just keep clicking the logo. Persistence pays off.",
+  "There's a command that shows you how deep the rabbit hole goes. Starts with 'm'.",
+  "Recruiters with root access get special treatment: sudo …",
+];
+
+let glowFrame = 0;
+const onHeroPointerMove = (e) => {
+  if (e.pointerType !== "mouse" || glowFrame) return;
+  const { clientX, clientY } = e;
+  glowFrame = requestAnimationFrame(() => {
+    glowFrame = 0;
+    const el = heroSection.value;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--gx", `${clientX - rect.left}px`);
+    el.style.setProperty("--gy", `${clientY - rect.top}px`);
+  });
+};
+
+let canTilt = false;
+const onCardMove = (e) => {
+  if (!canTilt || e.pointerType !== "mouse") return;
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  const px = (e.clientX - rect.left) / rect.width;
+  const py = (e.clientY - rect.top) / rect.height;
+  el.style.setProperty("--mx", `${px * 100}%`);
+  el.style.setProperty("--my", `${py * 100}%`);
+  el.style.setProperty("--rx", `${(0.5 - py) * 7}deg`);
+  el.style.setProperty("--ry", `${(px - 0.5) * 9}deg`);
+};
+
+const onCardLeave = (e) => {
+  e.currentTarget.style.setProperty("--rx", "0deg");
+  e.currentTarget.style.setProperty("--ry", "0deg");
+};
+
+const openExternal = (url) => window.open(url, "_blank", "noopener,noreferrer");
+
+const goTo = (id, label) => {
+  scrollToSection(id);
+  return { lines: [`Navigating to ${label}…`], kind: "success", close: true };
+};
+
+const terminalCommands = {
+  whoami: {
+    description: "Who is Franklin?",
+    run: () => [
+      "Franklin Agu",
+      "Software Engineer · web architecture and deployment",
+      "Six years across software engineering and technical support.",
+      "Derby, England, UK",
+    ],
+  },
+  about: { description: "Jump to About", run: () => goTo("about", "About") },
+  experience: { description: "Jump to Experience", run: () => goTo("experience", "Experience") },
+  projects: { description: "Jump to Projects", run: () => goTo("projects", "Projects") },
+  contact: { description: "Jump to Contact", run: () => goTo("contact", "Contact") },
+  jobs: {
+    description: "List work history",
+    run: () => experienceTabs.map((job) => `• ${job.label}  (${job.date})`),
+  },
+  skills: {
+    description: "Print the tech stack",
+    run: () => skillGroups.map((g) => `${g.title.padEnd(14)} ${g.items}`),
+  },
+  cv: {
+    description: "Download the CV (Word)",
+    run: async () => {
+      await exportCvToWord();
+      return { lines: ["CV downloaded. Check your downloads folder."], kind: "success" };
+    },
+  },
+  email: {
+    description: "Send Franklin an email",
+    run: () => {
+      quest.unlock("hello");
+      window.location.href = "mailto:Gozieagu1@gmail.com";
+      return { lines: ["Opening your mail app…"], kind: "success" };
+    },
+  },
+  github: {
+    description: "Open GitHub",
+    run: () => {
+      openExternal("https://github.com/GozzAgu");
+      return "Opening github.com/GozzAgu…";
+    },
+  },
+  linkedin: {
+    description: "Open LinkedIn",
+    run: () => {
+      openExternal("https://www.linkedin.com/in/franklin-agu-85019b209/");
+      return "Opening LinkedIn…";
+    },
+  },
+  theme: {
+    description: "Toggle light / dark mode",
+    run: () => {
+      toggleDarkMode();
+      return `Switched to ${isDarkMode.value ? "dark" : "light"} mode.`;
+    },
+  },
+  bugs: {
+    description: "Check production for bugs",
+    run: () =>
+      bugsRemaining.value
+        ? `${bugsRemaining.value} bug${bugsRemaining.value === 1 ? "" : "s"} loose in the hero. Try 'squash'.`
+        : { lines: ["0 bugs. Production is healthy."], kind: "success" },
+  },
+  squash: {
+    description: "Patch every bug in production",
+    run: () => {
+      const fixed = bugHunt.value?.squashAll() ?? 0;
+      return fixed
+        ? { lines: [`Patched ${fixed} bug${fixed === 1 ? "" : "s"}. Incident resolved.`], kind: "success" }
+        : "Nothing to squash. Try 'deploy' to ship new bugs.";
+    },
+  },
+  deploy: {
+    description: "Ship a new release (and new bugs)",
+    run: () => {
+      redeploy();
+      return ["Deploying to production…", "Build succeeded. Uh oh, new bugs spotted in the hero."];
+    },
+  },
+  xp: {
+    description: "Show your quest progress",
+    run: () => [
+      `Level ${quest.levelNumber.value} · ${quest.level.value.title}`,
+      `${quest.xp.value} / ${quest.maxXp} XP · ${quest.unlocked.value.length} of ${quest.achievements.length} achievements`,
+    ],
+  },
+  sudo: {
+    description: "Run as superuser",
+    hidden: true,
+    run: (args) => {
+      quest.unlock("sudo");
+      const target = args.join(" ").toLowerCase();
+      if (target === "hire-franklin" || target === "hire franklin") {
+        setTimeout(() => {
+          window.location.href = "mailto:Gozieagu1@gmail.com?subject=Let's%20work%20together";
+        }, 900);
+        return { lines: ["[sudo] password for recruiter: ********", "Permission granted. Opening a draft email…"], kind: "success" };
+      }
+      return { lines: ["franklin is not in the sudoers file. This incident will be reported.", "Hint: try 'sudo hire-franklin'."], kind: "error" };
+    },
+  },
+  play: {
+    description: "Play a game: snake, memory or bugs",
+    run: (args) => {
+      const game = (args[0] ?? "").toLowerCase();
+      if (game === "snake" || game === "memory") {
+        setTimeout(() => openGame(game), 350);
+        return { lines: [`Launching ${game === "snake" ? "Packet Snake" : "Stack Memory"}…`], kind: "success" };
+      }
+      if (game === "bugs") {
+        huntBugs();
+        return { lines: ["Bugs are loose in the hero. Go get them."], kind: "success", close: true };
+      }
+      return ["Usage: play <game>", "  snake    Packet Snake", "  memory   Stack Memory", "  bugs     Bug Hunt"];
+    },
+  },
+  arcade: { description: "Jump to the Arcade", run: () => goTo("arcade", "the Arcade") },
+  fortune: {
+    description: "Developer wisdom",
+    run: () => FORTUNES[Math.floor(Math.random() * FORTUNES.length)],
+  },
+  coffee: {
+    description: "Refuel",
+    run: () => ["      ( (", "       ) )", "    ........", "    |      |]", "    \\      /", "     `----'", "Brewing… done. Productivity +10."],
+  },
+  matrix: {
+    description: "Enter the Matrix",
+    hidden: true,
+    run: () =>
+      enterMatrix()
+        ? { lines: ["Follow the white rabbit…"], kind: "success" }
+        : "Your system prefers reduced motion, so the Matrix will stay closed.",
+  },
+  hint: {
+    description: "Get a hint",
+    run: () => HINTS[Math.floor(Math.random() * HINTS.length)],
+  },
+};
+
+const KONAMI = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+let konamiIndex = 0;
+
+const isTyping = (target) =>
+  target instanceof HTMLElement && (target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName));
+
+const onGlobalKeydown = (e) => {
+  if (terminalOpen.value || activeGame.value || matrixOpen.value) return;
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+    e.preventDefault();
+    openTerminal();
+    return;
+  }
+  if (isTyping(e.target)) return;
+  if (e.key === "/") {
+    e.preventDefault();
+    openTerminal();
+    return;
+  }
+
+  const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  konamiIndex = key === KONAMI[konamiIndex] ? konamiIndex + 1 : key === KONAMI[0] ? 1 : 0;
+  if (konamiIndex === KONAMI.length) {
+    konamiIndex = 0;
+    quest.unlock("konami");
+    quest.celebrate();
+  }
+};
+
+const observers = [];
+
+const setupObservers = () => {
+  const revealIo = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-visible");
+        revealIo.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+  );
+  document.querySelectorAll("[data-reveal]").forEach((el) => revealIo.observe(el));
+
+  const sectionIo = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) quest.unlock(`seen-${entry.target.id}`);
+      }
+    },
+    { rootMargin: "-45% 0px -45% 0px" },
+  );
+  ["about", "experience", "projects", "contact"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) sectionIo.observe(el);
+  });
+
+  observers.push(revealIo, sectionIo);
 };
 
 const scrollToTop = () => {
@@ -853,6 +1379,7 @@ const exportCvToWord = async () => {
   try {
     cvExporting.value = true;
     await downloadCvDocx(experienceTabs);
+    quest.unlock("cv");
   } catch (err) {
     console.error("CV export failed:", err);
   } finally {
@@ -876,10 +1403,25 @@ onMounted(() => {
 
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("resize", handleLayoutResize);
+  window.addEventListener("keydown", onGlobalKeydown);
+
+  quest.load();
+  canTilt =
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  revealReady.value = true;
 
   nextTick(() => {
     handleScroll();
+    setupObservers();
   });
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("resize", handleLayoutResize);
+  window.removeEventListener("keydown", onGlobalKeydown);
+  observers.forEach((io) => io.disconnect());
 });
 </script>
 
@@ -934,6 +1476,138 @@ onMounted(() => {
 .nav-link,
 .footer-link {
   transition: color 0.3s ease;
+}
+
+.kbd {
+  display: inline-block;
+  min-width: 1.4rem;
+  border-width: 1px;
+  border-radius: 0.4rem;
+  padding: 0 0.35rem;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+}
+
+.hero-glow {
+  background: radial-gradient(
+    520px circle at var(--gx, 30%) var(--gy, 40%),
+    rgba(20, 184, 166, 0.1),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero:hover .hero-glow {
+  opacity: 1;
+}
+
+.dark .hero-glow {
+  background: radial-gradient(
+    520px circle at var(--gx, 30%) var(--gy, 40%),
+    rgba(45, 212, 191, 0.09),
+    transparent 65%
+  );
+}
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.logo-mark.is-spinning {
+  animation: logo-spin 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.25);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
+
+.arcade-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tilt-card:hover .arcade-icon {
+  transform: translateY(-4px) rotate(-8deg) scale(1.08);
+}
+
+.skill-dot {
+  transform: scale(0.4);
+  opacity: 0.4;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.skill-row:hover .skill-dot {
+  transform: scale(1.4);
+  opacity: 1;
+}
+
+.tilt-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+
+.tilt-card,
+.reveal-ready .tilt-card[data-reveal] {
+  transition:
+    transform 0.25s ease-out,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    translate 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0ms, 0ms, 0ms, var(--reveal-delay, 0ms), var(--reveal-delay, 0ms);
+}
+
+.tilt-card > * {
+  position: relative;
+}
+
+.tilt-card::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    360px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(20, 184, 166, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover::before {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+
+  .tilt-card {
+    transform: none;
+  }
 }
 
 /* Opacity-only: transforms create a layer that clips Syne/DM Sans descenders */
